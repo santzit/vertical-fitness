@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+    <record id="fitness_wger_equipment_1" model="fitness.equipment">
+        <field name="name">Barbell</field>
+        <field name="wger_id">1</field>
+    </record>
+    <record id="fitness_wger_equipment_2" model="fitness.equipment">
+        <field name="name">SZ-Bar</field>
+        <field name="wger_id">2</field>
+    </record>
+    <record id="fitness_wger_equipment_3" model="fitness.equipment">
+        <field name="name">Dumbbell</field>
+        <field name="wger_id">3</field>
+    </record>
+    <record id="fitness_wger_equipment_4" model="fitness.equipment">
+        <field name="name">Gym mat</field>
+        <field name="wger_id">4</field>
+    </record>
+    <record id="fitness_wger_equipment_5" model="fitness.equipment">
+        <field name="name">Swiss Ball</field>
+        <field name="wger_id">5</field>
+    </record>
+    <record id="fitness_wger_equipment_6" model="fitness.equipment">
+        <field name="name">Pull-up bar</field>
+        <field name="wger_id">6</field>
+    </record>
+    <record id="fitness_wger_equipment_7" model="fitness.equipment">
+        <field name="name">none (bodyweight exercise)</field>
+        <field name="wger_id">7</field>
+    </record>
+    <record id="fitness_wger_equipment_8" model="fitness.equipment">
+        <field name="name">Bench</field>
+        <field name="wger_id">8</field>
+    </record>
+    <record id="fitness_wger_equipment_9" model="fitness.equipment">
+        <field name="name">Incline bench</field>
+        <field name="wger_id">9</field>
+    </record>
+    <record id="fitness_wger_equipment_10" model="fitness.equipment">
+        <field name="name">Kettlebell</field>
+        <field name="wger_id">10</field>
+    </record>
+    <record id="fitness_wger_equipment_11" model="fitness.equipment">
+        <field name="name">Resistance band</field>
+        <field name="wger_id">11</field>
+    </record>
+</odoo>

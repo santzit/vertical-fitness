@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+    <record id="fitness_wger_category_8" model="fitness.exercise.category">
+        <field name="name">Arms</field>
+        <field name="wger_id">8</field>
+    </record>
+    <record id="fitness_wger_category_9" model="fitness.exercise.category">
+        <field name="name">Legs</field>
+        <field name="wger_id">9</field>
+    </record>
+    <record id="fitness_wger_category_10" model="fitness.exercise.category">
+        <field name="name">Abs</field>
+        <field name="wger_id">10</field>
+    </record>
+    <record id="fitness_wger_category_11" model="fitness.exercise.category">
+        <field name="name">Chest</field>
+        <field name="wger_id">11</field>
+    </record>
+    <record id="fitness_wger_category_12" model="fitness.exercise.category">
+        <field name="name">Back</field>
+        <field name="wger_id">12</field>
+    </record>
+    <record id="fitness_wger_category_13" model="fitness.exercise.category">
+        <field name="name">Shoulders</field>
+        <field name="wger_id">13</field>
+    </record>
+    <record id="fitness_wger_category_14" model="fitness.exercise.category">
+        <field name="name">Calves</field>
+        <field name="wger_id">14</field>
+    </record>
+    <record id="fitness_wger_category_15" model="fitness.exercise.category">
+        <field name="name">Cardio</field>
+        <field name="wger_id">15</field>
+    </record>
+</odoo>

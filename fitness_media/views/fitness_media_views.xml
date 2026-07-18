@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fitness_media_tree" model="ir.ui.view">
+        <field name="name">fitness.media.tree</field>
+        <field name="model">fitness.media</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="is_primary"/>
+                <field name="name"/>
+                <field name="mimetype"/>
+                <field name="file_size"/>
+                <field name="source_type"/>
+                <field name="source_url"/>
+                <button name="action_set_primary" type="object" string="Set Primary"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fitness_media_form" model="ir.ui.view">
+        <field name="name">fitness.media.form</field>
+        <field name="model">fitness.media</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="exercise_id"/>
+                            <field name="media_kind"/>
+                            <field name="source_type"/>
+                            <field name="source_url"/>
+                            <field name="external_uid"/>
+                            <field name="is_primary"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="datas" widget="image" class="oe_avatar"/>
+                            <field name="mimetype" readonly="1"/>
+                            <field name="file_size" readonly="1"/>
+                            <field name="checksum" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fitness_exercise_form_inherit_media" model="ir.ui.view">
+        <field name="name">fitness.exercise.form.inherit.media</field>
+        <field name="model">fitness.exercise</field>
+        <field name="inherit_id" ref="fitness_workout.view_fitness_exercise_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/group[field[@name='image_1920']]" position="inside">
+                <field name="main_media_id" options="{'no_create': True}"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Media">
+                    <field name="media_ids" context="{'default_media_kind': 'exercise_image', 'default_exercise_id': id}">
+                        <list editable="bottom">
+                            <field name="is_primary"/>
+                            <field name="name"/>
+                            <field name="datas" widget="image"/>
+                            <field name="source_type"/>
+                            <field name="source_url"/>
+                            <button name="action_set_primary" type="object" string="Set Primary"/>
+                        </list>
+                        <form>
+                            <group>
+                                <field name="is_primary"/>
+                                <field name="name"/>
+                                <field name="media_kind"/>
+                                <field name="datas" widget="image" class="oe_avatar"/>
+                                <field name="source_type"/>
+                                <field name="source_url"/>
+                                <field name="external_uid"/>
+                                <field name="mimetype" readonly="1"/>
+                                <field name="file_size" readonly="1"/>
+                                <field name="checksum" readonly="1"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

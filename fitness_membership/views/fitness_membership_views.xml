@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!-- LIST: Template list with Assign Selected button               -->
+    <!-- ============================================================ -->
+    <record model="ir.ui.view" id="view_fitness_membership_template_list">
+        <field name="name">fitness.plan.v2.membership.template.list</field>
+        <field name="model">fitness.plan.v2</field>
+        <field name="arch" type="xml">
+            <list limit="80" create="false" delete="false">
+                <header>
+                    <button name="action_assign_selected_to_member" type="object"
+                            string="Assign Selected" class="btn-primary"
+                            groups="fitness_workout.group_workout_trainer,fitness_workout.group_workout_manager"/>
+                </header>
+                <field name="name"/>
+                <field name="start"/>
+                <field name="end"/>
+                <field name="state"/>
+                <field name="is_public"/>
+                <field name="phase_ids" widget="many2many_tags" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- LIST: Member workouts with Assign button                      -->
+    <!-- ============================================================ -->
+    <record model="ir.ui.view" id="view_fitness_membership_member_plans_list">
+        <field name="name">fitness.plan.v2.membership.member.plans.list</field>
+        <field name="model">fitness.plan.v2</field>
+        <field name="arch" type="xml">
+            <list create="false" delete="false">
+                <header>
+                    <button name="action_assign_templates_to_member" type="object"
+                            string="Assign" class="btn-primary"
+                            groups="fitness_workout.group_workout_trainer,fitness_workout.group_workout_manager"/>
+                </header>
+                <field name="name"/>
+                <field name="start"/>
+                <field name="end"/>
+                <field name="state"/>
+                <field name="origin_template_id" optional="show"/>
+                <field name="phase_ids" widget="many2many_tags" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- ACTION: Member's assigned workout plans                       -->
+    <!-- ============================================================ -->
+    <record model="ir.actions.act_window" id="action_fitness_membership_member_plans">
+        <field name="name">Workout Plans</field>
+        <field name="res_model">fitness.plan.v2</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('plan_scope', '=', 'user'), ('partner_id', '=', active_id)]</field>
+        <field name="context">{'create': False, 'default_target_partner_id': active_id}</field>
+        <field name="views" eval="[(ref('view_fitness_membership_member_plans_list'), False)]"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- ACTION: Assign templates (template list with search)          -->
+    <!-- ============================================================ -->
+    <record model="ir.actions.act_window" id="action_fitness_membership_assign_templates">
+        <field name="name">Assign Workout Plans</field>
+        <field name="res_model">fitness.plan.v2</field>
+        <field name="view_mode">list</field>
+        <field name="domain">[('plan_scope', '=', 'template')]</field>
+        <field name="context">{'create': False}</field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- ACTION: Members list-first (overrides membership action)      -->
+    <!-- ============================================================ -->
+    <record model="ir.actions.act_window" id="action_fitness_membership_members">
+        <field name="name">Members</field>
+        <field name="path">workout-members</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="membership.view_res_partner_member_filter"/>
+        <field name="domain">[('membership_state', 'in', ['invoiced', 'paid', 'free'])]</field>
+        <field name="context">{'search_default_all_members': 1}</field>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_fitness_membership_members_view_list">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="membership.membership_members_tree"/>
+        <field name="act_window_id" ref="action_fitness_membership_members"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_fitness_membership_members_view_form">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="base.view_partner_form"/>
+        <field name="act_window_id" ref="action_fitness_membership_members"/>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- MENU: Workout > Members                                       -->
+    <!-- ============================================================ -->
+    <menuitem
+        id="menu_fitness_membership_members"
+        name="Members"
+        parent="fitness_workout.menu_workout_root"
+        action="action_fitness_membership_members"
+        sequence="35"
+    />
+
+    <!-- ============================================================ -->
+    <!-- INHERIT: Add Workouts button to Members list                  -->
+    <!-- ============================================================ -->
+    <record model="ir.ui.view" id="membership_members_tree_inherit_workout">
+        <field name="name">membership.membership_members_tree.workout</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="membership.membership_members_tree"/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <button name="%(action_fitness_membership_member_plans)d"
+                        type="action"
+                        string="Workouts"
+                        icon="fa-dumbbell"
+                        class="btn-link"
+                        context="{'default_target_partner_id': id}"
+                />
+            </field>
+        </field>
+    </record>
+
+</odoo>

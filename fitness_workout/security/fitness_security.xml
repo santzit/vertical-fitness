@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_fitness_workout" model="ir.module.category">
+        <field name="name">Workout</field>
+        <field name="sequence">36</field>
+    </record>
+
+    <record id="group_workout_user" model="res.groups">
+        <field name="name">Workout User</field>
+        <field name="category_id" ref="fitness_workout.module_category_fitness_workout"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_workout_trainer" model="res.groups">
+        <field name="name">Workout Trainer</field>
+        <field name="category_id" ref="fitness_workout.module_category_fitness_workout"/>
+        <field name="implied_ids" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+    </record>
+
+    <record id="group_workout_manager" model="res.groups">
+        <field name="name">Workout Manager</field>
+        <field name="category_id" ref="fitness_workout.module_category_fitness_workout"/>
+        <field name="implied_ids" eval="[(4, ref('fitness_workout.group_workout_trainer'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="rule_fitness_routine_user_own" model="ir.rule">
+        <field name="name">Workout Plan Own or Template</field>
+        <field name="model_id" ref="model_fitness_routine"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">['|', ('partner_id', '=', user.partner_id.id), ('is_template', '=', True)]</field>
+    </record>
+
+    <record id="rule_fitness_day_user_own" model="ir.rule">
+        <field name="name">Workout Plan Day Own or Template</field>
+        <field name="model_id" ref="model_fitness_day"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">['|', ('partner_id', '=', user.partner_id.id), ('is_template', '=', True)]</field>
+    </record>
+
+    <record id="rule_fitness_slot_user_own" model="ir.rule">
+        <field name="name">Workout Plan Slot Own or Template</field>
+        <field name="model_id" ref="model_fitness_slot"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">['|', ('partner_id', '=', user.partner_id.id), ('is_template', '=', True)]</field>
+    </record>
+
+    <record id="rule_fitness_slot_entry_user_own" model="ir.rule">
+        <field name="name">Workout Plan Slot Entry Own or Template</field>
+        <field name="model_id" ref="model_fitness_slot_entry"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">['|', ('partner_id', '=', user.partner_id.id), ('is_template', '=', True)]</field>
+    </record>
+
+    <record id="rule_fitness_label_user_own" model="ir.rule">
+        <field name="name">Workout Plan Label Own or Template</field>
+        <field name="model_id" ref="model_fitness_label"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">['|', ('partner_id', '=', user.partner_id.id), ('is_template', '=', True)]</field>
+    </record>
+
+    <record id="rule_fitness_workout_session_user_own" model="ir.rule">
+        <field name="name">Workout Session Own</field>
+        <field name="model_id" ref="model_fitness_workout_session"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">[('partner_id', '=', user.partner_id.id)]</field>
+    </record>
+
+    <record id="rule_fitness_workout_log_user_own" model="ir.rule">
+        <field name="name">Workout Log Own</field>
+        <field name="model_id" ref="model_fitness_workout_log"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">[('partner_id', '=', user.partner_id.id)]</field>
+    </record>
+
+    <record id="rule_fitness_plan_v2_user_access" model="ir.rule">
+        <field name="name">Workout Plan V2 User Access</field>
+        <field name="model_id" ref="model_fitness_plan_v2"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">['|', '&amp;', ('plan_scope', '=', 'template'), ('is_public', '=', True), '&amp;', ('plan_scope', '=', 'user'), ('partner_id', '=', user.partner_id.id)]</field>
+    </record>
+
+    <record id="rule_fitness_plan_v2_trainer_manager_all" model="ir.rule">
+        <field name="name">Workout Plan V2 Trainer Manager All</field>
+        <field name="model_id" ref="model_fitness_plan_v2"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_trainer')), (4, ref('fitness_workout.group_workout_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_fitness_plan_v2_phase_user_access" model="ir.rule">
+        <field name="name">Workout Plan V2 Phase User Access</field>
+        <field name="model_id" ref="model_fitness_plan_v2_phase"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">['|', '&amp;', ('plan_id.plan_scope', '=', 'template'), ('plan_id.is_public', '=', True), '&amp;', ('plan_id.plan_scope', '=', 'user'), ('plan_id.partner_id', '=', user.partner_id.id)]</field>
+    </record>
+
+    <record id="rule_fitness_plan_v2_phase_trainer_manager_all" model="ir.rule">
+        <field name="name">Workout Plan V2 Phase Trainer Manager All</field>
+        <field name="model_id" ref="model_fitness_plan_v2_phase"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_trainer')), (4, ref('fitness_workout.group_workout_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_fitness_plan_v2_day_user_access" model="ir.rule">
+        <field name="name">Workout Plan V2 Day User Access</field>
+        <field name="model_id" ref="model_fitness_plan_v2_day"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">['|', '&amp;', ('plan_id.plan_scope', '=', 'template'), ('plan_id.is_public', '=', True), '&amp;', ('plan_id.plan_scope', '=', 'user'), ('plan_id.partner_id', '=', user.partner_id.id)]</field>
+    </record>
+
+    <record id="rule_fitness_plan_v2_day_trainer_manager_all" model="ir.rule">
+        <field name="name">Workout Plan V2 Day Trainer Manager All</field>
+        <field name="model_id" ref="model_fitness_plan_v2_day"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_trainer')), (4, ref('fitness_workout.group_workout_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_fitness_plan_v2_block_user_access" model="ir.rule">
+        <field name="name">Workout Plan V2 Block User Access</field>
+        <field name="model_id" ref="model_fitness_plan_v2_block"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">['|', '&amp;', ('plan_id.plan_scope', '=', 'template'), ('plan_id.is_public', '=', True), '&amp;', ('plan_id.plan_scope', '=', 'user'), ('plan_id.partner_id', '=', user.partner_id.id)]</field>
+    </record>
+
+    <record id="rule_fitness_plan_v2_block_trainer_manager_all" model="ir.rule">
+        <field name="name">Workout Plan V2 Block Trainer Manager All</field>
+        <field name="model_id" ref="model_fitness_plan_v2_block"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_trainer')), (4, ref('fitness_workout.group_workout_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_fitness_plan_v2_line_user_access" model="ir.rule">
+        <field name="name">Workout Plan V2 Line User Access</field>
+        <field name="model_id" ref="model_fitness_plan_v2_line"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">['|', '&amp;', ('plan_id.plan_scope', '=', 'template'), ('plan_id.is_public', '=', True), '&amp;', ('plan_id.plan_scope', '=', 'user'), ('plan_id.partner_id', '=', user.partner_id.id)]</field>
+    </record>
+
+    <record id="rule_fitness_plan_v2_line_trainer_manager_all" model="ir.rule">
+        <field name="name">Workout Plan V2 Line Trainer Manager All</field>
+        <field name="model_id" ref="model_fitness_plan_v2_line"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_trainer')), (4, ref('fitness_workout.group_workout_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_fitness_plan_v2_activity_user_access" model="ir.rule">
+        <field name="name">Workout Plan V2 Activity User Access</field>
+        <field name="model_id" ref="model_fitness_plan_v2_activity"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">['|', '&amp;', ('plan_id.plan_scope', '=', 'template'), ('plan_id.is_public', '=', True), '&amp;', ('plan_id.plan_scope', '=', 'user'), ('plan_id.partner_id', '=', user.partner_id.id)]</field>
+    </record>
+
+    <record id="rule_fitness_plan_v2_activity_trainer_manager_all" model="ir.rule">
+        <field name="name">Workout Plan V2 Activity Trainer Manager All</field>
+        <field name="model_id" ref="model_fitness_plan_v2_activity"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_trainer')), (4, ref('fitness_workout.group_workout_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+</odoo>

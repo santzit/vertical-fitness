@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+    <record id="fitness_wger_muscle_1" model="fitness.muscle">
+        <field name="name">Biceps brachii</field>
+        <field name="name_en">Biceps</field>
+        <field name="is_front">1</field>
+        <field name="wger_id">1</field>
+    </record>
+    <record id="fitness_wger_muscle_2" model="fitness.muscle">
+        <field name="name">Anterior deltoid</field>
+        <field name="name_en">Shoulders</field>
+        <field name="is_front">1</field>
+        <field name="wger_id">2</field>
+    </record>
+    <record id="fitness_wger_muscle_3" model="fitness.muscle">
+        <field name="name">Serratus anterior</field>
+        <field name="name_en" />
+        <field name="is_front">1</field>
+        <field name="wger_id">3</field>
+    </record>
+    <record id="fitness_wger_muscle_4" model="fitness.muscle">
+        <field name="name">Pectoralis major</field>
+        <field name="name_en">Chest</field>
+        <field name="is_front">1</field>
+        <field name="wger_id">4</field>
+    </record>
+    <record id="fitness_wger_muscle_5" model="fitness.muscle">
+        <field name="name">Triceps brachii</field>
+        <field name="name_en">Triceps</field>
+        <field name="is_front">0</field>
+        <field name="wger_id">5</field>
+    </record>
+    <record id="fitness_wger_muscle_6" model="fitness.muscle">
+        <field name="name">Rectus abdominis</field>
+        <field name="name_en">Abs</field>
+        <field name="is_front">1</field>
+        <field name="wger_id">6</field>
+    </record>
+    <record id="fitness_wger_muscle_7" model="fitness.muscle">
+        <field name="name">Gastrocnemius</field>
+        <field name="name_en">Calves</field>
+        <field name="is_front">0</field>
+        <field name="wger_id">7</field>
+    </record>
+    <record id="fitness_wger_muscle_8" model="fitness.muscle">
+        <field name="name">Gluteus maximus</field>
+        <field name="name_en">Glutes</field>
+        <field name="is_front">0</field>
+        <field name="wger_id">8</field>
+    </record>
+    <record id="fitness_wger_muscle_9" model="fitness.muscle">
+        <field name="name">Trapezius</field>
+        <field name="name_en" />
+        <field name="is_front">0</field>
+        <field name="wger_id">9</field>
+    </record>
+    <record id="fitness_wger_muscle_10" model="fitness.muscle">
+        <field name="name">Quadriceps femoris</field>
+        <field name="name_en">Quads</field>
+        <field name="is_front">1</field>
+        <field name="wger_id">10</field>
+    </record>
+    <record id="fitness_wger_muscle_11" model="fitness.muscle">
+        <field name="name">Biceps femoris</field>
+        <field name="name_en">Hamstrings</field>
+        <field name="is_front">0</field>
+        <field name="wger_id">11</field>
+    </record>
+    <record id="fitness_wger_muscle_12" model="fitness.muscle">
+        <field name="name">Latissimus dorsi</field>
+        <field name="name_en">Lats</field>
+        <field name="is_front">0</field>
+        <field name="wger_id">12</field>
+    </record>
+    <record id="fitness_wger_muscle_13" model="fitness.muscle">
+        <field name="name">Brachialis</field>
+        <field name="name_en" />
+        <field name="is_front">1</field>
+        <field name="wger_id">13</field>
+    </record>
+    <record id="fitness_wger_muscle_14" model="fitness.muscle">
+        <field name="name">Obliquus externus abdominis</field>
+        <field name="name_en" />
+        <field name="is_front">1</field>
+        <field name="wger_id">14</field>
+    </record>
+    <record id="fitness_wger_muscle_15" model="fitness.muscle">
+        <field name="name">Soleus</field>
+        <field name="name_en" />
+        <field name="is_front">0</field>
+        <field name="wger_id">15</field>
+    </record>
+    <record id="fitness_wger_muscle_16" model="fitness.muscle">
+        <field name="name">Erector spinae</field>
+        <field name="name_en">Lower back</field>
+        <field name="is_front">0</field>
+        <field name="wger_id">16</field>
+    </record>
+</odoo>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- ===== Additional Exercise Categories ===== -->
+    <record id="demo_category_chest" model="fitness.exercise.category">
+        <field name="name">Chest</field>
+    </record>
+    <record id="demo_category_back" model="fitness.exercise.category">
+        <field name="name">Back</field>
+    </record>
+    <record id="demo_category_shoulders" model="fitness.exercise.category">
+        <field name="name">Shoulders</field>
+    </record>
+    <record id="demo_category_arms" model="fitness.exercise.category">
+        <field name="name">Arms</field>
+    </record>
+    <record id="demo_category_core" model="fitness.exercise.category">
+        <field name="name">Core</field>
+    </record>
+    <record id="demo_category_legs" model="fitness.exercise.category">
+        <field name="name">Legs</field>
+    </record>
+    <record id="demo_category_cardio" model="fitness.exercise.category">
+        <field name="name">Cardio</field>
+    </record>
+
+    <!-- ===== Demo Exercises ===== -->
+
+    <!-- Chest -->
+    <record id="demo_exercise_push_ups" model="fitness.exercise">
+        <field name="name">Push-ups</field>
+        <field name="category_id" ref="demo_category_chest"/>
+        <field name="description">Standard push-ups targeting chest, shoulders, and triceps.</field>
+    </record>
+    <record id="demo_exercise_bench_press" model="fitness.exercise">
+        <field name="name">Barbell Bench Press</field>
+        <field name="category_id" ref="demo_category_chest"/>
+        <field name="description">Flat barbell bench press for chest mass and strength.</field>
+    </record>
+    <record id="demo_exercise_incline_db_press" model="fitness.exercise">
+        <field name="name">Incline Dumbbell Press</field>
+        <field name="category_id" ref="demo_category_chest"/>
+        <field name="description">Incline press targeting upper chest.</field>
+    </record>
+
+    <!-- Back -->
+    <record id="demo_exercise_pull_ups" model="fitness.exercise">
+        <field name="name">Pull-ups</field>
+        <field name="category_id" ref="demo_category_back"/>
+        <field name="description">Bodyweight pull-ups for back and biceps.</field>
+    </record>
+    <record id="demo_exercise_barbell_row" model="fitness.exercise">
+        <field name="name">Barbell Bent-over Row</field>
+        <field name="category_id" ref="demo_category_back"/>
+        <field name="description">Compound back exercise targeting lats and rhomboids.</field>
+    </record>
+    <record id="demo_exercise_lat_pulldown" model="fitness.exercise">
+        <field name="name">Lat Pulldown</field>
+        <field name="category_id" ref="demo_category_back"/>
+        <field name="description">Cable lat pulldown for back width.</field>
+    </record>
+
+    <!-- Shoulders -->
+    <record id="demo_exercise_overhead_press" model="fitness.exercise">
+        <field name="name">Barbell Overhead Press</field>
+        <field name="category_id" ref="demo_category_shoulders"/>
+        <field name="description">Standing overhead press for shoulder strength.</field>
+    </record>
+    <record id="demo_exercise_lateral_raises" model="fitness.exercise">
+        <field name="name">Dumbbell Lateral Raises</field>
+        <field name="category_id" ref="demo_category_shoulders"/>
+        <field name="description">Isolation exercise for medial deltoids.</field>
+    </record>
+
+    <!-- Arms -->
+    <record id="demo_exercise_bicep_curls" model="fitness.exercise">
+        <field name="name">Barbell Bicep Curls</field>
+        <field name="category_id" ref="demo_category_arms"/>
+        <field name="description">Standing barbell curls for bicep mass.</field>
+    </record>
+    <record id="demo_exercise_tricep_dips" model="fitness.exercise">
+        <field name="name">Tricep Dips</field>
+        <field name="category_id" ref="demo_category_arms"/>
+        <field name="description">Bodyweight dips targeting triceps and lower chest.</field>
+    </record>
+
+    <!-- Core -->
+    <record id="demo_exercise_plank" model="fitness.exercise">
+        <field name="name">Plank</field>
+        <field name="category_id" ref="demo_category_core"/>
+        <field name="description">Isometric core hold for stability and endurance.</field>
+    </record>
+    <record id="demo_exercise_russian_twist" model="fitness.exercise">
+        <field name="name">Russian Twist</field>
+        <field name="category_id" ref="demo_category_core"/>
+        <field name="description">Seated rotational exercise for obliques.</field>
+    </record>
+
+    <!-- Legs (supplement existing Slow Squat) -->
+    <record id="demo_exercise_slow_squat" model="fitness.exercise">
+        <field name="name">Slow Squat</field>
+        <field name="category_id" ref="demo_category_legs"/>
+        <field name="description">Bodyweight slow-tempo squat for quad and glute activation.</field>
+    </record>
+    <record id="demo_exercise_lunges" model="fitness.exercise">
+        <field name="name">Walking Lunges</field>
+        <field name="category_id" ref="demo_category_legs"/>
+        <field name="description">Alternating lunges for quad and glute development.</field>
+    </record>
+    <record id="demo_exercise_romanian_deadlift" model="fitness.exercise">
+        <field name="name">Romanian Deadlift</field>
+        <field name="category_id" ref="demo_category_legs"/>
+        <field name="description">Hip-hinge movement targeting hamstrings and glutes.</field>
+    </record>
+    <record id="demo_exercise_calf_raises" model="fitness.exercise">
+        <field name="name">Standing Calf Raises</field>
+        <field name="category_id" ref="demo_category_legs"/>
+        <field name="description">Isolation exercise for gastrocnemius and soleus.</field>
+    </record>
+    <record id="demo_exercise_leg_press" model="fitness.exercise">
+        <field name="name">Leg Press</field>
+        <field name="category_id" ref="demo_category_legs"/>
+        <field name="description">Machine compound leg exercise for quads and glutes.</field>
+    </record>
+
+    <!-- Conditioning / Full Body -->
+    <record id="demo_exercise_burpees" model="fitness.exercise">
+        <field name="name">Burpees</field>
+        <field name="category_id" ref="demo_category_cardio"/>
+        <field name="description">Full body conditioning exercise.</field>
+    </record>
+    <record id="demo_exercise_mountain_climbers" model="fitness.exercise">
+        <field name="name">Mountain Climbers</field>
+        <field name="category_id" ref="demo_category_cardio"/>
+        <field name="description">Dynamic core and cardio movement.</field>
+    </record>
+
+</odoo>

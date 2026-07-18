@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="fitness_repetition_unit_repetitions" model="fitness.repetition.unit">
+        <field name="name">Repetitions</field>
+        <field name="unit_type">repetitions</field>
+    </record>
+    <record id="fitness_repetition_unit_till_failure" model="fitness.repetition.unit">
+        <field name="name">Till failure</field>
+        <field name="unit_type">repetitions</field>
+    </record>
+    <record id="fitness_repetition_unit_seconds" model="fitness.repetition.unit">
+        <field name="name">Seconds</field>
+        <field name="unit_type">time</field>
+    </record>
+    <record id="fitness_repetition_unit_minutes" model="fitness.repetition.unit">
+        <field name="name">Minutes</field>
+        <field name="unit_type">time</field>
+    </record>
+    <record id="fitness_repetition_unit_miles" model="fitness.repetition.unit">
+        <field name="name">Miles</field>
+        <field name="unit_type">distance</field>
+    </record>
+    <record id="fitness_repetition_unit_kilometers" model="fitness.repetition.unit">
+        <field name="name">Kilometers</field>
+        <field name="unit_type">distance</field>
+    </record>
+    <record id="fitness_repetition_unit_max_reps" model="fitness.repetition.unit">
+        <field name="name">Max reps in time</field>
+        <field name="unit_type">repetitions</field>
+    </record>
+    <record id="fitness_repetition_unit_meters" model="fitness.repetition.unit">
+        <field name="name">Meters</field>
+        <field name="unit_type">distance</field>
+    </record>
+
+    <record id="fitness_weight_unit_kg" model="fitness.weight.unit">
+        <field name="name">kg</field>
+    </record>
+    <record id="fitness_weight_unit_lb" model="fitness.weight.unit">
+        <field name="name">lb</field>
+    </record>
+</odoo>

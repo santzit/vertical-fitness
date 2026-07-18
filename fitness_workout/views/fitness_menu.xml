@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_workout_root" name="Workout" sequence="50" groups="fitness_workout.group_workout_user,fitness_workout.group_workout_trainer,fitness_workout.group_workout_manager"/>
+
+    <menuitem id="menu_workout_exercises" name="Exercises" parent="menu_workout_root" action="action_fitness_exercise" sequence="10"/>
+    <menuitem id="menu_workout_exercise_list" name="Exercises" parent="menu_workout_exercises" action="action_fitness_exercise" sequence="10"/>
+    <menuitem id="menu_workout_exercise_category" name="Categories" parent="menu_workout_exercises" action="action_fitness_exercise_category" sequence="20"/>
+    <menuitem id="menu_workout_muscle" name="Muscles" parent="menu_workout_exercises" action="action_fitness_muscle" sequence="30"/>
+    <menuitem id="menu_workout_equipment" name="Equipment" parent="menu_workout_exercises" action="action_fitness_equipment" sequence="40"/>
+
+    <menuitem id="menu_workout_plans" name="Workout Plans" parent="menu_workout_root" sequence="20"/>
+    <menuitem id="menu_workout_plan" name="Plans" parent="menu_workout_plans" action="action_fitness_routine" sequence="10"/>
+    <menuitem id="menu_workout_day" name="Days" parent="menu_workout_plans" action="action_fitness_day" sequence="20"/>
+    <menuitem id="menu_workout_slot" name="Slots" parent="menu_workout_plans" action="action_fitness_slot" sequence="30"/>
+    <menuitem id="menu_workout_slot_entry" name="Entries" parent="menu_workout_plans" action="action_fitness_slot_entry" sequence="40"/>
+
+    <menuitem id="menu_workout_plans_v2" name="Workout Plans V2" parent="menu_workout_root" sequence="25"/>
+    <menuitem id="menu_workout_plan_v2" name="Projects" parent="menu_workout_plans_v2" action="action_fitness_plan_v2" sequence="10"/>
+    <menuitem id="menu_workout_plan_v2_phase" name="Phases" parent="menu_workout_plans_v2" action="action_fitness_plan_v2_phase" sequence="20"/>
+    <menuitem id="menu_workout_plan_v2_activity" name="Activities" parent="menu_workout_plans_v2" action="action_fitness_plan_v2_activity" sequence="30"/>
+
+    <menuitem id="menu_workout_my_board" name="My Workouts" parent="menu_workout_root" action="action_fitness_my_workout_board" sequence="28"/>
+
+    <menuitem id="menu_workout_sessions" name="Workouts" parent="menu_workout_root" sequence="30"/>
+    <menuitem id="menu_workout_session" name="Sessions" parent="menu_workout_sessions" action="action_fitness_workout_session" sequence="10"/>
+    <menuitem id="menu_workout_log" name="Workout Logs" parent="menu_workout_sessions" action="action_fitness_workout_log" sequence="20"/>
+
+    <menuitem id="menu_workout_configuration" name="Configuration" parent="menu_workout_root" sequence="90" groups="fitness_workout.group_workout_trainer,fitness_workout.group_workout_manager"/>
+    <menuitem id="menu_workout_import_wger" name="Import WGER Exercises" parent="menu_workout_configuration" action="fitness_workout.ir_actions_server_import_wger_exercises" sequence="5"/>
+    <menuitem id="menu_workout_repetition_unit" name="Repetition Units" parent="menu_workout_configuration" action="action_fitness_repetition_unit" sequence="10"/>
+    <menuitem id="menu_workout_weight_unit" name="Weight Units" parent="menu_workout_configuration" action="action_fitness_weight_unit" sequence="20"/>
+</odoo>

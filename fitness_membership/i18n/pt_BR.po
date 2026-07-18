@@ -1,0 +1,126 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* fitness_membership
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Fitness Workout 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-18 21:26+0000\n"
+"PO-Revision-Date: 2026-07-18 21:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: Portuguese (Brazil)\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#. module: fitness_membership
+#: model:fitness.plan.v2,description:fitness_membership.demo_plan_v2_jack_beginner
+msgid "2-month beginner program assigned to Jack Steel."
+msgstr ""
+
+#. module: fitness_membership
+#: model:fitness.plan.v2,description:fitness_membership.demo_plan_v2_mike_upper_lower
+msgid "2-month upper/lower program assigned to Mike Muscle."
+msgstr ""
+
+#. module: fitness_membership
+#: model_terms:ir.ui.view,arch_db:fitness_membership.view_fitness_membership_member_plans_list
+msgid "Assign"
+msgstr "Atribuir"
+
+#. module: fitness_membership
+#: model_terms:ir.ui.view,arch_db:fitness_membership.view_fitness_membership_template_list
+msgid "Assign Selected"
+msgstr "Atribuir Selecionados"
+
+#. module: fitness_membership
+#. odoo-python
+#: code:addons/fitness_membership/models/fitness_plan_v2.py:0
+#: model:ir.actions.act_window,name:fitness_membership.action_fitness_membership_assign_templates
+msgid "Assign Workout Plans"
+msgstr ""
+
+#. module: fitness_membership
+#: model:fitness.plan.v2,name:fitness_membership.demo_plan_v2_jack_beginner
+msgid "Beginner Level 1 (Jack)"
+msgstr ""
+
+#. module: fitness_membership
+#: model:fitness.plan.v2.phase,name:fitness_membership.demo_plan_v2_jack_beginner_phase_1
+msgid "Foundation"
+msgstr ""
+
+#. module: fitness_membership
+#: model:fitness.plan.v2.day,name:fitness_membership.demo_plan_v2_jack_beginner_day_1
+msgid "Full Body A"
+msgstr ""
+
+#. module: fitness_membership
+#: model:fitness.plan.v2.day,name:fitness_membership.demo_plan_v2_jack_beginner_day_2
+msgid "Full Body B"
+msgstr ""
+
+#. module: fitness_membership
+#: model:fitness.plan.v2.day,name:fitness_membership.demo_plan_v2_mike_upper_lower_day_2
+msgid "Lower Day"
+msgstr ""
+
+#. module: fitness_membership
+#: model:ir.actions.act_window,name:fitness_membership.action_fitness_membership_members
+#: model:ir.ui.menu,name:fitness_membership.menu_fitness_membership_members
+msgid "Members"
+msgstr "Membros"
+
+#. module: fitness_membership
+#. odoo-python
+#: code:addons/fitness_membership/models/fitness_plan_v2.py:0
+msgid "No member selected. Please go back and select a member first."
+msgstr ""
+
+#. module: fitness_membership
+#: model:ir.model.fields,field_description:fitness_membership.field_fitness_plan_v2__origin_template_id
+msgid "Origin Template"
+msgstr "Modelo de Origem"
+
+#. module: fitness_membership
+#. odoo-python
+#: code:addons/fitness_membership/models/fitness_plan_v2.py:0
+msgid "Please select at least one workout template to assign."
+msgstr ""
+
+#. module: fitness_membership
+#: model:ir.model.fields,help:fitness_membership.field_fitness_plan_v2__origin_template_id
+msgid "Template this plan was assigned from"
+msgstr ""
+
+#. module: fitness_membership
+#: model:fitness.plan.v2.day,name:fitness_membership.demo_plan_v2_mike_upper_lower_day_1
+msgid "Upper Day"
+msgstr ""
+
+#. module: fitness_membership
+#: model:fitness.plan.v2.phase,name:fitness_membership.demo_plan_v2_mike_upper_lower_phase_1
+msgid "Upper/Lower Cycle"
+msgstr ""
+
+#. module: fitness_membership
+#: model:fitness.plan.v2,name:fitness_membership.demo_plan_v2_mike_upper_lower
+msgid "Upper/Lower Split (Mike)"
+msgstr ""
+
+#. module: fitness_membership
+#: model:ir.model,name:fitness_membership.model_fitness_plan_v2
+msgid "Workout Plan Project V2"
+msgstr ""
+
+#. module: fitness_membership
+#: model:ir.actions.act_window,name:fitness_membership.action_fitness_membership_member_plans
+msgid "Workout Plans"
+msgstr "Planos de Treino"
+
+#. module: fitness_membership
+#: model_terms:ir.ui.view,arch_db:fitness_membership.membership_members_tree_inherit_workout
+msgid "Workouts"
+msgstr "Treinos"

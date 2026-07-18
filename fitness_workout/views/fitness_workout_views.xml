@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fitness_workout_session_tree" model="ir.ui.view">
+        <field name="name">fitness.workout.session.tree</field>
+        <field name="model">fitness.workout.session</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="routine_id"/>
+                <field name="day_id"/>
+                <field name="impression"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fitness_workout_session_form" model="ir.ui.view">
+        <field name="name">fitness.workout.session.form</field>
+        <field name="model">fitness.workout.session</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="date"/>
+                            <field name="routine_id"/>
+                            <field name="day_id"/>
+                        </group>
+                        <group>
+                            <field name="impression"/>
+                            <field name="time_start" widget="float_time"/>
+                            <field name="time_end" widget="float_time"/>
+                            <field name="uuid" readonly="1"/>
+                        </group>
+                    </group>
+                    <field name="notes"/>
+                    <notebook>
+                        <page string="Workout Logs">
+                            <field name="log_ids">
+                                <list editable="bottom">
+                                    <field name="date"/>
+                                    <field name="exercise_id"/>
+                                    <field name="repetitions"/>
+                                    <field name="repetitions_unit_id"/>
+                                    <field name="weight"/>
+                                    <field name="weight_unit_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fitness_workout_session_search" model="ir.ui.view">
+        <field name="name">fitness.workout.session.search</field>
+        <field name="model">fitness.workout.session</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id"/>
+                <field name="routine_id"/>
+                <field name="day_id"/>
+                <field name="date"/>
+                <group expand="0" string="Group By">
+                    <filter string="Partner" name="group_partner" context="{'group_by': 'partner_id'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_fitness_workout_session" model="ir.actions.act_window">
+        <field name="name">Workout Sessions</field>
+        <field name="res_model">fitness.workout.session</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_fitness_workout_session_search"/>
+        <field name="path">workouts</field>
+    </record>
+
+    <record id="view_fitness_workout_log_tree" model="ir.ui.view">
+        <field name="name">fitness.workout.log.tree</field>
+        <field name="model">fitness.workout.log</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="exercise_id"/>
+                <field name="repetitions"/>
+                <field name="repetitions_unit_id"/>
+                <field name="weight"/>
+                <field name="weight_unit_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fitness_workout_log_form" model="ir.ui.view">
+        <field name="name">fitness.workout.log.form</field>
+        <field name="model">fitness.workout.log</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="partner_id"/>
+                            <field name="session_id"/>
+                            <field name="exercise_id"/>
+                            <field name="routine_id"/>
+                            <field name="slot_entry_id"/>
+                            <field name="iteration"/>
+                        </group>
+                        <group>
+                            <field name="repetitions"/>
+                            <field name="repetitions_unit_id"/>
+                            <field name="repetitions_target"/>
+                            <field name="weight"/>
+                            <field name="weight_unit_id"/>
+                            <field name="weight_target"/>
+                            <field name="rir"/>
+                            <field name="rir_target"/>
+                            <field name="rest"/>
+                            <field name="rest_target"/>
+                            <field name="uuid" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fitness_workout_log_search" model="ir.ui.view">
+        <field name="name">fitness.workout.log.search</field>
+        <field name="model">fitness.workout.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id"/>
+                <field name="exercise_id"/>
+                <field name="date"/>
+                <group expand="0" string="Group By">
+                    <filter string="Partner" name="group_partner" context="{'group_by': 'partner_id'}"/>
+                    <filter string="Exercise" name="group_exercise" context="{'group_by': 'exercise_id'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_fitness_workout_log" model="ir.actions.act_window">
+        <field name="name">Workout Logs</field>
+        <field name="res_model">fitness.workout.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_fitness_workout_log_search"/>
+    </record>
+</odoo>

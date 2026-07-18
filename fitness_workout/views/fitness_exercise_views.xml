@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fitness_exercise_tree" model="ir.ui.view">
+        <field name="name">fitness.exercise.tree</field>
+        <field name="model">fitness.exercise</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="category_id"/>
+                <field name="wger_id"/>
+                <field name="wger_image_sync_status"/>
+                <field name="equipment_ids" widget="many2many_tags"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fitness_exercise_search" model="ir.ui.view">
+        <field name="name">fitness.exercise.search</field>
+        <field name="model">fitness.exercise</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="category_id"/>
+                <field name="muscle_ids"/>
+                <field name="equipment_ids"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="No Image" name="no_image" domain="[('image_1920', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Category" name="group_category" context="{'group_by': 'category_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_fitness_exercise_form" model="ir.ui.view">
+        <field name="name">fitness.exercise.form</field>
+        <field name="model">fitness.exercise</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_sync_wger_image" type="object" string="Sync WGER Image" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="category_id"/>
+                            <field name="muscle_ids" widget="many2many_tags"/>
+                            <field name="muscles_secondary_ids" widget="many2many_tags"/>
+                            <field name="equipment_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="image_1920" widget="image" class="oe_avatar"/>
+                            <field name="video_url"/>
+                            <field name="variation_group"/>
+                            <field name="uuid" readonly="1"/>
+                            <field name="wger_id"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="WGER Image Sync">
+                            <group>
+                                <field name="wger_image_url" readonly="1"/>
+                                <field name="wger_image_synced_at" readonly="1"/>
+                                <field name="wger_image_sync_status" readonly="1"/>
+                                <field name="wger_image_sync_message" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fitness_exercise" model="ir.actions.act_window">
+        <field name="name">Exercises</field>
+        <field name="res_model">fitness.exercise</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_fitness_exercise_search"/>
+        <field name="path">exercises</field>
+    </record>
+
+    <record id="view_fitness_exercise_category_tree" model="ir.ui.view">
+        <field name="name">fitness.exercise.category.tree</field>
+        <field name="model">fitness.exercise.category</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="exercise_count" readonly="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_fitness_exercise_category" model="ir.actions.act_window">
+        <field name="name">Exercise Categories</field>
+        <field name="res_model">fitness.exercise.category</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="view_fitness_equipment_tree" model="ir.ui.view">
+        <field name="name">fitness.equipment.tree</field>
+        <field name="model">fitness.equipment</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_fitness_equipment" model="ir.actions.act_window">
+        <field name="name">Equipment</field>
+        <field name="res_model">fitness.equipment</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="view_fitness_muscle_tree" model="ir.ui.view">
+        <field name="name">fitness.muscle.tree</field>
+        <field name="model">fitness.muscle</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="name_en"/>
+                <field name="is_front"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fitness_muscle_form" model="ir.ui.view">
+        <field name="name">fitness.muscle.form</field>
+        <field name="model">fitness.muscle</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="name_en"/>
+                        <field name="is_front"/>
+                        <field name="active"/>
+                        <field name="wger_id" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fitness_muscle" model="ir.actions.act_window">
+        <field name="name">Muscles</field>
+        <field name="res_model">fitness.muscle</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
