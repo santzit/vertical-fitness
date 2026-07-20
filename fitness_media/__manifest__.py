@@ -13,6 +13,7 @@
         "fitness_workout",
     ],
     "data": [
+        "security/fitness_media_security.xml",
         "security/ir.model.access.csv",
         "views/fitness_media_views.xml",
     ],

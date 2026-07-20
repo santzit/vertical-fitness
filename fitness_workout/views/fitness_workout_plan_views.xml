@@ -1,28 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Activity search view (referenced by actions) -->
+    <!-- Workout Slot search view (referenced by actions) -->
 
-    <record id="view_fitness_plan_v2_activity_search" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.activity.search</field>
-        <field name="model">fitness.plan.v2.activity</field>
+    <record id="view_fitness_workout_slot_search" model="ir.ui.view">
+        <field name="name">fitness.workout.slot.search</field>
+        <field name="model">fitness.workout.slot</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="day_id"/>
+                <field name="plan_id"/>
+                <field name="slot_type"/>
+                <filter string="Rest Days" name="rest_days" domain="[('is_rest', '=', True)]"/>
+                <filter string="Active Days" name="active_days" domain="[('is_rest', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Day" name="group_by_day_id" context="{'group_by': 'day_id'}"/>
+                    <filter string="Plan" name="group_by_plan_id" context="{'group_by': 'plan_id'}"/>
+                    <filter string="Type" name="group_by_slot_type" context="{'group_by': 'slot_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Workout Card search view (referenced by actions) -->
+
+    <record id="view_fitness_workout_card_search" model="ir.ui.view">
+        <field name="name">fitness.workout.card.search</field>
+        <field name="model">fitness.workout.card</field>
         <field name="arch" type="xml">
             <search>
                 <field name="exercise_id"/>
-                <field name="day_id"/>
+                <field name="slot_id"/>
                 <field name="plan_id"/>
                 <field name="scheduled_date"/>
                 <filter string="Templates" name="templates" domain="[('plan_scope', '=', 'template'), ('is_public', '=', True)]"/>
                 <group expand="0" string="Group By">
-                    <filter string="Day" name="group_by_day_id" context="{'group_by': 'day_id'}"/>
+                    <filter string="Slot" name="group_by_slot_id" context="{'group_by': 'slot_id'}"/>
                     <filter string="Plan" name="group_by_plan_id" context="{'group_by': 'plan_id'}"/>
                 </group>
             </search>
         </field>
     </record>
 
-    <record id="view_fitness_plan_v2_search" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.search</field>
-        <field name="model">fitness.plan.v2</field>
+    <record id="view_fitness_workout_plan_search" model="ir.ui.view">
+        <field name="name">fitness.workout.plan.search</field>
+        <field name="model">fitness.workout.plan</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
@@ -31,6 +53,12 @@
                 <filter string="Templates" name="template" domain="[('plan_scope', '=', 'template')]"/>
                 <filter string="User Workouts" name="user_workout" domain="[('plan_scope', '=', 'user')]"/>
                 <filter string="Public" name="public" domain="[('is_public', '=', True)]"/>
+                <filter string="Private" name="private" domain="[('is_public', '=', False)]"/>
+                <filter string="Public or Private (Me)" name="public_or_private_me"
+                    domain="['|', ('is_public', '=', True), '&amp;', ('is_public', '=', False), ('partner_id.user_ids.id', '=', uid)]"/>
+                <filter string="Active State" name="active_state" domain="[('state', '=', 'active')]"/>
+                <filter string="Public or Private (Me) + Active" name="public_or_private_me_active"
+                    domain="[('state', '=', 'active'), '|', ('is_public', '=', True), '&amp;', ('is_public', '=', False), ('partner_id.user_ids.id', '=', uid)]"/>
                 <group expand="0" string="Group By">
                     <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
                     <filter string="Scope" name="group_scope" context="{'group_by': 'plan_scope'}"/>
@@ -42,64 +70,107 @@
 
     <!-- Actions (after search views they reference) -->
 
-    <record id="action_fitness_plan_v2" model="ir.actions.act_window">
-        <field name="name">Workout Plans V2</field>
-        <field name="res_model">fitness.plan.v2</field>
+    <record id="action_fitness_workout_routines" model="ir.actions.act_window">
+        <field name="name">Routines</field>
+        <field name="res_model">fitness.workout.plan</field>
         <field name="view_mode">kanban,list,form</field>
-        <field name="search_view_id" ref="view_fitness_plan_v2_search"/>
-        <field name="path">workout-plans-v2</field>
+        <field name="search_view_id" ref="view_fitness_workout_plan_search"/>
+        <field name="path">workout-routines</field>
+        <field name="domain">[('plan_scope', '=', 'user')]</field>
         <field name="context">{'group_by': 'state'}</field>
     </record>
 
-    <record id="action_fitness_plan_v2_activity" model="ir.actions.act_window">
-        <field name="name">Activities</field>
-        <field name="res_model">fitness.plan.v2.activity</field>
-        <field name="view_mode">calendar,kanban,list,form</field>
-        <field name="search_view_id" ref="view_fitness_plan_v2_activity_search"/>
-        <field name="path">workout-activities-v2</field>
-        <field name="context">{'group_by': 'day_id'}</field>
-    </record>
-
-    <record id="action_fitness_plan_v2_activity_from_plan" model="ir.actions.act_window">
-        <field name="name">Board</field>
-        <field name="res_model">fitness.plan.v2.activity</field>
-        <field name="view_mode">calendar,kanban,list,form</field>
-        <field name="search_view_id" ref="view_fitness_plan_v2_activity_search"/>
-        <field name="path">workout-board-v2</field>
-    </record>
-
-    <record id="action_fitness_my_workout_board" model="ir.actions.act_window">
-        <field name="name">My Workouts</field>
-        <field name="res_model">fitness.plan.v2.activity</field>
+    <record id="action_fitness_workout_templates" model="ir.actions.act_window">
+        <field name="name">Templates</field>
+        <field name="res_model">fitness.workout.plan</field>
         <field name="view_mode">list,form</field>
-        <field name="search_view_id" ref="view_fitness_plan_v2_activity_search"/>
-        <field name="path">my-workouts</field>
-        <field name="domain">[('plan_scope', '=', 'user'), ('partner_id.user_ids', 'in', [uid])]</field>
-        <field name="context">{}</field>
+        <field name="search_view_id" ref="view_fitness_workout_plan_search"/>
+        <field name="path">workout-templates</field>
+        <field name="domain">[('plan_scope', '=', 'template')]</field>
+        <field name="context">{'search_default_public_or_private_me_active': 1}</field>
     </record>
 
-    <record id="action_fitness_plan_v2_phase" model="ir.actions.act_window">
-        <field name="name">Workout Plan Phases V2</field>
-        <field name="res_model">fitness.plan.v2.phase</field>
-        <field name="view_mode">kanban,list,form</field>
-        <field name="path">workout-phases-v2</field>
-        <field name="context">{'group_by': 'plan_id'}</field>
+    <record id="action_fitness_workout_card_from_plan" model="ir.actions.act_window">
+        <field name="name">Board</field>
+        <field name="res_model">fitness.workout.card</field>
+        <field name="view_mode">kanban,list,form,calendar</field>
+        <field name="search_view_id" ref="view_fitness_workout_card_search"/>
     </record>
 
-    <!-- Plan V2 kanban (after action_fitness_plan_v2_activity_from_plan) -->
-
-    <record id="view_fitness_plan_v2_kanban" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.kanban</field>
-        <field name="model">fitness.plan.v2</field>
+    <record id="view_fitness_workout_slot_board_kanban" model="ir.ui.view">
+        <field name="name">fitness.workout.slot.board.kanban</field>
+        <field name="model">fitness.workout.slot</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="state">
+            <kanban default_group_by="day_id" sample="0">
+                <field name="day_id"/>
+                <field name="day_id" select="1"/>
+                <field name="day_sequence" select="1"/>
+                <field name="plan_id"/>
+                <field name="name"/>
+                <field name="slot_type"/>
+                <field name="is_rest"/>
+                <field name="board_title"/>
+                <field name="board_prescription"/>
+                <field name="card_ids"/>
+                <templates>
+                    <t t-name="group-header">
+                        <div class="o_kanban_header">
+                            <span class="o_kanban_header_title fw-bold">
+                                Day <t t-esc="record.day_sequence.raw_value"/> - <field name="day_id"/>
+                            </span>
+                        </div>
+                    </t>
+                    <t t-name="card">
+                        <div t-if="record.is_rest.raw_value" class="text-muted">
+                            <i class="fa fa-bed me-1"/>Rest Day
+                        </div>
+                        <div t-else="">
+                            <div class="fw-bold mb-1">
+                                <field name="board_title"/>
+                            </div>
+                            <div t-if="record.board_prescription.raw_value != record.name.raw_value"
+                                 class="text-muted small">
+                                <field name="board_prescription"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_fitness_workout_slot_board_from_plan" model="ir.actions.act_window">
+        <field name="name">Workout Board</field>
+        <field name="res_model">fitness.workout.slot</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_fitness_workout_slot_board_kanban"/>
+        <field name="domain">[('plan_id', '=', context.get('active_id', active_id))]</field>
+        <field name="context">{'active_model': 'fitness.workout.plan', 'default_plan_id': context.get('active_id', active_id)}</field>
+        <field name="path">workout-board</field>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_fitness_workout_slot_board_view_kanban">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_fitness_workout_slot_board_kanban"/>
+        <field name="act_window_id" ref="action_fitness_workout_slot_board_from_plan"/>
+    </record>
+
+    <!-- Plan kanban (after action_fitness_workout_card_from_plan) -->
+
+    <record id="view_fitness_workout_plan_kanban" model="ir.ui.view">
+        <field name="name">fitness.workout.plan.kanban</field>
+        <field name="model">fitness.workout.plan</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" action="action_view_board" type="object">
                 <field name="name"/>
                 <field name="plan_scope"/>
                 <field name="partner_id"/>
                 <field name="start"/>
                 <field name="end"/>
+                <field name="duration_text"/>
                 <field name="state"/>
-                <field name="phase_ids"/>
+                <field name="day_ids"/>
                 <templates>
                     <t t-name="card">
                         <main>
@@ -111,25 +182,22 @@
                             <div>
                                 <field name="start"/> - <field name="end"/>
                             </div>
+                            <div t-if="record.duration_text.raw_value">
+                                <field name="duration_text"/>
+                            </div>
                             <div>
                                 <field name="state"/>
                             </div>
                         </main>
-                        <footer t-if="record.plan_scope.raw_value == 'user'">
-                            <button class="btn btn-primary btn-sm" type="action"
-                                name="%(action_fitness_plan_v2_activity_from_plan)d"
-                                t-att-context="{'default_plan_id': record.id, 'search_default_group_by_day_id': 1}"
-                                string="Open Board"/>
-                        </footer>
                     </t>
                 </templates>
             </kanban>
         </field>
     </record>
 
-    <record id="view_fitness_plan_v2_tree" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.tree</field>
-        <field name="model">fitness.plan.v2</field>
+    <record id="view_fitness_workout_plan_tree" model="ir.ui.view">
+        <field name="name">fitness.workout.plan.tree</field>
+        <field name="model">fitness.workout.plan</field>
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
@@ -137,6 +205,7 @@
                 <field name="partner_id"/>
                 <field name="start"/>
                 <field name="end"/>
+                <field name="duration_text" string="Duration"/>
                 <field name="state"/>
                 <field name="is_public"/>
                 <field name="active"/>
@@ -144,9 +213,9 @@
         </field>
     </record>
 
-    <record id="view_fitness_plan_v2_form" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.form</field>
-        <field name="model">fitness.plan.v2</field>
+    <record id="view_fitness_workout_plan_form" model="ir.ui.view">
+        <field name="name">fitness.workout.plan.form</field>
+        <field name="model">fitness.workout.plan</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
@@ -160,6 +229,7 @@
                         <group>
                             <field name="start"/>
                             <field name="end"/>
+                            <field name="duration_text" string="Duration" readonly="1"/>
                             <field name="is_template" readonly="1"/>
                             <field name="is_public"/>
                             <field name="active"/>
@@ -170,8 +240,8 @@
                         <page string="Description">
                             <field name="description"/>
                         </page>
-                        <page string="Phases">
-                            <field name="phase_ids">
+                        <page string="Days">
+                            <field name="day_ids">
                                 <list editable="bottom">
                                     <field name="sequence"/>
                                     <field name="name"/>
@@ -187,11 +257,11 @@
                                             <field name="end_offset"/>
                                         </group>
                                         <field name="description"/>
-                                        <field name="day_ids">
+                                        <field name="slot_ids">
                                             <list editable="bottom">
                                                 <field name="sequence"/>
                                                 <field name="name"/>
-                                                <field name="day_type"/>
+                                                <field name="slot_type"/>
                                                 <field name="is_rest"/>
                                             </list>
                                             <form>
@@ -199,7 +269,7 @@
                                                     <group>
                                                         <field name="sequence"/>
                                                         <field name="name"/>
-                                                        <field name="day_type"/>
+                                                        <field name="slot_type"/>
                                                         <field name="is_rest"/>
                                                         <field name="notes"/>
                                                     </group>
@@ -217,7 +287,7 @@
                                                                     <field name="block_type"/>
                                                                     <field name="notes"/>
                                                                 </group>
-                                                                <field name="line_ids">
+                                                                <field name="entry_ids">
                                                                     <list editable="bottom">
                                                                         <field name="sequence"/>
                                                                         <field name="exercise_id"/>
@@ -233,8 +303,8 @@
                                                             </sheet>
                                                         </form>
                                                     </field>
-                                                    <separator string="Activities (Board Cards)"/>
-                                                    <field name="activity_ids">
+                                                    <separator string="Slot Cards"/>
+                                                    <field name="card_ids">
                                                         <list editable="bottom">
                                                             <field name="scheduled_date"/>
                                                             <field name="sequence" widget="handle"/>
@@ -263,16 +333,15 @@
         </field>
     </record>
 
-    <record id="view_fitness_plan_v2_form_board_button" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.form.board_button</field>
-        <field name="model">fitness.plan.v2</field>
-        <field name="inherit_id" ref="view_fitness_plan_v2_form"/>
+    <record id="view_fitness_workout_plan_form_board_button" model="ir.ui.view">
+        <field name="name">fitness.workout.plan.form.board_button</field>
+        <field name="model">fitness.workout.plan</field>
+        <field name="inherit_id" ref="view_fitness_workout_plan_form"/>
         <field name="arch" type="xml">
             <xpath expr="//sheet" position="before">
                 <div class="oe_button_box" name="button_box">
-                    <button class="oe_stat_button" type="action"
-                        name="%(action_fitness_plan_v2_activity_from_plan)d"
-                        context="{'default_plan_id': id, 'search_default_group_by_day_id': 1}"
+                    <button class="oe_stat_button" type="object"
+                        name="action_view_board"
                         icon="fa-tasks"
                         string="Board"
                         invisible="plan_scope == 'template'"/>
@@ -281,11 +350,11 @@
         </field>
     </record>
 
-    <!-- Phase views -->
+    <!-- Day views -->
 
-    <record id="view_fitness_plan_v2_phase_kanban" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.phase.kanban</field>
-        <field name="model">fitness.plan.v2.phase</field>
+    <record id="view_fitness_workout_day_kanban" model="ir.ui.view">
+        <field name="name">fitness.workout.day.kanban</field>
+        <field name="model">fitness.workout.day</field>
         <field name="arch" type="xml">
             <kanban default_group_by="plan_id">
                 <field name="name"/>
@@ -307,9 +376,9 @@
         </field>
     </record>
 
-    <record id="view_fitness_plan_v2_phase_tree" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.phase.tree</field>
-        <field name="model">fitness.plan.v2.phase</field>
+    <record id="view_fitness_workout_day_tree" model="ir.ui.view">
+        <field name="name">fitness.workout.day.tree</field>
+        <field name="model">fitness.workout.day</field>
         <field name="arch" type="xml">
             <list>
                 <field name="plan_id"/>
@@ -321,9 +390,9 @@
         </field>
     </record>
 
-    <record id="view_fitness_plan_v2_phase_form" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.phase.form</field>
-        <field name="model">fitness.plan.v2.phase</field>
+    <record id="view_fitness_workout_day_form" model="ir.ui.view">
+        <field name="name">fitness.workout.day.form</field>
+        <field name="model">fitness.workout.day</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
@@ -335,11 +404,11 @@
                         <field name="end_offset"/>
                     </group>
                     <field name="description"/>
-                    <field name="day_ids">
+                    <field name="slot_ids">
                         <list editable="bottom">
                             <field name="sequence"/>
                             <field name="name"/>
-                            <field name="day_type"/>
+                            <field name="slot_type"/>
                             <field name="is_rest"/>
                         </list>
                     </field>
@@ -348,29 +417,128 @@
         </field>
     </record>
 
-    <!-- Activity views (after action_fitness_plan_v2_activity_from_plan) -->
+    <!-- Workout Slot views (days/slots) -->
 
-    <record id="view_fitness_plan_v2_activity_calendar" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.activity.calendar</field>
-        <field name="model">fitness.plan.v2.activity</field>
+    <record id="view_fitness_workout_slot_kanban" model="ir.ui.view">
+        <field name="name">fitness.workout.slot.kanban</field>
+        <field name="model">fitness.workout.slot</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="day_id" sample="1" action="action_view_cards" type="object">
+                <field name="name"/>
+                <field name="day_id"/>
+                <field name="plan_id"/>
+                <field name="sequence"/>
+                <field name="slot_type"/>
+                <field name="is_rest"/>
+                <field name="card_ids"/>
+                <field name="block_ids"/>
+                <templates>
+                    <t t-name="card">
+                        <main>
+                            <strong><field name="name"/></strong>
+                            <div><field name="slot_type"/></div>
+                            <div t-if="record.is_rest.raw_value">
+                                <span class="badge bg-info">Rest Day</span>
+                            </div>
+                            <div t-if="!record.is_rest.raw_value">
+                                <field name="card_ids"/> cards
+                            </div>
+                        </main>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_fitness_workout_slot_list" model="ir.ui.view">
+        <field name="name">fitness.workout.slot.list</field>
+        <field name="model">fitness.workout.slot</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="day_id"/>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="slot_type"/>
+                <field name="is_rest"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fitness_workout_slot_form" model="ir.ui.view">
+        <field name="name">fitness.workout.slot.form</field>
+        <field name="model">fitness.workout.slot</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="plan_id"/>
+                            <field name="day_id"/>
+                            <field name="sequence"/>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="slot_type"/>
+                            <field name="is_rest"/>
+                        </group>
+                    </group>
+                    <field name="notes"/>
+                    <notebook>
+                        <page string="Blocks">
+                            <field name="block_ids">
+                                <list editable="bottom">
+                                    <field name="sequence"/>
+                                    <field name="name"/>
+                                    <field name="block_type"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Slot Cards">
+                            <field name="card_ids">
+                                <list editable="bottom">
+                                    <field name="scheduled_date"/>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="exercise_id"/>
+                                    <field name="exercise_type"/>
+                                    <field name="sets"/>
+                                    <field name="reps"/>
+                                    <field name="repetition_unit_id"/>
+                                    <field name="weight"/>
+                                    <field name="weight_unit_id"/>
+                                    <field name="rir"/>
+                                    <field name="rest_seconds"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Workout Card views (after action_fitness_workout_card_from_plan) -->
+
+    <record id="view_fitness_workout_card_calendar" model="ir.ui.view">
+        <field name="name">fitness.workout.card.calendar</field>
+        <field name="model">fitness.workout.card</field>
         <field name="arch" type="xml">
             <calendar date_start="scheduled_date" date_stop="scheduled_date"
                 string="Workout Activities" color="exercise_id"
                 event_open_popup="true">
                 <field name="exercise_id"/>
-                <field name="day_id"/>
+                <field name="slot_id"/>
                 <field name="sets"/>
                 <field name="reps"/>
             </calendar>
         </field>
     </record>
 
-    <record id="view_fitness_plan_v2_activity_kanban" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.activity.kanban</field>
-        <field name="model">fitness.plan.v2.activity</field>
+    <record id="view_fitness_workout_card_kanban" model="ir.ui.view">
+        <field name="name">fitness.workout.card.kanban</field>
+        <field name="model">fitness.workout.card</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="day_id" sample="1">
-                <field name="day_id"/>
+            <kanban default_group_by="slot_id" sample="1">
+                <field name="slot_id"/>
                 <field name="plan_id"/>
                 <field name="partner_id"/>
                 <field name="plan_scope"/>
@@ -420,13 +588,13 @@
         </field>
     </record>
 
-    <record id="view_fitness_plan_v2_activity_list" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.activity.list</field>
-        <field name="model">fitness.plan.v2.activity</field>
+    <record id="view_fitness_workout_card_list" model="ir.ui.view">
+        <field name="name">fitness.workout.card.list</field>
+        <field name="model">fitness.workout.card</field>
         <field name="arch" type="xml">
             <list>
                 <field name="scheduled_date"/>
-                <field name="day_id"/>
+                <field name="slot_id"/>
                 <field name="sequence" widget="handle"/>
                 <field name="exercise_id"/>
                 <field name="exercise_type"/>
@@ -441,15 +609,15 @@
         </field>
     </record>
 
-    <record id="view_fitness_plan_v2_activity_form" model="ir.ui.view">
-        <field name="name">fitness.plan.v2.activity.form</field>
-        <field name="model">fitness.plan.v2.activity</field>
+    <record id="view_fitness_workout_card_form" model="ir.ui.view">
+        <field name="name">fitness.workout.card.form</field>
+        <field name="model">fitness.workout.card</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
                     <group>
                         <group>
-                            <field name="day_id"/>
+                            <field name="slot_id"/>
                             <field name="scheduled_date"/>
                             <field name="sequence"/>
                             <field name="exercise_id"/>

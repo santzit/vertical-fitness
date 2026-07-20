@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Exercise Categories sourced from WGER (https://wger.de) -->
+    <record id="demo_wger_category_8" model="fitness.exercise.category">
+        <field name="name">Arms</field>
+    </record>
+    <record id="demo_wger_category_9" model="fitness.exercise.category">
+        <field name="name">Legs</field>
+    </record>
+    <record id="demo_wger_category_10" model="fitness.exercise.category">
+        <field name="name">Abs</field>
+    </record>
+    <record id="demo_wger_category_11" model="fitness.exercise.category">
+        <field name="name">Chest</field>
+    </record>
+    <record id="demo_wger_category_12" model="fitness.exercise.category">
+        <field name="name">Back</field>
+    </record>
+    <record id="demo_wger_category_13" model="fitness.exercise.category">
+        <field name="name">Shoulders</field>
+    </record>
+    <record id="demo_wger_category_14" model="fitness.exercise.category">
+        <field name="name">Calves</field>
+    </record>
+    <record id="demo_wger_category_15" model="fitness.exercise.category">
+        <field name="name">Cardio</field>
+    </record>
+</odoo>

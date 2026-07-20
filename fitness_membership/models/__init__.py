@@ -1,1 +1,1 @@
-from . import fitness_plan_v2
+from . import fitness_workout_plan

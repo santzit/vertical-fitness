@@ -20,8 +20,10 @@ class FitnessWorkoutSession(models.Model):
         default=lambda self: str(uuid.uuid4()), readonly=True, copy=False, index=True
     )
     partner_id = fields.Many2one("res.partner", required=True, tracking=True)
-    routine_id = fields.Many2one("fitness.routine", tracking=True)
-    day_id = fields.Many2one("fitness.day", domain="[('routine_id', '=', routine_id)]")
+    plan_id = fields.Many2one("fitness.workout.plan", tracking=True)
+    day_id = fields.Many2one(
+        "fitness.workout.day", domain="[('plan_id', '=', plan_id)]"
+    )
     date = fields.Date(default=fields.Date.context_today, required=True, tracking=True)
     notes = fields.Text()
     impression = fields.Selection(
@@ -60,8 +62,8 @@ class FitnessWorkoutLog(models.Model):
     exercise_id = fields.Many2one(
         "fitness.exercise", required=True, ondelete="restrict"
     )
-    routine_id = fields.Many2one("fitness.routine", ondelete="set null")
-    slot_entry_id = fields.Many2one("fitness.slot.entry", ondelete="set null")
+    plan_id = fields.Many2one("fitness.workout.plan", ondelete="set null")
+    entry_id = fields.Many2one("fitness.workout.entry", ondelete="set null")
     iteration = fields.Integer()
     repetitions_unit_id = fields.Many2one("fitness.repetition.unit")
     repetitions = fields.Float(digits=(16, 2))

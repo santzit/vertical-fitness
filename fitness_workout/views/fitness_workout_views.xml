@@ -7,7 +7,7 @@
             <list>
                 <field name="date"/>
                 <field name="partner_id"/>
-                <field name="routine_id"/>
+                <field name="plan_id"/>
                 <field name="day_id"/>
                 <field name="impression"/>
             </list>
@@ -24,7 +24,7 @@
                         <group>
                             <field name="partner_id"/>
                             <field name="date"/>
-                            <field name="routine_id"/>
+                            <field name="plan_id"/>
                             <field name="day_id"/>
                         </group>
                         <group>
@@ -61,7 +61,7 @@
         <field name="arch" type="xml">
             <search>
                 <field name="partner_id"/>
-                <field name="routine_id"/>
+                <field name="plan_id"/>
                 <field name="day_id"/>
                 <field name="date"/>
                 <group expand="0" string="Group By">
@@ -108,8 +108,8 @@
                             <field name="partner_id"/>
                             <field name="session_id"/>
                             <field name="exercise_id"/>
-                            <field name="routine_id"/>
-                            <field name="slot_entry_id"/>
+                            <field name="plan_id"/>
+                            <field name="entry_id"/>
                             <field name="iteration"/>
                         </group>
                         <group>

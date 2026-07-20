@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Equipment sourced from WGER (https://wger.de) -->
+    <record id="demo_wger_equipment_1" model="fitness.equipment">
+        <field name="name">Barbell</field>
+    </record>
+    <record id="demo_wger_equipment_2" model="fitness.equipment">
+        <field name="name">SZ-Bar</field>
+    </record>
+    <record id="demo_wger_equipment_3" model="fitness.equipment">
+        <field name="name">Dumbbell</field>
+    </record>
+    <record id="demo_wger_equipment_4" model="fitness.equipment">
+        <field name="name">Gym mat</field>
+    </record>
+    <record id="demo_wger_equipment_5" model="fitness.equipment">
+        <field name="name">Swiss Ball</field>
+    </record>
+    <record id="demo_wger_equipment_6" model="fitness.equipment">
+        <field name="name">Pull-up bar</field>
+    </record>
+    <record id="demo_wger_equipment_7" model="fitness.equipment">
+        <field name="name">none (bodyweight exercise)</field>
+    </record>
+    <record id="demo_wger_equipment_8" model="fitness.equipment">
+        <field name="name">Bench</field>
+    </record>
+    <record id="demo_wger_equipment_9" model="fitness.equipment">
+        <field name="name">Incline bench</field>
+    </record>
+    <record id="demo_wger_equipment_10" model="fitness.equipment">
+        <field name="name">Kettlebell</field>
+    </record>
+    <record id="demo_wger_equipment_11" model="fitness.equipment">
+        <field name="name">Resistance band</field>
+    </record>
+</odoo>

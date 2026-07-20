@@ -4,2323 +4,47 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Fitness Workout 18.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-18 21:26+0000\n"
-"PO-Revision-Date: 2026-07-18 21:30+0000\n"
+"POT-Creation-Date: 2026-07-20 17:00+0000\n"
+"PO-Revision-Date: 2026-07-20 17:00+0000\n"
 "Last-Translator: \n"
-"Language-Team: Portuguese (Brazil)\n"
+"Language-Team: \n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-#. module: fitness_workout
-#: model:fitness.routine,description:fitness_workout.demo_routine_ppl
-msgid ""
-"3-day PPL split for beginners. Each session focuses on movement patterns: "
-"push, pull, and legs."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.routine,description:fitness_workout.demo_routine_beginner_level_1
-msgid ""
-"3-day full body program for absolute beginners. Focus on learning movement "
-"patterns with bodyweight and light loads."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.routine,description:fitness_workout.demo_routine_strength
-msgid ""
-"3-day full body strength program focused on the main compound lifts. Builds "
-"a solid base of strength using squat, bench, and deadlift progressions."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.routine,name:fitness_workout.demo_routine_upper_lower
-msgid "4-Day Upper/Lower Split"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2,name:fitness_workout.demo_plan_v2_upper_lower
-msgid "4-Day Upper/Lower Split (V2)"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_muscle__name_en
-msgid "A more basic name for the muscle"
-msgstr "Um nome mais básico para o músculo"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_day__day_type__afap
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_day__day_type__afap
-msgid "AFAP"
-msgstr "AFAP"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_day__day_type__amrap
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_block__block_type__amrap
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_day__day_type__amrap
-msgid "AMRAP"
-msgstr "AMRAP"
-
-#. module: fitness_workout
-#: model:fitness.exercise.category,name:fitness_workout.fitness_wger_category_10
-#: model:fitness.muscle,name_en:fitness_workout.fitness_wger_muscle_6
-msgid "Abs"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__message_needaction
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__message_needaction
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__message_needaction
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__message_needaction
-msgid "Action Needed"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_equipment__active
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__active
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_muscle__active
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__active
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_repetition_unit__active
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__active
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_weight_unit__active
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2__state__active
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_exercise_search
-msgid "Active"
-msgstr "Ativo"
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_plan_v2_activity
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__activity_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__activity_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__activity_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__activity_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__activity_ids
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_plan_v2_activity
-msgid "Activities"
-msgstr "Atividades"
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_form
-msgid "Activities (Board Cards)"
-msgstr "Atividades (Cartões do Quadro)"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__activity_exception_decoration
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__activity_exception_decoration
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__activity_exception_decoration
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__activity_exception_decoration
-msgid "Activity Exception Decoration"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__activity_state
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__activity_state
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__activity_state
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__activity_state
-msgid "Activity State"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__activity_type_icon
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__activity_type_icon
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__activity_type_icon
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__activity_type_icon
-msgid "Activity Type Icon"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_lunges
-msgid "Alternating lunges for quad and glute development."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.routine,description:fitness_workout.demo_routine_conditioning
-msgid ""
-"Alternating strength and conditioning days. Improves both muscular strength "
-"and cardiovascular endurance."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_2
-msgid "Anterior deltoid"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2__state__archived
-msgid "Archived"
-msgstr "Arquivado"
-
-#. module: fitness_workout
-#: model:fitness.exercise.category,name:fitness_workout.demo_category_arms
-#: model:fitness.exercise.category,name:fitness_workout.fitness_wger_category_8
-msgid "Arms"
-msgstr ""
-
-#. module: fitness_workout
-#. odoo-python
-#: code:addons/fitness_workout/models/fitness_workout.py:0
-msgid "At least repetitions or weight must be set."
-msgstr "Pelo menos repetições ou peso devem ser definidos."
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__message_attachment_count
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__message_attachment_count
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__message_attachment_count
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__message_attachment_count
-msgid "Attachment Count"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise.category,name:fitness_workout.demo_category_back
-#: model:fitness.exercise.category,name:fitness_workout.fitness_wger_category_12
-msgid "Back"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_workout_session__impression__bad
-msgid "Bad"
-msgstr "Ruim"
-
-#. module: fitness_workout
-#: model:fitness.equipment,name:fitness_workout.fitness_wger_equipment_1
-msgid "Barbell"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_bench_press
-msgid "Barbell Bench Press"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_barbell_row
-msgid "Barbell Bent-over Row"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_bicep_curls
-msgid "Barbell Bicep Curls"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_overhead_press
-msgid "Barbell Overhead Press"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2,name:fitness_workout.demo_plan_v2_beginner_l1
-msgid "Beginner Level 1 (V2)"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.routine,name:fitness_workout.demo_routine_beginner_level_1
-msgid "Beginner Level 1 — Full Body"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.routine,name:fitness_workout.demo_routine_strength
-msgid "Beginner Strength Foundation"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.equipment,name:fitness_workout.fitness_wger_equipment_8
-msgid "Bench"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name_en:fitness_workout.fitness_wger_muscle_1
-msgid "Biceps"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_1
-msgid "Biceps brachii"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_11
-msgid "Biceps femoris"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__block_id
-msgid "Block"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__block_type
-msgid "Block Type"
-msgstr "Tipo de Bloco"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__block_ids
-msgid "Blocks"
-msgstr "Blocos"
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_plan_v2_activity_from_plan
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_form_board_button
-msgid "Board"
-msgstr "Quadro"
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_tricep_dips
-msgid "Bodyweight dips targeting triceps and lower chest."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_pull_ups
-msgid "Bodyweight pull-ups for back and biceps."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_slow_squat
-msgid "Bodyweight slow-tempo squat for quad and glute activation."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_13
-msgid "Brachialis"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_burpees
-msgid "Burpees"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_lat_pulldown
-msgid "Cable lat pulldown for back width."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise.category,name:fitness_workout.fitness_wger_category_14
-#: model:fitness.muscle,name_en:fitness_workout.fitness_wger_muscle_7
-msgid "Calves"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise.category,name:fitness_workout.demo_category_cardio
-#: model:fitness.exercise.category,name:fitness_workout.fitness_wger_category_15
-msgid "Cardio"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_exercise_category
-msgid "Categories"
-msgstr "Categorias"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__category_id
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_exercise_search
-msgid "Category"
-msgstr "Categoria"
-
-#. module: fitness_workout
-#: model:fitness.exercise.category,name:fitness_workout.demo_category_chest
-#: model:fitness.exercise.category,name:fitness_workout.fitness_wger_category_11
-#: model:fitness.muscle,name_en:fitness_workout.fitness_wger_muscle_4
-msgid "Chest"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_block__block_type__circuit
-msgid "Circuit"
-msgstr "Circuito"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__class_name
-msgid "Class Name"
-msgstr "Nome da Classe"
-
-#. module: fitness_workout
-#: model:fitness.routine,description:fitness_workout.demo_routine_upper_lower
-msgid ""
-"Classic upper/lower 4-day split. Alternate upper and lower days with rest "
-"between splits. Designed for intermediate lifters."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__comment
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__comment
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__comment
-msgid "Comment"
-msgstr "Comentário"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_equipment__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise_category__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_muscle__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_repetition_unit__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_weight_unit__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__company_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__company_id
-msgid "Company"
-msgstr "Empresa"
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_barbell_row
-msgid "Compound back exercise targeting lats and rhomboids."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_cond_day2
-#: model:fitness.day,name:fitness_workout.demo_routine_cond_day4
-msgid "Conditioning"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.routine,name:fitness_workout.demo_routine_conditioning
-msgid "Conditioning + Strength Mix"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2.phase,name:fitness_workout.demo_plan_v2_user_conditioning_phase_1
-msgid "Conditioning Block"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__config
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__config
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__config
-msgid "Config"
-msgstr "Configuração"
-
-#. module: fitness_workout
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_configuration
-msgid "Configuration"
-msgstr "Configuração"
-
-#. module: fitness_workout
-#: model:fitness.exercise.category,name:fitness_workout.demo_category_core
-msgid "Core"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_equipment__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise_category__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_muscle__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_repetition_unit__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_weight_unit__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__create_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__create_uid
-msgid "Created by"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_equipment__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise_category__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_muscle__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_repetition_unit__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_weight_unit__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__create_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__create_date
-msgid "Created on"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_day__day_type__custom
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_day__day_type__custom
-msgid "Custom"
-msgstr "Personalizado"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__date
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_workout_log_search
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_workout_session_search
-msgid "Date"
-msgstr "Data"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__day_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__day_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__day_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__day_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__day_id
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_activity_search
-msgid "Day"
-msgstr "Dia"
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_l1_day1
-msgid "Day 1 — Full Body A"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_str_day1
-msgid "Day 1 — Squat + Bench"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_ul_day1
-msgid "Day 1 — Upper A"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_ul_day2
-msgid "Day 2 — Lower A"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_l1_day2
-#: model:fitness.day,name:fitness_workout.demo_routine_str_day2
-msgid "Day 2 — Rest"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_str_day3
-msgid "Day 3 — Deadlift + OHP"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_l1_day3
-msgid "Day 3 — Full Body B"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_ul_day3
-msgid "Day 3 — Rest"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_l1_day4
-#: model:fitness.day,name:fitness_workout.demo_routine_str_day4
-msgid "Day 4 — Rest"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_ul_day4
-msgid "Day 4 — Upper B"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_str_day5
-msgid "Day 5 — Bench + Squat"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_l1_day5
-msgid "Day 5 — Full Body A"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_ul_day5
-msgid "Day 5 — Lower B"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__day_type
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__day_type
-msgid "Day Type"
-msgstr "Tipo de Dia"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__day_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__day_ids
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_day
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_routine_form
-msgid "Days"
-msgstr "Dias"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__description
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__description
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__description
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__description
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__description
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_exercise_form
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_form
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_routine_form
-msgid "Description"
-msgstr "Descrição"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_equipment__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise_category__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_muscle__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_repetition_unit__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_weight_unit__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__display_name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_repetition_unit__unit_type__distance
-msgid "Distance"
-msgstr "Distância"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2__state__done
-msgid "Done"
-msgstr "Concluído"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2__state__draft
-msgid "Draft"
-msgstr "Rascunho"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_activity__exercise_type__dropset
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_line__exercise_type__dropset
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_slot_entry__exercise_type__dropset
-msgid "Dropset"
-msgstr "Dropset"
-
-#. module: fitness_workout
-#: model:fitness.equipment,name:fitness_workout.fitness_wger_equipment_3
-msgid "Dumbbell"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_lateral_raises
-msgid "Dumbbell Lateral Raises"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_mountain_climbers
-msgid "Dynamic core and cardio movement."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_day__day_type__edt
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_day__day_type__edt
-msgid "EDT"
-msgstr "EDT"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_day__day_type__enom
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_block__block_type__emom
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_day__day_type__enom
-msgid "EMOM"
-msgstr "EMOM"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__end
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__end
-msgid "End"
-msgstr "Fim"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__end_offset
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__end_offset
-msgid "End Offset"
-msgstr "Deslocamento Final"
-
-#. module: fitness_workout
-#. odoo-python
-#: code:addons/fitness_workout/models/fitness_plan_v2.py:0
-#: code:addons/fitness_workout/models/fitness_routine.py:0
-msgid "End date must be greater than or equal to start date."
-msgstr "A data de término deve ser maior ou igual à data de início."
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_workout_session__time_end
-msgid "End time in hours"
-msgstr "Hora de término em horas"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__entry_ids
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_slot_entry
-msgid "Entries"
-msgstr "Entradas"
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_equipment
-#: model:ir.model,name:fitness_workout.model_fitness_equipment
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__equipment_ids
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_equipment
-msgid "Equipment"
-msgstr "Equipamentos"
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_16
-msgid "Erector spinae"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_exercise
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__exercise_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__exercise_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__exercise_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__exercise_id
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_workout_log_search
-msgid "Exercise"
-msgstr "Exercício"
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_exercise_category
-msgid "Exercise Categories"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_exercise_category
-msgid "Exercise Category"
-msgstr "Categoria de Exercício"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise_category__exercise_count
-msgid "Exercise Count"
-msgstr "Quantidade de Exercícios"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__line_ids
-msgid "Exercise Lines"
-msgstr "Linhas de Exercício"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__exercise_type
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__exercise_type
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__exercise_type
-msgid "Exercise Type"
-msgstr "Tipo de Exercício"
-
-#. module: fitness_workout
-#: model:ir.model.constraint,message:fitness_workout.constraint_fitness_exercise_fitness_exercise_uuid_uniq
-msgid "Exercise UUID must be unique."
-msgstr "O UUID do Exercício deve ser único."
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_exercise
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise_category__exercise_ids
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_exercise_list
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_exercises
-msgid "Exercises"
-msgstr "Exercícios"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__fit_in_week
-msgid "Fit In Week"
-msgstr "Encaixa na Semana"
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_bench_press
-msgid "Flat barbell bench press for chest mass and strength."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__message_follower_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__message_follower_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__message_follower_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__message_follower_ids
-msgid "Followers"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__message_partner_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__message_partner_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__message_partner_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__message_partner_ids
-msgid "Followers (Partners)"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_exercise__activity_type_icon
-#: model:ir.model.fields,help:fitness_workout.field_fitness_plan_v2__activity_type_icon
-#: model:ir.model.fields,help:fitness_workout.field_fitness_routine__activity_type_icon
-#: model:ir.model.fields,help:fitness_workout.field_fitness_workout_session__activity_type_icon
-msgid "Font awesome icon e.g. fa-tasks"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_activity__exercise_type__forced
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_line__exercise_type__forced
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_slot_entry__exercise_type__forced
-msgid "Forced"
-msgstr "Forçado"
-
-#. module: fitness_workout
-#: model:fitness.plan.v2.phase,name:fitness_workout.demo_plan_v2_beginner_l1_phase_1
-msgid "Foundation"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2.day,name:fitness_workout.demo_plan_v2_beginner_l1_day_1
-msgid "Full Body A"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_burpees
-msgid "Full body conditioning exercise."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_7
-msgid "Gastrocnemius"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name_en:fitness_workout.fitness_wger_muscle_8
-msgid "Glutes"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_8
-msgid "Gluteus maximus"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_workout_session__impression__good
-msgid "Good"
-msgstr "Bom"
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_exercise_search
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_activity_search
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_search
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_routine_search
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_workout_log_search
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_workout_session_search
-msgid "Group By"
-msgstr "Agrupar Por"
-
-#. module: fitness_workout
-#: model:fitness.equipment,name:fitness_workout.fitness_wger_equipment_4
-msgid "Gym mat"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_day__day_type__hiit
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_day__day_type__hiit
-msgid "HIIT"
-msgstr "HIIT"
-
-#. module: fitness_workout
-#: model:fitness.plan.v2.day,name:fitness_workout.demo_plan_v2_user_conditioning_day_1
-msgid "HIIT Day"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name_en:fitness_workout.fitness_wger_muscle_11
-msgid "Hamstrings"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__has_message
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__has_message
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__has_message
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__has_message
-msgid "Has Message"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_romanian_deadlift
-msgid "Hip-hinge movement targeting hamstrings and glutes."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_equipment__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise_category__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_muscle__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_repetition_unit__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_weight_unit__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__id
-msgid "ID"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__activity_exception_icon
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__activity_exception_icon
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__activity_exception_icon
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__activity_exception_icon
-msgid "Icon"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_exercise__activity_exception_icon
-#: model:ir.model.fields,help:fitness_workout.field_fitness_plan_v2__activity_exception_icon
-#: model:ir.model.fields,help:fitness_workout.field_fitness_routine__activity_exception_icon
-#: model:ir.model.fields,help:fitness_workout.field_fitness_workout_session__activity_exception_icon
-msgid "Icon to indicate an exception activity."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_exercise__message_needaction
-#: model:ir.model.fields,help:fitness_workout.field_fitness_plan_v2__message_needaction
-#: model:ir.model.fields,help:fitness_workout.field_fitness_routine__message_needaction
-#: model:ir.model.fields,help:fitness_workout.field_fitness_workout_session__message_needaction
-msgid "If checked, new messages require your attention."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_exercise__message_has_error
-#: model:ir.model.fields,help:fitness_workout.field_fitness_exercise__message_has_sms_error
-#: model:ir.model.fields,help:fitness_workout.field_fitness_plan_v2__message_has_error
-#: model:ir.model.fields,help:fitness_workout.field_fitness_plan_v2__message_has_sms_error
-#: model:ir.model.fields,help:fitness_workout.field_fitness_routine__message_has_error
-#: model:ir.model.fields,help:fitness_workout.field_fitness_routine__message_has_sms_error
-#: model:ir.model.fields,help:fitness_workout.field_fitness_workout_session__message_has_error
-#: model:ir.model.fields,help:fitness_workout.field_fitness_workout_session__message_has_sms_error
-msgid "If checked, some messages have a delivery error."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__image_1920
-msgid "Image"
-msgstr "Imagem"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__image_1024
-msgid "Image 1024"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__image_128
-msgid "Image 128"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__image_256
-msgid "Image 256"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__image_512
-msgid "Image 512"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_exercise__wger_image_sync_status__ok
-msgid "Image synced"
-msgstr "Imagem sincronizada"
-
-#. module: fitness_workout
-#: model:ir.actions.server,name:fitness_workout.ir_actions_server_import_wger_exercises
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_import_wger
-msgid "Import WGER Exercises"
-msgstr "Importar Exercícios WGER"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__impression
-msgid "Impression"
-msgstr "Impressão"
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_muscle__name
-msgid "In latin, e.g. \"Pectoralis major\""
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_incline_db_press
-msgid "Incline Dumbbell Press"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.equipment,name:fitness_workout.fitness_wger_equipment_9
-msgid "Incline bench"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_incline_db_press
-msgid "Incline press targeting upper chest."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__message_is_follower
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__message_is_follower
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__message_is_follower
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__message_is_follower
-msgid "Is Follower"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_muscle__is_front
-msgid "Is Front"
-msgstr "É Frontal"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__is_public
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__is_public
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__is_public
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__is_public
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__is_public
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__is_public
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__is_public
-msgid "Is Public"
-msgstr "É Público"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__is_rest
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__is_rest
-msgid "Is Rest"
-msgstr "É Descanso"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__is_template
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__is_template
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__is_template
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__is_template
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__is_template
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__is_template
-msgid "Is Template"
-msgstr "É Modelo"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_activity__exercise_type__iso
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_line__exercise_type__iso
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_slot_entry__exercise_type__iso
-msgid "Iso-hold"
-msgstr "Iso-hold"
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_calf_raises
-msgid "Isolation exercise for gastrocnemius and soleus."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_lateral_raises
-msgid "Isolation exercise for medial deltoids."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_plank
-msgid "Isometric core hold for stability and endurance."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__iteration
-msgid "Iteration"
-msgstr "Iteração"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_activity__exercise_type__jump
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_line__exercise_type__jump
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_slot_entry__exercise_type__jump
-msgid "Jump"
-msgstr "Pular"
-
-#. module: fitness_workout
-#: model:fitness.equipment,name:fitness_workout.fitness_wger_equipment_10
-msgid "Kettlebell"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.repetition.unit,name:fitness_workout.fitness_repetition_unit_kilometers
-msgid "Kilometers"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__label_text
-msgid "Label Text"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__label_ids
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_routine_form
-msgid "Labels"
-msgstr "Etiquetas"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_equipment__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise_category__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_muscle__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_repetition_unit__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_weight_unit__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__write_uid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__write_uid
-msgid "Last Updated by"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_equipment__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise_category__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_muscle__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_repetition_unit__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_weight_unit__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__write_date
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__write_date
-msgid "Last Updated on"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_lat_pulldown
-msgid "Lat Pulldown"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_12
-msgid "Latissimus dorsi"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name_en:fitness_workout.fitness_wger_muscle_12
-msgid "Lats"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_ppl_day3
-msgid "Leg Day"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_leg_press
-msgid "Leg Press"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise.category,name:fitness_workout.demo_category_legs
-#: model:fitness.exercise.category,name:fitness_workout.fitness_wger_category_9
-msgid "Legs"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2.day,name:fitness_workout.demo_plan_v2_upper_lower_day_2
-msgid "Lower Day"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name_en:fitness_workout.fitness_wger_muscle_16
-msgid "Lower back"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_leg_press
-msgid "Machine compound leg exercise for quads and glutes."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.repetition.unit,name:fitness_workout.fitness_repetition_unit_max_reps
-msgid "Max reps in time"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__message_has_error
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__message_has_error
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__message_has_error
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__message_has_error
-msgid "Message Delivery error"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__message_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__message_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__message_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__message_ids
-msgid "Messages"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.repetition.unit,name:fitness_workout.fitness_repetition_unit_meters
-msgid "Meters"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.repetition.unit,name:fitness_workout.fitness_repetition_unit_miles
-msgid "Miles"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.repetition.unit,name:fitness_workout.fitness_repetition_unit_minutes
-msgid "Minutes"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_mountain_climbers
-msgid "Mountain Climbers"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_muscle
-msgid "Muscle"
-msgstr "Músculo"
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_muscle
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_muscle
-msgid "Muscles"
-msgstr "Músculos"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__my_activity_date_deadline
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__my_activity_date_deadline
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__my_activity_date_deadline
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__my_activity_date_deadline
-msgid "My Activity Deadline"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_my_workout_board
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_my_board
-msgid "My Workouts"
-msgstr "Meus Treinos"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_activity__exercise_type__myo
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_line__exercise_type__myo
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_slot_entry__exercise_type__myo
-msgid "Myo-reps"
-msgstr "Myo-reps"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_equipment__name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise_category__name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_muscle__name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_repetition_unit__name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__name
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_weight_unit__name
-msgid "Name"
-msgstr "Nome"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_muscle__name_en
-msgid "Name En"
-msgstr "Nome Inglês"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__need_logs_to_advance
-msgid "Need Logs To Advance"
-msgstr "Precisa de Registros para Avançar"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_workout_session__impression__neutral
-msgid "Neutral"
-msgstr "Neutro"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_exercise__wger_image_sync_status__never
-msgid "Never synced"
-msgstr "Nunca sincronizado"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__activity_date_deadline
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__activity_date_deadline
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__activity_date_deadline
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__activity_date_deadline
-msgid "Next Activity Deadline"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__activity_summary
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__activity_summary
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__activity_summary
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__activity_summary
-msgid "Next Activity Summary"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__activity_type_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__activity_type_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__activity_type_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__activity_type_id
-msgid "Next Activity Type"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__next_log_id
-msgid "Next Log"
-msgstr ""
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_exercise_search
-msgid "No Image"
-msgstr "Sem Imagem"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_exercise__wger_image_sync_status__missing
-msgid "No image on WGER"
-msgstr "Sem imagem no WGER"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_activity__exercise_type__normal
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_line__exercise_type__normal
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_slot_entry__exercise_type__normal
-msgid "Normal"
-msgstr "Normal"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__notes
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__notes
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__notes
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__notes
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__notes
-msgid "Notes"
-msgstr "Notas"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__message_needaction_counter
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__message_needaction_counter
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__message_needaction_counter
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__message_needaction_counter
-msgid "Number of Actions"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__message_has_error_counter
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__message_has_error_counter
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__message_has_error_counter
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__message_has_error_counter
-msgid "Number of errors"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_exercise__message_needaction_counter
-#: model:ir.model.fields,help:fitness_workout.field_fitness_plan_v2__message_needaction_counter
-#: model:ir.model.fields,help:fitness_workout.field_fitness_routine__message_needaction_counter
-#: model:ir.model.fields,help:fitness_workout.field_fitness_workout_session__message_needaction_counter
-msgid "Number of messages requiring action"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_exercise__message_has_error_counter
-#: model:ir.model.fields,help:fitness_workout.field_fitness_plan_v2__message_has_error_counter
-#: model:ir.model.fields,help:fitness_workout.field_fitness_routine__message_has_error_counter
-#: model:ir.model.fields,help:fitness_workout.field_fitness_workout_session__message_has_error_counter
-msgid "Number of messages with delivery error"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_14
-msgid "Obliquus externus abdominis"
-msgstr ""
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_kanban
-msgid "Open Board"
-msgstr "Abrir Quadro"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__order
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__order
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__order
-msgid "Order"
-msgstr "Ordem"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_activity__exercise_type__partial
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_line__exercise_type__partial
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_slot_entry__exercise_type__partial
-msgid "Partial"
-msgstr "Parcial"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__partner_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__partner_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__partner_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__partner_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__partner_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__partner_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__partner_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__partner_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__partner_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__partner_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__partner_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__partner_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__partner_id
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_search
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_routine_search
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_workout_log_search
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_workout_session_search
-msgid "Partner"
-msgstr "Parceiro"
-
-#. module: fitness_workout
-#. odoo-python
-#: code:addons/fitness_workout/models/fitness_plan_v2.py:0
-msgid "Partner is required for user workouts."
-msgstr "O parceiro é obrigatório para treinos de usuário."
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_4
-msgid "Pectoralis major"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2,description:fitness_workout.demo_plan_v2_user_conditioning
-msgid "Per-user conditioning project with HIIT format."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2,description:fitness_workout.demo_plan_v2_user_strength
-msgid "Per-user editable workout project."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2.phase,name:fitness_workout.demo_plan_v2_user_strength_phase_1
-msgid "Personal Block"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__phase_id
-msgid "Phase"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__phase_ids
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_plan_v2_phase
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_form
-msgid "Phases"
-msgstr "Fases"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__plan_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__plan_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__plan_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__plan_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__plan_id
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_activity_search
-msgid "Plan"
-msgstr "Plano"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__plan_scope
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__plan_scope
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__plan_scope
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__plan_scope
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__plan_scope
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__plan_scope
-msgid "Plan Scope"
-msgstr "Escopo do Plano"
-
-#. module: fitness_workout
-#: model:ir.model.constraint,message:fitness_workout.constraint_fitness_plan_v2_fitness_plan_v2_uuid_uniq
-msgid "Plan V2 UUID must be unique."
-msgstr "O UUID do Plano V2 deve ser único."
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_plank
-msgid "Plank"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_plan
-msgid "Plans"
-msgstr "Planos"
-
-#. module: fitness_workout
-#. odoo-python
-#: code:addons/fitness_workout/models/fitness_workout.py:0
-msgid "Please set a repetitions unit when repetitions are entered."
-msgstr "Defina uma unidade de repetição quando repetições forem inseridas."
-
-#. module: fitness_workout
-#. odoo-python
-#: code:addons/fitness_workout/models/fitness_workout.py:0
-msgid "Please set a weight unit when weight is entered."
-msgstr "Defina uma unidade de peso quando o peso for inserido."
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__muscle_ids
-msgid "Primary Muscles"
-msgstr "Músculos Principais"
-
-#. module: fitness_workout
-#: model:fitness.plan.v2,description:fitness_workout.demo_plan_v2_ppl
-msgid "Project PPL structure for public templates."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2,description:fitness_workout.demo_plan_v2_upper_lower
-msgid "Project split with upper and lower phase blocks."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2,description:fitness_workout.demo_plan_v2_beginner_l1
-msgid "Project-style beginner plan with one foundation phase."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_plan_v2
-msgid "Projects"
-msgstr ""
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_search
-msgid "Public"
-msgstr "Público"
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_ppl_day2
-#: model:fitness.plan.v2.day,name:fitness_workout.demo_plan_v2_ppl_day_2
-msgid "Pull Day"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.equipment,name:fitness_workout.fitness_wger_equipment_6
-msgid "Pull-up bar"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_pull_ups
-msgid "Pull-ups"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2.phase,name:fitness_workout.demo_plan_v2_ppl_phase_2
-msgid "Pull/Leg Block"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2.phase,name:fitness_workout.demo_plan_v2_ppl_phase_1
-msgid "Push Block"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_ppl_day1
-#: model:fitness.plan.v2.day,name:fitness_workout.demo_plan_v2_ppl_day_1
-msgid "Push Day"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2,name:fitness_workout.demo_plan_v2_ppl
-msgid "Push Pull Legs (V2)"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.routine,name:fitness_workout.demo_routine_ppl
-msgid "Push Pull Legs — Beginner"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_push_ups
-msgid "Push-ups"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_10
-msgid "Quadriceps femoris"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name_en:fitness_workout.fitness_wger_muscle_10
-msgid "Quads"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_day__day_type__rft
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_day__day_type__rft
-msgid "RFT"
-msgstr "RFT"
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_activity_kanban
-msgid "RIR:"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_6
-msgid "Rectus abdominis"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__repetition_rounding
-msgid "Repetition Rounding"
-msgstr "Arredondamento de Repetição"
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_repetition_unit
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__repetition_unit_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__repetition_unit_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__repetition_unit_id
-msgid "Repetition Unit"
-msgstr "Unidade de Repetição"
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_repetition_unit
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_repetition_unit
-msgid "Repetition Units"
-msgstr "Unidades de Repetição"
-
-#. module: fitness_workout
-#: model:fitness.repetition.unit,name:fitness_workout.fitness_repetition_unit_repetitions
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__repetitions
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_repetition_unit__unit_type__repetitions
-msgid "Repetitions"
-msgstr "Repetições"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__repetitions_target
-msgid "Repetitions Target"
-msgstr "Meta de Repetições"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__repetitions_unit_id
-msgid "Repetitions Unit"
-msgstr "Unidade de Repetições"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__reps
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__reps
-msgid "Reps"
-msgstr "Repetições"
-
-#. module: fitness_workout
-#: model:fitness.equipment,name:fitness_workout.fitness_wger_equipment_11
-msgid "Resistance band"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__activity_user_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__activity_user_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__activity_user_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__activity_user_id
-msgid "Responsible User"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_ppl_day4
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__rest
-msgid "Rest"
-msgstr "Descanso"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__rest_seconds
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__rest_seconds
-msgid "Rest Seconds"
-msgstr "Descanso (segundos)"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__rest_target
-msgid "Rest Target"
-msgstr "Meta de Descanso"
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_activity_kanban
-msgid "Rest:"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__rir
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__rir
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__rir
-msgid "Rir"
-msgstr "RIR"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__rir_target
-msgid "Rir Target"
-msgstr "Meta de RIR"
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_romanian_deadlift
-msgid "Romanian Deadlift"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__routine_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__routine_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot__routine_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__routine_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__routine_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__routine_id
-msgid "Routine"
-msgstr "Rotina"
-
-#. module: fitness_workout
-#: model:ir.model.constraint,message:fitness_workout.constraint_fitness_routine_fitness_routine_uuid_uniq
-msgid "Routine UUID must be unique."
-msgstr "O UUID da Rotina deve ser único."
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_russian_twist
-msgid "Russian Twist"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__message_has_sms_error
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__message_has_sms_error
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__message_has_sms_error
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.equipment,name:fitness_workout.fitness_wger_equipment_2
-msgid "SZ-Bar"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__scheduled_date
-msgid "Scheduled Date"
-msgstr "Data Agendada"
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_search
-msgid "Scope"
-msgstr "Escopo"
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_russian_twist
-msgid "Seated rotational exercise for obliques."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__muscles_secondary_ids
-msgid "Secondary Muscles"
-msgstr "Músculos Secundários"
-
-#. module: fitness_workout
-#: model:fitness.repetition.unit,name:fitness_workout.fitness_repetition_unit_seconds
-msgid "Seconds"
-msgstr ""
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_phase_kanban
-msgid "Seq:"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__sequence
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_block__sequence
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_day__sequence
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__sequence
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__sequence
-msgid "Sequence"
-msgstr "Sequência"
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_3
-msgid "Serratus anterior"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__session_id
-msgid "Session"
-msgstr "Sessão"
-
-#. module: fitness_workout
-#: model:ir.model.constraint,message:fitness_workout.constraint_fitness_workout_session_fitness_workout_session_uuid_uniq
-msgid "Session UUID must be unique."
-msgstr "O UUID da Sessão deve ser único."
-
-#. module: fitness_workout
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_session
-msgid "Sessions"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__sets
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__sets
-msgid "Sets"
-msgstr "Séries"
-
-#. module: fitness_workout
-#: model:fitness.exercise.category,name:fitness_workout.demo_category_shoulders
-#: model:fitness.exercise.category,name:fitness_workout.fitness_wger_category_13
-#: model:fitness.muscle,name_en:fitness_workout.fitness_wger_muscle_2
-msgid "Shoulders"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_block__block_type__single
-msgid "Single"
-msgstr "Simples"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__slot_id
-msgid "Slot"
-msgstr "Slot"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__slot_entry_id
-msgid "Slot Entry"
-msgstr "Entrada do Slot"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_day__slot_ids
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_slot
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_day_form
-msgid "Slots"
-msgstr "Slots"
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_slow_squat
-msgid "Slow Squat"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_15
-msgid "Soleus"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_push_ups
-msgid "Standard push-ups targeting chest, shoulders, and triceps."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_calf_raises
-msgid "Standing Calf Raises"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_bicep_curls
-msgid "Standing barbell curls for bicep mass."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,description:fitness_workout.demo_exercise_overhead_press
-msgid "Standing overhead press for shoulder strength."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__start
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__start
-msgid "Start"
-msgstr "Início"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_label__start_offset
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_phase__start_offset
-msgid "Start Offset"
-msgstr "Deslocamento Inicial"
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_workout_session__time_start
-msgid "Start time in hours"
-msgstr "Hora de início em horas"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__state
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_search
-msgid "State"
-msgstr "Estado"
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_exercise__activity_state
-#: model:ir.model.fields,help:fitness_workout.field_fitness_plan_v2__activity_state
-#: model:ir.model.fields,help:fitness_workout.field_fitness_routine__activity_state
-#: model:ir.model.fields,help:fitness_workout.field_fitness_workout_session__activity_state
-msgid ""
-"Status based on activities\n"
-"Overdue: Due date is already passed\n"
-"Today: Activity date is today\n"
-"Planned: Future activities."
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_cond_day1
-msgid "Strength A"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.day,name:fitness_workout.demo_routine_cond_day3
-msgid "Strength B"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_block__block_type__superset
-msgid "Superset"
-msgstr "Superset"
-
-#. module: fitness_workout
-#: model:fitness.equipment,name:fitness_workout.fitness_wger_equipment_5
-msgid "Swiss Ball"
-msgstr ""
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_exercise_form
-msgid "Sync WGER Image"
-msgstr "Sincronizar Imagem WGER"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_exercise__wger_image_sync_status__error
-msgid "Sync error"
-msgstr "Erro de sincronização"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_activity__exercise_type__tut
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_line__exercise_type__tut
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_slot_entry__exercise_type__tut
-msgid "TUT"
-msgstr "TUT"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_day__day_type__tabata
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_day__day_type__tabata
-msgid "Tabata"
-msgstr "Tabata"
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2__plan_scope__template
-msgid "Template"
-msgstr "Modelo"
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_activity_search
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_search
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_routine_search
-msgid "Templates"
-msgstr "Modelos"
-
-#. module: fitness_workout
-#: model:fitness.repetition.unit,name:fitness_workout.fitness_repetition_unit_till_failure
-msgid "Till failure"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_repetition_unit__unit_type__time
-msgid "Time"
-msgstr "Tempo"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__time_end
-msgid "Time End"
-msgstr "Hora de Término"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__time_start
-msgid "Time Start"
-msgstr "Hora de Início"
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_9
-msgid "Trapezius"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_tricep_dips
-msgid "Tricep Dips"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name_en:fitness_workout.fitness_wger_muscle_5
-msgid "Triceps"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.muscle,name:fitness_workout.fitness_wger_muscle_5
-msgid "Triceps brachii"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_exercise__activity_exception_decoration
-#: model:ir.model.fields,help:fitness_workout.field_fitness_plan_v2__activity_exception_decoration
-#: model:ir.model.fields,help:fitness_workout.field_fitness_routine__activity_exception_decoration
-#: model:ir.model.fields,help:fitness_workout.field_fitness_workout_session__activity_exception_decoration
-msgid "Type of the exception activity on record."
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_exercise__variation_group
-msgid "UUID grouping exercise variations"
-msgstr "UUID que agrupa variações de exercícios"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_repetition_unit__unit_type
-msgid "Unit Type"
-msgstr "Tipo de Unidade"
-
-#. module: fitness_workout
-#: model:fitness.plan.v2.day,name:fitness_workout.demo_plan_v2_upper_lower_day_1
-msgid "Upper Day"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2.phase,name:fitness_workout.demo_plan_v2_upper_lower_phase_1
-msgid "Upper/Lower Cycle"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2.day,name:fitness_workout.demo_plan_v2_user_strength_day_1
-msgid "User Strength Day"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2__plan_scope__user
-msgid "User Workout"
-msgstr "Treino do Usuário"
-
-#. module: fitness_workout
-#: model:fitness.plan.v2,name:fitness_workout.demo_plan_v2_user_conditioning
-msgid "User Workout: Conditioning Mix (V2)"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.plan.v2,name:fitness_workout.demo_plan_v2_user_strength
-msgid "User Workout: Strength Focus (V2)"
-msgstr ""
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_search
-msgid "User Workouts"
-msgstr "Treinos do Usuário"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__uuid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__uuid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__uuid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__uuid
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__uuid
-msgid "Uuid"
-msgstr "UUID"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__variation_group
-msgid "Variation Group"
-msgstr "Grupo de Variação"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__video_url
-msgid "Video Url"
-msgstr "URL do Vídeo"
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_activity_kanban
-msgid "View Plan"
-msgstr "Ver Plano"
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_exercise_form
-msgid "WGER Image Sync"
-msgstr "Sincronização de Imagem WGER"
-
-#. module: fitness_workout
-#: model:fitness.exercise,name:fitness_workout.demo_exercise_lunges
-msgid "Walking Lunges"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_activity__exercise_type__warmup
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_plan_v2_line__exercise_type__warmup
-#: model:ir.model.fields.selection,name:fitness_workout.selection__fitness_slot_entry__exercise_type__warmup
-msgid "Warm-up"
-msgstr "Aquecimento"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__website_message_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2__website_message_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_routine__website_message_ids
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__website_message_ids
-msgid "Website Messages"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_exercise__website_message_ids
-#: model:ir.model.fields,help:fitness_workout.field_fitness_plan_v2__website_message_ids
-#: model:ir.model.fields,help:fitness_workout.field_fitness_routine__website_message_ids
-#: model:ir.model.fields,help:fitness_workout.field_fitness_workout_session__website_message_ids
-msgid "Website communication history"
-msgstr ""
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_phase_kanban
-msgid "Week"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.label,label_text:fitness_workout.demo_routine_ul_label1
-msgid "Week 1–2: Accumulation"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.label,label_text:fitness_workout.demo_routine_cond_label1
-msgid "Week 1–2: Build Base"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.label,label_text:fitness_workout.demo_routine_ppl_label1
-msgid "Week 1–2: Foundation"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.label,label_text:fitness_workout.demo_routine_l1_label1
-msgid "Week 1–2: Learn Form"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.label,label_text:fitness_workout.demo_routine_str_label1
-msgid "Week 1–2: Linear Progression"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.label,label_text:fitness_workout.demo_routine_str_label2
-msgid "Week 3–4: Add Weight"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.label,label_text:fitness_workout.demo_routine_l1_label2
-msgid "Week 3–4: Build Volume"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.label,label_text:fitness_workout.demo_routine_cond_label2
-msgid "Week 3–4: Increase Intensity"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.label,label_text:fitness_workout.demo_routine_ul_label2
-msgid "Week 3–4: Intensification"
-msgstr ""
-
-#. module: fitness_workout
-#: model:fitness.label,label_text:fitness_workout.demo_routine_ppl_label2
-msgid "Week 3–4: Progressive Overload"
-msgstr ""
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__weight
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__weight
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__weight
-msgid "Weight"
-msgstr "Peso"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__weight_rounding
-msgid "Weight Rounding"
-msgstr "Arredondamento de Peso"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__weight_target
-msgid "Weight Target"
-msgstr "Meta de Peso"
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_weight_unit
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_activity__weight_unit_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_plan_v2_line__weight_unit_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_slot_entry__weight_unit_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_log__weight_unit_id
-msgid "Weight Unit"
-msgstr "Unidade de Peso"
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_weight_unit
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_weight_unit
-msgid "Weight Units"
-msgstr "Unidades de Peso"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_equipment__wger_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__wger_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise_category__wger_id
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_muscle__wger_id
-msgid "Wger"
-msgstr "WGER"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__wger_image_sync_message
-msgid "Wger Image Sync Message"
-msgstr "Mensagem de Sincronização de Imagem WGER"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__wger_image_sync_status
-msgid "Wger Image Sync Status"
-msgstr "Status de Sincronização de Imagem WGER"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__wger_image_synced_at
-msgid "Wger Image Synced At"
-msgstr "Imagem WGER Sincronizada Em"
-
-#. module: fitness_workout
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_exercise__wger_image_url
-msgid "Wger Image Url"
-msgstr "URL da Imagem WGER"
-
-#. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_muscle__is_front
-msgid "Whether the muscle is on the front of the body"
-msgstr "Se o músculo está na parte frontal do corpo"
-
-#. module: fitness_workout
-#: model:ir.module.category,name:fitness_workout.module_category_fitness_workout
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_root
-msgid "Workout"
-msgstr "Treino"
-
-#. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_activity_calendar
-msgid "Workout Activities"
-msgstr "Atividades de Treino"
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_workout_log
-msgid "Workout Log"
-msgstr "Registro de Treino"
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_workout_log
-#: model:ir.model.fields,field_description:fitness_workout.field_fitness_workout_session__log_ids
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_log
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_workout_session_form
-msgid "Workout Logs"
-msgstr "Registros de Treino"
-
-#. module: fitness_workout
-#: model:res.groups,name:fitness_workout.group_workout_manager
-msgid "Workout Manager"
-msgstr "Gerente de Treino"
 
 #. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_routine
+#: model:ir.model,name:fitness_workout.model_fitness_workout_plan
 msgid "Workout Plan"
 msgstr "Plano de Treino"
 
 #. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_day
-msgid "Workout Plan Day"
-msgstr "Dia do Plano de Treino"
+#: model:ir.model,name:fitness_workout.model_fitness_workout_day
+msgid "Workout Day"
+msgstr "Dia de Treino"
 
 #. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_day
-msgid "Workout Plan Days"
-msgstr "Dias do Plano de Treino"
+#: model:ir.model,name:fitness_workout.model_fitness_workout_slot
+msgid "Workout Slot"
+msgstr "Bloco de Treino"
 
 #. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_slot_entry
-msgid "Workout Plan Entries"
-msgstr "Entradas do Plano de Treino"
+#: model:ir.model,name:fitness_workout.model_fitness_workout_block
+msgid "Workout Block"
+msgstr "Grupo de Treino"
 
 #. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_label
-msgid "Workout Plan Label"
-msgstr "Etiqueta do Plano de Treino"
+#: model:ir.model,name:fitness_workout.model_fitness_workout_card
+msgid "Workout Card"
+msgstr "Cartão de Treino"
 
 #. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_plan_v2_phase
-msgid "Workout Plan Phases V2"
-msgstr "Fases do Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_plan_v2
-msgid "Workout Plan Project V2"
-msgstr "Projeto de Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_plan_v2_block
-msgid "Workout Plan Project V2 Block"
-msgstr "Bloco do Projeto de Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_plan_v2_day
-msgid "Workout Plan Project V2 Day"
-msgstr "Dia do Projeto de Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_plan_v2_line
-msgid "Workout Plan Project V2 Exercise Line"
-msgstr "Linha de Exercício do Projeto de Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_plan_v2_phase
-msgid "Workout Plan Project V2 Phase"
-msgstr "Fase do Projeto de Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_slot
-msgid "Workout Plan Slot"
-msgstr "Slot do Plano de Treino"
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_slot_entry
-msgid "Workout Plan Slot Entry"
-msgstr "Entrada do Slot do Plano de Treino"
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_slot
-msgid "Workout Plan Slots"
-msgstr "Slots do Plano de Treino"
-
-#. module: fitness_workout
-#: model:ir.model,name:fitness_workout.model_fitness_plan_v2_activity
-msgid "Workout Plan V2 Activity Card"
-msgstr "Cartão de Atividade do Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_routine
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_plans
-msgid "Workout Plans"
-msgstr "Planos de Treino"
-
-#. module: fitness_workout
-#: model:ir.actions.act_window,name:fitness_workout.action_fitness_plan_v2
-#: model:ir.ui.menu,name:fitness_workout.menu_workout_plans_v2
-msgid "Workout Plans V2"
-msgstr "Planos de Treino V2"
+#: model:ir.model,name:fitness_workout.model_fitness_workout_entry
+msgid "Workout Entry"
+msgstr "Exercício do Treino"
 
 #. module: fitness_workout
 #: model:ir.model,name:fitness_workout.model_fitness_workout_session
@@ -2328,14 +52,64 @@ msgid "Workout Session"
 msgstr "Sessão de Treino"
 
 #. module: fitness_workout
+#: model:ir.model,name:fitness_workout.model_fitness_workout_log
+msgid "Workout Log"
+msgstr "Registro de Treino"
+
+#. module: fitness_workout
+#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_workout_plan_form
+msgid "Days"
+msgstr "Dias"
+
+#. module: fitness_workout
+#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_workout_plan_form
+msgid "Description"
+msgstr "Descrição"
+
+#. module: fitness_workout
+#: model:ir.actions.act_window,name:fitness_workout.action_fitness_workout_plan
+msgid "Workout Plans"
+msgstr "Planos de Treino"
+
+#. module: fitness_workout
+#: model:ir.actions.act_window,name:fitness_workout.action_fitness_workout_day
+msgid "Workout Days"
+msgstr "Dias de Treino"
+
+#. module: fitness_workout
+#: model:ir.actions.act_window,name:fitness_workout.action_fitness_workout_slot_from_plan
+msgid "Workout Slots"
+msgstr "Blocos de Treino"
+
+#. module: fitness_workout
+#: model:ir.actions.act_window,name:fitness_workout.action_fitness_workout_card
+msgid "Workout Cards"
+msgstr "Cartões de Treino"
+
+#. module: fitness_workout
+#: model:ir.actions.act_window,name:fitness_workout.action_fitness_workout_card_from_plan
+msgid "Board"
+msgstr "Quadro"
+
+#. module: fitness_workout
+#: model:ir.actions.act_window,name:fitness_workout.action_fitness_my_workout_board
+msgid "My Workouts"
+msgstr "Meus Treinos"
+
+#. module: fitness_workout
 #: model:ir.actions.act_window,name:fitness_workout.action_fitness_workout_session
 msgid "Workout Sessions"
 msgstr "Sessões de Treino"
 
 #. module: fitness_workout
-#: model:res.groups,name:fitness_workout.group_workout_trainer
-msgid "Workout Trainer"
-msgstr "Treinador"
+#: model:ir.actions.act_window,name:fitness_workout.action_fitness_workout_log
+msgid "Workout Logs"
+msgstr "Registros de Treino"
+
+#. module: fitness_workout
+#: model:ir.module.category,name:fitness_workout.module_category_fitness_workout
+msgid "Workout"
+msgstr "Treino"
 
 #. module: fitness_workout
 #: model:res.groups,name:fitness_workout.group_workout_user
@@ -2343,182 +117,252 @@ msgid "Workout User"
 msgstr "Usuário de Treino"
 
 #. module: fitness_workout
-#: model:ir.model.constraint,message:fitness_workout.constraint_fitness_workout_log_fitness_workout_log_uuid_uniq
-msgid "Workout log UUID must be unique."
-msgstr "O UUID do Registro de Treino deve ser único."
+#: model:res.groups,name:fitness_workout.group_workout_trainer
+msgid "Workout Trainer"
+msgstr "Treinador"
 
 #. module: fitness_workout
-#: model:ir.actions.server,name:fitness_workout.ir_cron_fitness_sync_wger_images_ir_actions_server
-msgid "Workout: Sync WGER exercise images"
-msgstr ""
+#: model:res.groups,name:fitness_workout.group_workout_manager
+msgid "Workout Manager"
+msgstr "Gerente de Treino"
 
+#. module: fitness_workout
+#: selection:fitness.workout.plan,plan_scope:0
+msgid "Template"
+msgstr "Modelo"
+
+#. module: fitness_workout
+#: selection:fitness.workout.plan,plan_scope:0
+msgid "User Workout"
+msgstr "Treino do Usuário"
+
+#. module: fitness_workout
+#: selection:fitness.workout.plan,state:0
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: fitness_workout
+#: selection:fitness.workout.plan,state:0
+msgid "Active"
+msgstr "Ativo"
+
+#. module: fitness_workout
+#: selection:fitness.workout.plan,state:0
+msgid "Done"
+msgstr "Concluído"
+
+#. module: fitness_workout
+#: selection:fitness.workout.plan,state:0
+msgid "Archived"
+msgstr "Arquivado"
+
+#. module: fitness_workout
+#: selection:fitness.workout.slot,slot_type:0
+msgid "Custom"
+msgstr "Personalizado"
+
+#. module: fitness_workout
+#: selection:fitness.workout.slot,slot_type:0
+msgid "EMOM"
+msgstr "EMOM"
+
+#. module: fitness_workout
+#: selection:fitness.workout.slot,slot_type:0
+msgid "AMRAP"
+msgstr "AMRAP"
+
+#. module: fitness_workout
+#: selection:fitness.workout.slot,slot_type:0
+msgid "HIIT"
+msgstr "HIIT"
+
+#. module: fitness_workout
+#: selection:fitness.workout.slot,slot_type:0
+msgid "Tabata"
+msgstr "Tabata"
+
+#. module: fitness_workout
+#: selection:fitness.workout.slot,slot_type:0
+msgid "EDT"
+msgstr "EDT"
+
+#. module: fitness_workout
+#: selection:fitness.workout.slot,slot_type:0
+msgid "RFT"
+msgstr "RFT"
+
+#. module: fitness_workout
+#: selection:fitness.workout.slot,slot_type:0
+msgid "AFAP"
+msgstr "AFAP"
+
+#. module: fitness_workout
+#: selection:fitness.workout.block,block_type:0
+msgid "Single"
+msgstr "Simples"
+
+#. module: fitness_workout
+#: selection:fitness.workout.block,block_type:0
+msgid "Superset"
+msgstr "Bi-set"
+
+#. module: fitness_workout
+#: selection:fitness.workout.block,block_type:0
+msgid "Circuit"
+msgstr "Circuito"
+
+#. module: fitness_workout
+#: selection:fitness.workout.block,block_type:0
+#: selection:fitness.workout.slot,slot_type:0
+#. module: fitness_workout
+#: selection:fitness.workout.block,block_type:0
+#: selection:fitness.workout.slot,slot_type:0
+#. module: fitness_workout
+#: selection:fitness.workout.card,exercise_type:0
+#: selection:fitness.workout.entry,exercise_type:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: fitness_workout
+#: selection:fitness.workout.card,exercise_type:0
+#: selection:fitness.workout.entry,exercise_type:0
+msgid "Warm-up"
+msgstr "Aquecimento"
+
+#. module: fitness_workout
+#: selection:fitness.workout.card,exercise_type:0
+#: selection:fitness.workout.entry,exercise_type:0
+msgid "Dropset"
+msgstr "Drop-set"
+
+#. module: fitness_workout
+#: selection:fitness.workout.card,exercise_type:0
+#: selection:fitness.workout.entry,exercise_type:0
+msgid "Myo-reps"
+msgstr "Myo-reps"
+
+#. module: fitness_workout
+#: selection:fitness.workout.card,exercise_type:0
+#: selection:fitness.workout.entry,exercise_type:0
+msgid "Partial"
+msgstr "Parcial"
+
+#. module: fitness_workout
+#: selection:fitness.workout.card,exercise_type:0
+#: selection:fitness.workout.entry,exercise_type:0
+msgid "Forced"
+msgstr "Forçado"
+
+#. module: fitness_workout
+#: selection:fitness.workout.card,exercise_type:0
+#: selection:fitness.workout.entry,exercise_type:0
+msgid "TUT"
+msgstr "TUT"
+
+#. module: fitness_workout
+#: selection:fitness.workout.card,exercise_type:0
+#: selection:fitness.workout.entry,exercise_type:0
+msgid "Iso-hold"
+msgstr "Iso-hold"
+
+#. module: fitness_workout
+#: selection:fitness.workout.card,exercise_type:0
+#: selection:fitness.workout.entry,exercise_type:0
+msgid "Jump"
+msgstr "Pulso"
+
+#. module: fitness_workout
+#: selection:fitness.workout.session,impression:0
+msgid "Bad"
+msgstr "Ruim"
+
+#. module: fitness_workout
+#: selection:fitness.workout.session,impression:0
+msgid "Neutral"
+msgstr "Neutro"
+
+#. module: fitness_workout
+#: selection:fitness.workout.session,impression:0
+msgid "Good"
+msgstr "Bom"
+
+#. module: fitness_workout
+#: model:ir.model.constraint,sql_msg:fitness_workout.fitness_workout_plan_uuid_uniq
+msgid "Plan UUID must be unique."
+msgstr "O UUID do plano deve ser único."
+
+#. module: fitness_workout
+#: model:ir.model.constraint,sql_msg:fitness_workout.fitness_workout_session_uuid_uniq
+msgid "Session UUID must be unique."
+msgstr "O UUID da sessão deve ser único."
+
+#. module: fitness_workout
+#: model:ir.model.constraint,sql_msg:fitness_workout.fitness_workout_log_uuid_uniq
+msgid "Workout log UUID must be unique."
+msgstr "O UUID do registro de treino deve ser único."
+
+#. module: fitness_workout
+#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_workout_plan_kanban
+msgid "cards"
+msgstr "cartões"
+
+#. module: fitness_workout
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_root
+#. module: fitness_workout
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_plans
+#. module: fitness_workout
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_plan
+msgid "Plans"
+msgstr "Planos"
+
+#. module: fitness_workout
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_day
+#. module: fitness_workout
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_card
 #. module: fitness_workout
 #: model:ir.ui.menu,name:fitness_workout.menu_workout_sessions
 msgid "Workouts"
 msgstr "Treinos"
 
 #. module: fitness_workout
-#: model:ir.model.fields,help:fitness_workout.field_fitness_exercise__video_url
-msgid "YouTube or other video URL"
-msgstr "URL do YouTube ou outro vídeo"
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_session
+msgid "Sessions"
+msgstr "Sessões"
 
 #. module: fitness_workout
-#: model:fitness.weight.unit,name:fitness_workout.fitness_weight_unit_kg
-msgid "kg"
-msgstr ""
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_log
+#. module: fitness_workout
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_configuration
+msgid "Configuration"
+msgstr "Configuração"
 
 #. module: fitness_workout
-#: model:fitness.weight.unit,name:fitness_workout.fitness_weight_unit_lb
-msgid "lb"
-msgstr ""
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_exercises
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_exercise_list
+msgid "Exercises"
+msgstr "Exercícios"
 
 #. module: fitness_workout
-#: model:fitness.equipment,name:fitness_workout.fitness_wger_equipment_7
-msgid "none (bodyweight exercise)"
-msgstr ""
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_exercise_category
+msgid "Categories"
+msgstr "Categorias"
 
 #. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_activity_kanban
-msgid "s"
-msgstr ""
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_muscle
+msgid "Muscles"
+msgstr "Músculos"
 
 #. module: fitness_workout
-#: model:ir.model.constraint,message:fitness_workout.constraint_fitness_equipment_fitness_equipment_wger_id_uniq
-#: model:ir.model.constraint,message:fitness_workout.constraint_fitness_exercise_category_fitness_exercise_category_wger_id_uniq
-#: model:ir.model.constraint,message:fitness_workout.constraint_fitness_exercise_fitness_exercise_wger_id_uniq
-#: model:ir.model.constraint,message:fitness_workout.constraint_fitness_muscle_fitness_muscle_wger_id_uniq
-msgid "wger ID must be unique."
-msgstr ""
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_equipment
+msgid "Equipment"
+msgstr "Equipamentos"
 
 #. module: fitness_workout
-#: model_terms:ir.ui.view,arch_db:fitness_workout.view_fitness_plan_v2_activity_kanban
-msgid "x"
-msgstr ""
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_repetition_unit
+msgid "Repetition Units"
+msgstr "Unidades de Repetição"
 
 #. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_routine_user_own
-msgid "Workout Plan Own or Template"
-msgstr "Plano de Treino Próprio ou Modelo"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_day_user_own
-msgid "Workout Plan Day Own or Template"
-msgstr "Dia do Plano de Treino Próprio ou Modelo"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_slot_user_own
-msgid "Workout Plan Slot Own or Template"
-msgstr "Slot do Plano de Treino Próprio ou Modelo"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_slot_entry_user_own
-msgid "Workout Plan Slot Entry Own or Template"
-msgstr "Entrada do Slot do Plano de Treino Própria ou Modelo"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_label_user_own
-msgid "Workout Plan Label Own or Template"
-msgstr "Etiqueta do Plano de Treino Própria ou Modelo"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_workout_session_user_own
-msgid "Workout Session Own"
-msgstr "Sessão de Treino Própria"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_workout_log_user_own
-msgid "Workout Log Own"
-msgstr "Registro de Treino Próprio"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_plan_v2_user_access
-msgid "Workout Plan V2 User Access"
-msgstr "Acesso do Usuário ao Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_plan_v2_trainer_manager_all
-msgid "Workout Plan V2 Trainer Manager All"
-msgstr "Plano de Treino V2 - Treinador/Gerente Acesso Total"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_plan_v2_phase_user_access
-msgid "Workout Plan V2 Phase User Access"
-msgstr "Acesso do Usuário à Fase do Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_plan_v2_phase_trainer_manager_all
-msgid "Workout Plan V2 Phase Trainer Manager All"
-msgstr "Fase do Plano de Treino V2 - Treinador/Gerente Acesso Total"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_plan_v2_day_user_access
-msgid "Workout Plan V2 Day User Access"
-msgstr "Acesso do Usuário ao Dia do Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_plan_v2_day_trainer_manager_all
-msgid "Workout Plan V2 Day Trainer Manager All"
-msgstr "Dia do Plano de Treino V2 - Treinador/Gerente Acesso Total"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_plan_v2_block_user_access
-msgid "Workout Plan V2 Block User Access"
-msgstr "Acesso do Usuário ao Bloco do Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_plan_v2_block_trainer_manager_all
-msgid "Workout Plan V2 Block Trainer Manager All"
-msgstr "Bloco do Plano de Treino V2 - Treinador/Gerente Acesso Total"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_plan_v2_line_user_access
-msgid "Workout Plan V2 Line User Access"
-msgstr "Acesso do Usuário à Linha do Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_plan_v2_line_trainer_manager_all
-msgid "Workout Plan V2 Line Trainer Manager All"
-msgstr "Linha do Plano de Treino V2 - Treinador/Gerente Acesso Total"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_plan_v2_activity_user_access
-msgid "Workout Plan V2 Activity User Access"
-msgstr "Acesso do Usuário à Atividade do Plano de Treino V2"
-
-#. module: fitness_workout
-#: model:ir.rule,name:fitness_workout.rule_fitness_plan_v2_activity_trainer_manager_all
-msgid "Workout Plan V2 Activity Trainer Manager All"
-msgstr "Atividade do Plano de Treino V2 - Treinador/Gerente Acesso Total"
-
-#. module: fitness_workout
-#: model:ir.constraint,message:fitness_workout.constraint_fitness_plan_v2_fitness_plan_v2_uuid_uniq
-msgid "Plan V2 UUID must be unique."
-msgstr "O UUID do Plano V2 deve ser único."
-
-#. module: fitness_workout
-#: model:ir.constraint,message:fitness_workout.constraint_fitness_exercise_fitness_exercise_uuid_uniq
-msgid "Exercise UUID must be unique."
-msgstr "O UUID do Exercício deve ser único."
-
-#. module: fitness_workout
-#: model:ir.constraint,message:fitness_workout.constraint_fitness_workout_session_fitness_workout_session_uuid_uniq
-msgid "Session UUID must be unique."
-msgstr "O UUID da Sessão deve ser único."
-
-#. module: fitness_workout
-#: model:ir.constraint,message:fitness_workout.constraint_fitness_workout_log_fitness_workout_log_uuid_uniq
-msgid "Workout log UUID must be unique."
-msgstr "O UUID do Registro de Treino deve ser único."
-
-#. module: fitness_workout
-#: model:ir.constraint,message:fitness_workout.constraint_fitness_routine_fitness_routine_uuid_uniq
-msgid "Routine UUID must be unique."
-msgstr "O UUID da Rotina deve ser único."
-
-#. module: fitness_workout
-#: model:ir.constraint,message:fitness_workout.constraint_fitness_equipment_fitness_equipment_wger_id_uniq
-#: model:ir.constraint,message:fitness_workout.constraint_fitness_exercise_category_fitness_exercise_category_wger_id_uniq
-#: model:ir.constraint,message:fitness_workout.constraint_fitness_exercise_fitness_exercise_wger_id_uniq
-#: model:ir.constraint,message:fitness_workout.constraint_fitness_muscle_fitness_muscle_wger_id_uniq
-msgid "wger ID must be unique."
-msgstr "O ID do WGER deve ser único."
+#: model:ir.ui.menu,name:fitness_workout.menu_workout_weight_unit
+msgid "Weight Units"
+msgstr "Unidades de Peso"

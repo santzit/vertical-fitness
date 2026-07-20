@@ -18,14 +18,14 @@
     </record>
 
     <!-- ============================================================ -->
-    <!-- Jack Steel — 2-month Beginner Level 1 assigned plan          -->
+    <!-- Jack Steel — 2-month Beginner Level 1 assigned plan           -->
     <!-- ============================================================ -->
-    <record id="demo_plan_v2_jack_beginner" model="fitness.plan.v2">
+    <record id="demo_plan_jack_beginner" model="fitness.workout.plan">
         <field name="name">Beginner Level 1 (Jack)</field>
         <field name="description">2-month beginner program assigned to Jack Steel.</field>
         <field name="plan_scope">user</field>
         <field name="partner_id" ref="demo_member_jack_steel"/>
-        <field name="origin_template_id" ref="fitness_workout.demo_plan_v2_beginner_l1"/>
+        <field name="origin_template_id" ref="fitness_workout.demo_plan_beginner_l1"/>
         <field name="is_template" eval="False"/>
         <field name="is_public" eval="False"/>
         <field name="state">active</field>
@@ -33,44 +33,44 @@
         <field name="end">2026-09-14</field>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_phase_1" model="fitness.plan.v2.phase">
-        <field name="plan_id" ref="demo_plan_v2_jack_beginner"/>
+    <record id="demo_plan_jack_beginner_day_1" model="fitness.workout.day">
+        <field name="plan_id" ref="demo_plan_jack_beginner"/>
         <field name="sequence">1</field>
         <field name="name">Foundation</field>
         <field name="start_offset">1</field>
         <field name="end_offset">4</field>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_day_1" model="fitness.plan.v2.day">
-        <field name="phase_id" ref="demo_plan_v2_jack_beginner_phase_1"/>
+    <record id="demo_plan_jack_beginner_slot_1" model="fitness.workout.slot">
+        <field name="day_id" ref="demo_plan_jack_beginner_day_1"/>
         <field name="sequence">1</field>
         <field name="name">Full Body A</field>
-        <field name="day_type">custom</field>
+        <field name="slot_type">custom</field>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_day_2" model="fitness.plan.v2.day">
-        <field name="phase_id" ref="demo_plan_v2_jack_beginner_phase_1"/>
+    <record id="demo_plan_jack_beginner_slot_2" model="fitness.workout.slot">
+        <field name="day_id" ref="demo_plan_jack_beginner_day_1"/>
         <field name="sequence">2</field>
         <field name="name">Full Body B</field>
-        <field name="day_type">custom</field>
+        <field name="slot_type">custom</field>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_block_1" model="fitness.plan.v2.block">
-        <field name="day_id" ref="demo_plan_v2_jack_beginner_day_1"/>
+    <record id="demo_plan_jack_beginner_block_1" model="fitness.workout.block">
+        <field name="slot_id" ref="demo_plan_jack_beginner_slot_1"/>
         <field name="sequence">1</field>
         <field name="name">Main Work A</field>
         <field name="block_type">single</field>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_block_2" model="fitness.plan.v2.block">
-        <field name="day_id" ref="demo_plan_v2_jack_beginner_day_2"/>
+    <record id="demo_plan_jack_beginner_block_2" model="fitness.workout.block">
+        <field name="slot_id" ref="demo_plan_jack_beginner_slot_2"/>
         <field name="sequence">1</field>
         <field name="name">Main Work B</field>
         <field name="block_type">single</field>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_line_1" model="fitness.plan.v2.line">
-        <field name="block_id" ref="demo_plan_v2_jack_beginner_block_1"/>
+    <record id="demo_plan_jack_beginner_entry_1" model="fitness.workout.entry">
+        <field name="block_id" ref="demo_plan_jack_beginner_block_1"/>
         <field name="sequence">1</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_push_ups"/>
         <field name="sets">3</field>
@@ -78,8 +78,8 @@
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_line_2" model="fitness.plan.v2.line">
-        <field name="block_id" ref="demo_plan_v2_jack_beginner_block_1"/>
+    <record id="demo_plan_jack_beginner_entry_2" model="fitness.workout.entry">
+        <field name="block_id" ref="demo_plan_jack_beginner_block_1"/>
         <field name="sequence">2</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_slow_squat"/>
         <field name="sets">3</field>
@@ -87,8 +87,8 @@
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_line_3" model="fitness.plan.v2.line">
-        <field name="block_id" ref="demo_plan_v2_jack_beginner_block_2"/>
+    <record id="demo_plan_jack_beginner_entry_3" model="fitness.workout.entry">
+        <field name="block_id" ref="demo_plan_jack_beginner_block_2"/>
         <field name="sequence">1</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_bench_press"/>
         <field name="sets">3</field>
@@ -97,8 +97,8 @@
         <field name="weight_unit_id" ref="fitness_workout.fitness_weight_unit_kg"/>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_line_4" model="fitness.plan.v2.line">
-        <field name="block_id" ref="demo_plan_v2_jack_beginner_block_2"/>
+    <record id="demo_plan_jack_beginner_entry_4" model="fitness.workout.entry">
+        <field name="block_id" ref="demo_plan_jack_beginner_block_2"/>
         <field name="sequence">2</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_romanian_deadlift"/>
         <field name="sets">3</field>
@@ -107,8 +107,8 @@
         <field name="weight_unit_id" ref="fitness_workout.fitness_weight_unit_kg"/>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_act_1" model="fitness.plan.v2.activity">
-        <field name="day_id" ref="demo_plan_v2_jack_beginner_day_1"/>
+    <record id="demo_plan_jack_beginner_card_1" model="fitness.workout.card">
+        <field name="slot_id" ref="demo_plan_jack_beginner_slot_1"/>
         <field name="sequence">1</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_push_ups"/>
         <field name="sets">3</field>
@@ -117,8 +117,8 @@
         <field name="scheduled_date">2026-07-21</field>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_act_2" model="fitness.plan.v2.activity">
-        <field name="day_id" ref="demo_plan_v2_jack_beginner_day_1"/>
+    <record id="demo_plan_jack_beginner_card_2" model="fitness.workout.card">
+        <field name="slot_id" ref="demo_plan_jack_beginner_slot_1"/>
         <field name="sequence">2</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_slow_squat"/>
         <field name="sets">3</field>
@@ -127,8 +127,8 @@
         <field name="scheduled_date">2026-07-21</field>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_act_3" model="fitness.plan.v2.activity">
-        <field name="day_id" ref="demo_plan_v2_jack_beginner_day_2"/>
+    <record id="demo_plan_jack_beginner_card_3" model="fitness.workout.card">
+        <field name="slot_id" ref="demo_plan_jack_beginner_slot_2"/>
         <field name="sequence">1</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_bench_press"/>
         <field name="sets">3</field>
@@ -138,8 +138,8 @@
         <field name="scheduled_date">2026-07-22</field>
     </record>
 
-    <record id="demo_plan_v2_jack_beginner_act_4" model="fitness.plan.v2.activity">
-        <field name="day_id" ref="demo_plan_v2_jack_beginner_day_2"/>
+    <record id="demo_plan_jack_beginner_card_4" model="fitness.workout.card">
+        <field name="slot_id" ref="demo_plan_jack_beginner_slot_2"/>
         <field name="sequence">2</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_romanian_deadlift"/>
         <field name="sets">3</field>
@@ -152,12 +152,12 @@
     <!-- ============================================================ -->
     <!-- Mike Muscle — 2-month Upper/Lower Split assigned plan         -->
     <!-- ============================================================ -->
-    <record id="demo_plan_v2_mike_upper_lower" model="fitness.plan.v2">
+    <record id="demo_plan_mike_upper_lower" model="fitness.workout.plan">
         <field name="name">Upper/Lower Split (Mike)</field>
         <field name="description">2-month upper/lower program assigned to Mike Muscle.</field>
         <field name="plan_scope">user</field>
         <field name="partner_id" ref="demo_member_mike_muscle"/>
-        <field name="origin_template_id" ref="fitness_workout.demo_plan_v2_upper_lower"/>
+        <field name="origin_template_id" ref="fitness_workout.demo_plan_upper_lower"/>
         <field name="is_template" eval="False"/>
         <field name="is_public" eval="False"/>
         <field name="state">active</field>
@@ -165,44 +165,44 @@
         <field name="end">2026-09-14</field>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_phase_1" model="fitness.plan.v2.phase">
-        <field name="plan_id" ref="demo_plan_v2_mike_upper_lower"/>
+    <record id="demo_plan_mike_upper_lower_day_1" model="fitness.workout.day">
+        <field name="plan_id" ref="demo_plan_mike_upper_lower"/>
         <field name="sequence">1</field>
         <field name="name">Upper/Lower Cycle</field>
         <field name="start_offset">1</field>
         <field name="end_offset">4</field>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_day_1" model="fitness.plan.v2.day">
-        <field name="phase_id" ref="demo_plan_v2_mike_upper_lower_phase_1"/>
+    <record id="demo_plan_mike_upper_lower_slot_1" model="fitness.workout.slot">
+        <field name="day_id" ref="demo_plan_mike_upper_lower_day_1"/>
         <field name="sequence">1</field>
         <field name="name">Upper Day</field>
-        <field name="day_type">custom</field>
+        <field name="slot_type">custom</field>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_day_2" model="fitness.plan.v2.day">
-        <field name="phase_id" ref="demo_plan_v2_mike_upper_lower_phase_1"/>
+    <record id="demo_plan_mike_upper_lower_slot_2" model="fitness.workout.slot">
+        <field name="day_id" ref="demo_plan_mike_upper_lower_day_1"/>
         <field name="sequence">2</field>
         <field name="name">Lower Day</field>
-        <field name="day_type">custom</field>
+        <field name="slot_type">custom</field>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_block_1" model="fitness.plan.v2.block">
-        <field name="day_id" ref="demo_plan_v2_mike_upper_lower_day_1"/>
+    <record id="demo_plan_mike_upper_lower_block_1" model="fitness.workout.block">
+        <field name="slot_id" ref="demo_plan_mike_upper_lower_slot_1"/>
         <field name="sequence">1</field>
         <field name="name">Upper Main</field>
         <field name="block_type">single</field>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_block_2" model="fitness.plan.v2.block">
-        <field name="day_id" ref="demo_plan_v2_mike_upper_lower_day_2"/>
+    <record id="demo_plan_mike_upper_lower_block_2" model="fitness.workout.block">
+        <field name="slot_id" ref="demo_plan_mike_upper_lower_slot_2"/>
         <field name="sequence">1</field>
         <field name="name">Lower Main</field>
         <field name="block_type">single</field>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_line_1" model="fitness.plan.v2.line">
-        <field name="block_id" ref="demo_plan_v2_mike_upper_lower_block_1"/>
+    <record id="demo_plan_mike_upper_lower_entry_1" model="fitness.workout.entry">
+        <field name="block_id" ref="demo_plan_mike_upper_lower_block_1"/>
         <field name="sequence">1</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_bench_press"/>
         <field name="sets">4</field>
@@ -211,8 +211,8 @@
         <field name="weight_unit_id" ref="fitness_workout.fitness_weight_unit_kg"/>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_line_2" model="fitness.plan.v2.line">
-        <field name="block_id" ref="demo_plan_v2_mike_upper_lower_block_1"/>
+    <record id="demo_plan_mike_upper_lower_entry_2" model="fitness.workout.entry">
+        <field name="block_id" ref="demo_plan_mike_upper_lower_block_1"/>
         <field name="sequence">2</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_overhead_press"/>
         <field name="sets">3</field>
@@ -221,8 +221,8 @@
         <field name="weight_unit_id" ref="fitness_workout.fitness_weight_unit_kg"/>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_line_3" model="fitness.plan.v2.line">
-        <field name="block_id" ref="demo_plan_v2_mike_upper_lower_block_2"/>
+    <record id="demo_plan_mike_upper_lower_entry_3" model="fitness.workout.entry">
+        <field name="block_id" ref="demo_plan_mike_upper_lower_block_2"/>
         <field name="sequence">1</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_romanian_deadlift"/>
         <field name="sets">4</field>
@@ -231,8 +231,8 @@
         <field name="weight_unit_id" ref="fitness_workout.fitness_weight_unit_kg"/>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_line_4" model="fitness.plan.v2.line">
-        <field name="block_id" ref="demo_plan_v2_mike_upper_lower_block_2"/>
+    <record id="demo_plan_mike_upper_lower_entry_4" model="fitness.workout.entry">
+        <field name="block_id" ref="demo_plan_mike_upper_lower_block_2"/>
         <field name="sequence">2</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_slow_squat"/>
         <field name="sets">3</field>
@@ -240,8 +240,8 @@
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_act_1" model="fitness.plan.v2.activity">
-        <field name="day_id" ref="demo_plan_v2_mike_upper_lower_day_1"/>
+    <record id="demo_plan_mike_upper_lower_card_1" model="fitness.workout.card">
+        <field name="slot_id" ref="demo_plan_mike_upper_lower_slot_1"/>
         <field name="sequence">1</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_bench_press"/>
         <field name="sets">4</field>
@@ -251,8 +251,8 @@
         <field name="scheduled_date">2026-07-21</field>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_act_2" model="fitness.plan.v2.activity">
-        <field name="day_id" ref="demo_plan_v2_mike_upper_lower_day_1"/>
+    <record id="demo_plan_mike_upper_lower_card_2" model="fitness.workout.card">
+        <field name="slot_id" ref="demo_plan_mike_upper_lower_slot_1"/>
         <field name="sequence">2</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_overhead_press"/>
         <field name="sets">3</field>
@@ -262,8 +262,8 @@
         <field name="scheduled_date">2026-07-21</field>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_act_3" model="fitness.plan.v2.activity">
-        <field name="day_id" ref="demo_plan_v2_mike_upper_lower_day_2"/>
+    <record id="demo_plan_mike_upper_lower_card_3" model="fitness.workout.card">
+        <field name="slot_id" ref="demo_plan_mike_upper_lower_slot_2"/>
         <field name="sequence">1</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_romanian_deadlift"/>
         <field name="sets">4</field>
@@ -273,8 +273,8 @@
         <field name="scheduled_date">2026-07-22</field>
     </record>
 
-    <record id="demo_plan_v2_mike_upper_lower_act_4" model="fitness.plan.v2.activity">
-        <field name="day_id" ref="demo_plan_v2_mike_upper_lower_day_2"/>
+    <record id="demo_plan_mike_upper_lower_card_4" model="fitness.workout.card">
+        <field name="slot_id" ref="demo_plan_mike_upper_lower_slot_2"/>
         <field name="sequence">2</field>
         <field name="exercise_id" ref="fitness_workout.demo_exercise_slow_squat"/>
         <field name="sets">3</field>
