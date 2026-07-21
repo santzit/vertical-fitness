@@ -21,4 +21,8 @@
         action="action_fitness_muscle" sequence="20"/>
     <menuitem id="menu_workout_categories" name="Categories" parent="menu_workout_configuration"
         action="action_fitness_exercise_category" sequence="30"/>
+    <menuitem id="menu_workout_repetition_unit" name="Repetition Units" parent="menu_workout_configuration"
+        action="action_fitness_repetition_unit" sequence="40"/>
+    <menuitem id="menu_workout_weight_unit" name="Weight Units" parent="menu_workout_configuration"
+        action="action_fitness_weight_unit" sequence="50"/>
 </odoo>
