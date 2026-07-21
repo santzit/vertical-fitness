@@ -10,7 +10,7 @@
         <field name="arch" type="xml">
             <list string="Members">
                 <field name="name"/>
-                <field name="membership_state" string="Status" widget="badge"
+                <field name="membership_state" string="State" widget="badge"
                        decoration-info="membership_state == 'waiting'"
                        decoration-success="membership_state in ['invoiced', 'free', 'paid']"/>
                 <field name="membership_start" string="Start date"/>
