@@ -2,6 +2,32 @@
 <odoo>
 
     <!-- ============================================================ -->
+    <!-- LIST: Dedicated workout members list (not touching core)      -->
+    <!-- ============================================================ -->
+    <record model="ir.ui.view" id="view_fitness_membership_members_list">
+        <field name="name">fitness.membership.members.list</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <list string="Members">
+                <field name="name"/>
+                <field name="membership_state" string="Status" widget="badge"
+                       decoration-info="membership_state == 'waiting'"
+                       decoration-success="membership_state in ['invoiced', 'free', 'paid']"/>
+                <field name="membership_start"/>
+                <field name="membership_stop"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <button name="%(action_fitness_membership_member_plans)d"
+                        type="action"
+                        string="Workouts"
+                        icon="fa-dumbbell"
+                        class="btn-link"
+                        context="{'active_id': id, 'target_partner_id': id, 'default_target_partner_id': id}"
+                />
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================================================ -->
     <!-- LIST: WGER-style Templates list (Name, Start, End, Duration, State, Origin) -->
     <!-- ============================================================ -->
     <record model="ir.ui.view" id="view_fitness_membership_template_list_wger">
@@ -117,7 +143,7 @@
     </record>
 
     <!-- ============================================================ -->
-    <!-- ACTION: Members list-first (overrides membership action)      -->
+    <!-- ACTION: Members list-first (workout members, not core)        -->
     <!-- ============================================================ -->
     <record model="ir.actions.act_window" id="action_fitness_membership_members">
         <field name="name">Members</field>
@@ -132,7 +158,7 @@
     <record model="ir.actions.act_window.view" id="action_fitness_membership_members_view_list">
         <field name="sequence" eval="1"/>
         <field name="view_mode">list</field>
-        <field name="view_id" ref="membership.membership_members_tree"/>
+        <field name="view_id" ref="view_fitness_membership_members_list"/>
         <field name="act_window_id" ref="action_fitness_membership_members"/>
     </record>
 
@@ -153,25 +179,5 @@
         action="action_fitness_membership_members"
         sequence="35"
     />
-
-    <!-- ============================================================ -->
-    <!-- INHERIT: Add Workouts button to Members list                  -->
-    <!-- ============================================================ -->
-    <record model="ir.ui.view" id="membership_members_tree_inherit_workout">
-        <field name="name">membership.membership_members_tree.workout</field>
-        <field name="model">res.partner</field>
-        <field name="inherit_id" ref="membership.membership_members_tree"/>
-        <field name="arch" type="xml">
-            <field name="company_id" position="after">
-                <button name="%(action_fitness_membership_member_plans)d"
-                        type="action"
-                        string="Workouts"
-                        icon="fa-dumbbell"
-                        class="btn-link"
-                        context="{'active_id': id, 'target_partner_id': id, 'default_target_partner_id': id}"
-                />
-            </field>
-        </field>
-    </record>
 
 </odoo>
