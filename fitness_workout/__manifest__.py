@@ -12,7 +12,6 @@
         "base",
         "mail",
         "contacts",
-        "membership_extension",
     ],
     "data": [
         "security/fitness_security.xml",
