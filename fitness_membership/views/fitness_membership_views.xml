@@ -10,11 +10,13 @@
         <field name="arch" type="xml">
             <list string="Members">
                 <field name="name"/>
-                <field name="membership_state" string="State" widget="badge"
+                <field name="membership_state" string="Status" widget="badge"
                        decoration-info="membership_state == 'waiting'"
                        decoration-success="membership_state in ['invoiced', 'free', 'paid']"/>
                 <field name="membership_start" string="Start date"/>
                 <field name="membership_stop" string="End date"/>
+                <field name="membership_duration_text" string="Duration"/>
+                <field name="membership_remaining_text" string="Remaining"/>
                 <field name="company_id" groups="base.group_multi_company"/>
                 <button name="%(action_fitness_membership_member_plans)d"
                         type="action"
