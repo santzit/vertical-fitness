@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
     <!-- ============================================================ -->
+    <!-- Membership Product: Annual Gym Workout Plan                    -->
+    <!-- ============================================================ -->
+    <record id="demo_membership_product_annual_gym" model="product.template">
+        <field name="name">Annual gym workout plan</field>
+        <field name="membership" eval="True"/>
+        <field name="type">service</field>
+        <field name="membership_date_from" eval="DateTime.today()"/>
+        <field name="membership_date_to" eval="DateTime.today() + relativedelta(years=1)"/>
+    </record>
+
+    <!-- ============================================================ -->
     <!-- Member Partners                                               -->
     <!-- ============================================================ -->
     <record id="demo_member_jack_steel" model="res.partner">
@@ -14,8 +25,38 @@
         <field name="name">Mike Muscle</field>
         <field name="email">mike.muscle@example.com</field>
         <field name="phone">+55 47 99917 7502</field>
-        <field name="free_member" eval="True"/>
+        <field name="free_member" eval="False"/>
     </record>
+
+    <!-- ============================================================ -->
+    <!-- Mike Muscle — membership invoice + payment                    -->
+    <!-- ============================================================ -->
+    <record id="demo_mike_membership_invoice" model="account.move">
+        <field name="move_type">out_invoice</field>
+        <field name="partner_id" ref="demo_member_mike_muscle"/>
+        <field name="invoice_date" eval="DateTime.today().strftime('%Y-%m-%d')"/>
+    </record>
+
+    <record id="demo_mike_membership_invoice_line" model="account.move.line">
+        <field name="move_id" ref="demo_mike_membership_invoice"/>
+        <field name="name">Annual gym workout plan</field>
+        <field name="product_id" search="[('product_tmpl_id', '=', ref('demo_membership_product_annual_gym'))]"/>
+        <field name="quantity">1.0</field>
+        <field name="price_unit">100.0</field>
+    </record>
+
+    <function model="account.move" name="action_post">
+        <value model="account.move" search="[('id', '=', ref('demo_mike_membership_invoice'))]"/>
+    </function>
+
+    <record id="demo_mike_membership_payment_register" model="account.payment.register"
+        context="{'active_model': 'account.move', 'active_ids': [ref('demo_mike_membership_invoice')]}">
+        <field name="payment_date" eval="DateTime.today().strftime('%Y-%m-%d')"/>
+    </record>
+
+    <function model="account.payment.register" name="action_create_payments">
+        <value model="account.payment.register" search="[('id', '=', ref('demo_mike_membership_payment_register'))]"/>
+    </function>
 
     <!-- ============================================================ -->
     <!-- Jack Steel — 2-month Beginner Level 1 assigned plan           -->
@@ -25,7 +66,7 @@
         <field name="description">2-month beginner program assigned to Jack Steel.</field>
         <field name="plan_scope">user</field>
         <field name="partner_id" ref="demo_member_jack_steel"/>
-        <field name="origin_template_id" ref="fitness_workout.demo_plan_beginner_l1"/>
+        <!-- origin_template_id omitted: demo template plans load after membership demo -->
         <field name="is_template" eval="False"/>
         <field name="is_public" eval="False"/>
         <field name="state">active</field>
@@ -72,7 +113,7 @@
     <record id="demo_plan_jack_beginner_entry_1" model="fitness.workout.entry">
         <field name="block_id" ref="demo_plan_jack_beginner_block_1"/>
         <field name="sequence">1</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_push_ups"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_386"/>
         <field name="sets">3</field>
         <field name="reps">12</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -81,7 +122,7 @@
     <record id="demo_plan_jack_beginner_entry_2" model="fitness.workout.entry">
         <field name="block_id" ref="demo_plan_jack_beginner_block_1"/>
         <field name="sequence">2</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_slow_squat"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_1963"/>
         <field name="sets">3</field>
         <field name="reps">15</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -90,7 +131,7 @@
     <record id="demo_plan_jack_beginner_entry_3" model="fitness.workout.entry">
         <field name="block_id" ref="demo_plan_jack_beginner_block_2"/>
         <field name="sequence">1</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_bench_press"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_73"/>
         <field name="sets">3</field>
         <field name="reps">10</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -100,7 +141,7 @@
     <record id="demo_plan_jack_beginner_entry_4" model="fitness.workout.entry">
         <field name="block_id" ref="demo_plan_jack_beginner_block_2"/>
         <field name="sequence">2</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_romanian_deadlift"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_507"/>
         <field name="sets">3</field>
         <field name="reps">10</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -110,7 +151,7 @@
     <record id="demo_plan_jack_beginner_card_1" model="fitness.workout.card">
         <field name="slot_id" ref="demo_plan_jack_beginner_slot_1"/>
         <field name="sequence">1</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_push_ups"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_386"/>
         <field name="sets">3</field>
         <field name="reps">12</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -120,7 +161,7 @@
     <record id="demo_plan_jack_beginner_card_2" model="fitness.workout.card">
         <field name="slot_id" ref="demo_plan_jack_beginner_slot_1"/>
         <field name="sequence">2</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_slow_squat"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_1963"/>
         <field name="sets">3</field>
         <field name="reps">15</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -130,7 +171,7 @@
     <record id="demo_plan_jack_beginner_card_3" model="fitness.workout.card">
         <field name="slot_id" ref="demo_plan_jack_beginner_slot_2"/>
         <field name="sequence">1</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_bench_press"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_73"/>
         <field name="sets">3</field>
         <field name="reps">10</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -141,7 +182,7 @@
     <record id="demo_plan_jack_beginner_card_4" model="fitness.workout.card">
         <field name="slot_id" ref="demo_plan_jack_beginner_slot_2"/>
         <field name="sequence">2</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_romanian_deadlift"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_507"/>
         <field name="sets">3</field>
         <field name="reps">10</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -157,7 +198,7 @@
         <field name="description">2-month upper/lower program assigned to Mike Muscle.</field>
         <field name="plan_scope">user</field>
         <field name="partner_id" ref="demo_member_mike_muscle"/>
-        <field name="origin_template_id" ref="fitness_workout.demo_plan_upper_lower"/>
+        <!-- origin_template_id omitted: demo template plans load after membership demo -->
         <field name="is_template" eval="False"/>
         <field name="is_public" eval="False"/>
         <field name="state">active</field>
@@ -204,7 +245,7 @@
     <record id="demo_plan_mike_upper_lower_entry_1" model="fitness.workout.entry">
         <field name="block_id" ref="demo_plan_mike_upper_lower_block_1"/>
         <field name="sequence">1</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_bench_press"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_73"/>
         <field name="sets">4</field>
         <field name="reps">8</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -214,7 +255,7 @@
     <record id="demo_plan_mike_upper_lower_entry_2" model="fitness.workout.entry">
         <field name="block_id" ref="demo_plan_mike_upper_lower_block_1"/>
         <field name="sequence">2</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_overhead_press"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_687"/>
         <field name="sets">3</field>
         <field name="reps">10</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -224,7 +265,7 @@
     <record id="demo_plan_mike_upper_lower_entry_3" model="fitness.workout.entry">
         <field name="block_id" ref="demo_plan_mike_upper_lower_block_2"/>
         <field name="sequence">1</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_romanian_deadlift"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_507"/>
         <field name="sets">4</field>
         <field name="reps">8</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -234,7 +275,7 @@
     <record id="demo_plan_mike_upper_lower_entry_4" model="fitness.workout.entry">
         <field name="block_id" ref="demo_plan_mike_upper_lower_block_2"/>
         <field name="sequence">2</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_slow_squat"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_1963"/>
         <field name="sets">3</field>
         <field name="reps">12</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -243,7 +284,7 @@
     <record id="demo_plan_mike_upper_lower_card_1" model="fitness.workout.card">
         <field name="slot_id" ref="demo_plan_mike_upper_lower_slot_1"/>
         <field name="sequence">1</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_bench_press"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_73"/>
         <field name="sets">4</field>
         <field name="reps">8</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -254,7 +295,7 @@
     <record id="demo_plan_mike_upper_lower_card_2" model="fitness.workout.card">
         <field name="slot_id" ref="demo_plan_mike_upper_lower_slot_1"/>
         <field name="sequence">2</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_overhead_press"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_687"/>
         <field name="sets">3</field>
         <field name="reps">10</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -265,7 +306,7 @@
     <record id="demo_plan_mike_upper_lower_card_3" model="fitness.workout.card">
         <field name="slot_id" ref="demo_plan_mike_upper_lower_slot_2"/>
         <field name="sequence">1</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_romanian_deadlift"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_507"/>
         <field name="sets">4</field>
         <field name="reps">8</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>
@@ -276,7 +317,7 @@
     <record id="demo_plan_mike_upper_lower_card_4" model="fitness.workout.card">
         <field name="slot_id" ref="demo_plan_mike_upper_lower_slot_2"/>
         <field name="sequence">2</field>
-        <field name="exercise_id" ref="fitness_workout.demo_exercise_slow_squat"/>
+        <field name="exercise_id" ref="fitness_workout.demo_wger_exercise_1963"/>
         <field name="sets">3</field>
         <field name="reps">12</field>
         <field name="repetition_unit_id" ref="fitness_workout.fitness_repetition_unit_repetitions"/>

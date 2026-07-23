@@ -2,8 +2,40 @@
 <odoo>
 
     <!-- ============================================================ -->
-    <!-- LIST: Dedicated workout members list (not touching core)      -->
+    <!-- ACTIONS (no view_id refs — pinned via act_window.view below)   -->
     <!-- ============================================================ -->
+
+    <record model="ir.actions.act_window" id="action_fitness_membership_member_plans">
+        <field name="name">Workout Plans</field>
+        <field name="res_model">fitness.workout.plan</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('plan_scope', '=', 'user'), ('partner_id', '=', active_id)]</field>
+        <field name="context">{'create': False, 'target_partner_id': active_id, 'default_target_partner_id': active_id}</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_fitness_membership_assign_templates">
+        <field name="name">Assign Workout Plans</field>
+        <field name="res_model">fitness.workout.plan</field>
+        <field name="view_mode">list</field>
+        <field name="domain">[('plan_scope', '=', 'template')]</field>
+        <field name="context">{'create': False}</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_fitness_membership_members">
+        <field name="name">Members</field>
+        <field name="path">workout-members</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="membership.view_res_partner_member_filter"/>
+        <field name="domain">[('membership_state', 'in', ['invoiced', 'paid', 'free'])]</field>
+        <field name="context">{'search_default_all_members': 1}</field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- VIEWS                                                         -->
+    <!-- ============================================================ -->
+
+    <!-- LIST: Dedicated workout members list (not touching core)      -->
     <record model="ir.ui.view" id="view_fitness_membership_members_list">
         <field name="name">fitness.membership.members.list</field>
         <field name="model">res.partner</field>
@@ -29,9 +61,7 @@
         </field>
     </record>
 
-    <!-- ============================================================ -->
-    <!-- LIST: WGER-style Templates list (Name, Start, End, Duration, State, Origin) -->
-    <!-- ============================================================ -->
+    <!-- LIST: WGER-style Templates list -->
     <record model="ir.ui.view" id="view_fitness_membership_template_list_wger">
         <field name="name">fitness.workout.plan.membership.template.list.wger</field>
         <field name="model">fitness.workout.plan</field>
@@ -47,23 +77,7 @@
         </field>
     </record>
 
-    <!-- Pin WGER-style list view to the Templates action -->
-    <record model="ir.actions.act_window.view" id="action_fitness_membership_templates_view_list">
-        <field name="sequence" eval="1"/>
-        <field name="view_mode">list</field>
-        <field name="view_id" ref="view_fitness_membership_template_list_wger"/>
-        <field name="act_window_id" ref="fitness_workout.action_fitness_workout_templates"/>
-    </record>
-
-    <record model="ir.actions.act_window.view" id="action_fitness_membership_templates_view_form">
-        <field name="sequence" eval="2"/>
-        <field name="view_mode">form</field>
-        <field name="act_window_id" ref="fitness_workout.action_fitness_workout_templates"/>
-    </record>
-
-    <!-- ============================================================ -->
-    <!-- LIST: Template list with Assign Selected button               -->
-    <!-- ============================================================ -->
+    <!-- LIST: Template list with Assign Selected button -->
     <record model="ir.ui.view" id="view_fitness_membership_template_list">
         <field name="name">fitness.workout.plan.membership.template.list</field>
         <field name="model">fitness.workout.plan</field>
@@ -85,9 +99,7 @@
         </field>
     </record>
 
-    <!-- ============================================================ -->
-    <!-- LIST: Member workouts with Assign button                      -->
-    <!-- ============================================================ -->
+    <!-- LIST: Member workouts with Assign button -->
     <record model="ir.ui.view" id="view_fitness_membership_member_plans_list">
         <field name="name">fitness.workout.plan.membership.member.plans.list</field>
         <field name="model">fitness.workout.plan</field>
@@ -109,15 +121,20 @@
     </record>
 
     <!-- ============================================================ -->
-    <!-- ACTION: Member's assigned workout plans                       -->
+    <!-- ACT_WINDOW.VIEW BINDINGS (pin views to actions)               -->
     <!-- ============================================================ -->
-    <record model="ir.actions.act_window" id="action_fitness_membership_member_plans">
-        <field name="name">Workout Plans</field>
-        <field name="res_model">fitness.workout.plan</field>
-        <field name="view_mode">list,form</field>
-        <field name="view_id" ref="view_fitness_membership_member_plans_list"/>
-        <field name="domain">[('plan_scope', '=', 'user'), ('partner_id', '=', active_id)]</field>
-        <field name="context">{'create': False, 'target_partner_id': active_id, 'default_target_partner_id': active_id}</field>
+
+    <record model="ir.actions.act_window.view" id="action_fitness_membership_templates_view_list">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_fitness_membership_template_list_wger"/>
+        <field name="act_window_id" ref="fitness_workout.action_fitness_workout_templates"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_fitness_membership_templates_view_form">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="act_window_id" ref="fitness_workout.action_fitness_workout_templates"/>
     </record>
 
     <record model="ir.actions.act_window.view" id="action_fitness_membership_member_plans_view_list">
@@ -131,30 +148,6 @@
         <field name="sequence" eval="2"/>
         <field name="view_mode">form</field>
         <field name="act_window_id" ref="action_fitness_membership_member_plans"/>
-    </record>
-
-    <!-- ============================================================ -->
-    <!-- ACTION: Assign templates (template list with search)          -->
-    <!-- ============================================================ -->
-    <record model="ir.actions.act_window" id="action_fitness_membership_assign_templates">
-        <field name="name">Assign Workout Plans</field>
-        <field name="res_model">fitness.workout.plan</field>
-        <field name="view_mode">list</field>
-        <field name="domain">[('plan_scope', '=', 'template')]</field>
-        <field name="context">{'create': False}</field>
-    </record>
-
-    <!-- ============================================================ -->
-    <!-- ACTION: Members list-first (workout members, not core)        -->
-    <!-- ============================================================ -->
-    <record model="ir.actions.act_window" id="action_fitness_membership_members">
-        <field name="name">Members</field>
-        <field name="path">workout-members</field>
-        <field name="res_model">res.partner</field>
-        <field name="view_mode">list,form</field>
-        <field name="search_view_id" ref="membership.view_res_partner_member_filter"/>
-        <field name="domain">[('membership_state', 'in', ['invoiced', 'paid', 'free'])]</field>
-        <field name="context">{'search_default_all_members': 1}</field>
     </record>
 
     <record model="ir.actions.act_window.view" id="action_fitness_membership_members_view_list">

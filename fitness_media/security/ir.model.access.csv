@@ -1,4 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_fitness_media_user,fitness.media user,model_fitness_media,fitness_workout.group_workout_user,1,0,0,0
-access_fitness_media_trainer,fitness.media trainer,model_fitness_media,fitness_workout.group_workout_trainer,1,1,1,1
-access_fitness_media_manager,fitness.media manager,model_fitness_media,fitness_workout.group_workout_manager,1,1,1,1
+access_fitness_media_internal,fitness.media internal,model_fitness_media,base.group_user,1,0,0,0
+access_fitness_media_system,fitness.media system,model_fitness_media,base.group_system,1,1,1,1

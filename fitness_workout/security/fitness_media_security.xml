@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_fitness_media_user_read_scope" model="ir.rule">
+        <field name="name">Fitness Media User Read Scope</field>
+        <field name="model_id" ref="fitness_media.model_fitness_media"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_user'))]"/>
+        <field name="domain_force">['|', ('owner_partner_id', '=', user.partner_id.id), '&amp;', ('owner_partner_id', '=', False), '&amp;', ('exercise_id', '!=', False), ('media_kind', '=', 'exercise_image')]</field>
+    </record>
+
+    <record id="rule_fitness_media_trainer_manager_all" model="ir.rule">
+        <field name="name">Fitness Media Trainer Manager All</field>
+        <field name="model_id" ref="fitness_media.model_fitness_media"/>
+        <field name="groups" eval="[(4, ref('fitness_workout.group_workout_trainer')), (4, ref('fitness_workout.group_workout_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+</odoo>
