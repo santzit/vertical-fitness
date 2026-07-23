@@ -1,41 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <data noupdate="1">
-        <!-- Plan headers for portal user; post_init_hook clones template content -->
-        <record id="demo_portal_routine_beginner" model="fitness.workout.plan">
-            <field name="name">Beginner Level 1</field>
-            <field name="description">Personal copy of the Beginner Level 1 plan, assigned by your trainer.</field>
-            <field name="plan_scope">user</field>
-            <field name="partner_id" ref="base.partner_demo_portal"/>
-            <field name="start" eval="(DateTime.today() + timedelta(days=0)).strftime('%Y-%m-%d')"/>
-            <field name="end" eval="(DateTime.today() + timedelta(days=56)).strftime('%Y-%m-%d')"/>
-            <field name="is_template">False</field>
-            <field name="is_public">False</field>
-            <field name="state">active</field>
-        </record>
+    <record id="demo_portal_routine_beginner" model="fitness.workout.plan" noupdate="1">
+        <field name="name">Beginner Level 1</field>
+        <field name="description">Personal copy of the Beginner Level 1 plan, assigned by your trainer.</field>
+        <field name="plan_scope">user</field>
+        <field name="partner_id" ref="base.partner_demo_portal"/>
+        <field name="start" eval="(DateTime.today() + timedelta(days=0)).strftime('%Y-%m-%d')"/>
+        <field name="end" eval="(DateTime.today() + timedelta(days=56)).strftime('%Y-%m-%d')"/>
+        <field name="is_template">False</field>
+        <field name="is_public">False</field>
+        <field name="state">active</field>
+    </record>
 
-        <record id="demo_portal_routine_ppl" model="fitness.workout.plan">
-            <field name="name">Push Pull Legs</field>
-            <field name="description">Your personal 6-day Push/Pull/Legs training split.</field>
-            <field name="plan_scope">user</field>
-            <field name="partner_id" ref="base.partner_demo_portal"/>
-            <field name="start" eval="(DateTime.today() + timedelta(days=57)).strftime('%Y-%m-%d')"/>
-            <field name="end" eval="(DateTime.today() + timedelta(days=98)).strftime('%Y-%m-%d')"/>
-            <field name="is_template">False</field>
-            <field name="is_public">False</field>
-            <field name="state">active</field>
-        </record>
+    <record id="demo_portal_routine_ppl" model="fitness.workout.plan" noupdate="1">
+        <field name="name">Push Pull Legs</field>
+        <field name="description">Your personal 6-day Push/Pull/Legs training split.</field>
+        <field name="plan_scope">user</field>
+        <field name="partner_id" ref="base.partner_demo_portal"/>
+        <field name="start" eval="(DateTime.today() + timedelta(days=57)).strftime('%Y-%m-%d')"/>
+        <field name="end" eval="(DateTime.today() + timedelta(days=98)).strftime('%Y-%m-%d')"/>
+        <field name="is_template">False</field>
+        <field name="is_public">False</field>
+        <field name="state">active</field>
+    </record>
 
-        <record id="demo_portal_routine_upper_lower" model="fitness.workout.plan">
-            <field name="name">4-Day Upper/Lower Split</field>
-            <field name="description">4-day upper/lower split with progressive overload focus.</field>
-            <field name="plan_scope">user</field>
-            <field name="partner_id" ref="base.partner_demo_portal"/>
-            <field name="start" eval="(DateTime.today() + timedelta(days=99)).strftime('%Y-%m-%d')"/>
-            <field name="end" eval="(DateTime.today() + timedelta(days=154)).strftime('%Y-%m-%d')"/>
-            <field name="is_template">False</field>
-            <field name="is_public">False</field>
-            <field name="state">draft</field>
-        </record>
-    </data>
+    <record id="demo_portal_routine_upper_lower" model="fitness.workout.plan" noupdate="1">
+        <field name="name">4-Day Upper/Lower Split</field>
+        <field name="description">4-day upper/lower split with progressive overload focus.</field>
+        <field name="plan_scope">user</field>
+        <field name="partner_id" ref="base.partner_demo_portal"/>
+        <field name="start" eval="(DateTime.today() + timedelta(days=99)).strftime('%Y-%m-%d')"/>
+        <field name="end" eval="(DateTime.today() + timedelta(days=154)).strftime('%Y-%m-%d')"/>
+        <field name="is_template">False</field>
+        <field name="is_public">False</field>
+        <field name="state">draft</field>
+    </record>
 </odoo>

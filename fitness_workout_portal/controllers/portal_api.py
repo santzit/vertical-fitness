@@ -9,9 +9,12 @@ _logger = logging.getLogger(__name__)
 
 def _json_response(data, status=200):
     payload = json.dumps(data, default=str)
-    resp = request.make_response(payload, headers={
-        "Content-Type": "application/json",
-    })
+    resp = request.make_response(
+        payload,
+        headers={
+            "Content-Type": "application/json",
+        },
+    )
     resp.status = str(status)
     return resp
 
@@ -26,7 +29,6 @@ def _get_int(value, default=None):
 
 
 class PortalWorkoutApiController(http.Controller):
-
     @http.route(
         "/my/workouts/api/dashboard",
         type="http",
@@ -39,11 +41,13 @@ class PortalWorkoutApiController(http.Controller):
         routines = (
             request.env["fitness.workout.plan"]
             .sudo()
-            .search([
-                ("plan_scope", "=", "user"),
-                ("partner_id", "=", partner.id),
-                ("active", "=", True),
-            ])
+            .search(
+                [
+                    ("plan_scope", "=", "user"),
+                    ("partner_id", "=", partner.id),
+                    ("active", "=", True),
+                ]
+            )
         )
         active_routine = routines[:1]
         recent_exercises = (
@@ -93,17 +97,15 @@ class PortalWorkoutApiController(http.Controller):
             .sudo()
             .search(domain, limit=limit, offset=offset, order="start desc")
         )
-        total = (
-            request.env["fitness.workout.plan"]
-            .sudo()
-            .search_count(domain)
+        total = request.env["fitness.workout.plan"].sudo().search_count(domain)
+        return _json_response(
+            {
+                "count": total,
+                "next": None,
+                "previous": None,
+                "results": [_serialize_routine_brief(p) for p in plans],
+            }
         )
-        return _json_response({
-            "count": total,
-            "next": None,
-            "previous": None,
-            "results": [_serialize_routine_brief(p) for p in plans],
-        })
 
     @http.route(
         "/my/workouts/api/routines/<int:routine_id>",
@@ -260,7 +262,9 @@ def _serialize_exercise(exercise):
         "category": {
             "id": exercise.category_id.id,
             "name": exercise.category_id.name or "",
-        } if exercise.category_id else None,
+        }
+        if exercise.category_id
+        else None,
         "muscles": [
             {"id": m.id, "name": m.name or "", "is_front": bool(m.is_front)}
             for m in exercise.muscle_ids
@@ -270,8 +274,7 @@ def _serialize_exercise(exercise):
             for m in exercise.muscles_secondary_ids
         ],
         "equipment": [
-            {"id": e.id, "name": e.name or ""}
-            for e in exercise.equipment_ids
+            {"id": e.id, "name": e.name or ""} for e in exercise.equipment_ids
         ],
         "images": images,
         "video_url": exercise.video_url or None,

@@ -9,79 +9,109 @@ class TestPortalWorkoutAccess(HttpCase):
         super().setUp()
         self.base_url = self.env["ir.config_parameter"].get_param("web.base.url")
 
-        self.trainer = self.env["res.users"].create({
-            "login": "portal_trainer",
-            "name": "Portal Trainer",
-            "password": "test",
-            "groups_id": [(4, self.env.ref("base.group_user").id)],
-        })
+        self.trainer = self.env["res.users"].create(
+            {
+                "login": "portal_trainer",
+                "name": "Portal Trainer",
+                "password": "test",
+                "groups_id": [(4, self.env.ref("base.group_user").id)],
+            }
+        )
 
-        self.portal_user = self.env["res.users"].create({
-            "login": "portal_member",
-            "name": "Portal Member",
-            "password": "test",
-            "groups_id": [
-                (4, self.env.ref("base.group_portal").id),
-            ],
-        })
+        self.portal_user = self.env["res.users"].create(
+            {
+                "login": "portal_member",
+                "name": "Portal Member",
+                "password": "test",
+                "groups_id": [
+                    (4, self.env.ref("base.group_portal").id),
+                ],
+            }
+        )
 
-        self.other_portal = self.env["res.users"].create({
-            "login": "portal_other",
-            "name": "Other Member",
-            "password": "test",
-            "groups_id": [
-                (4, self.env.ref("base.group_portal").id),
-            ],
-        })
+        self.other_portal = self.env["res.users"].create(
+            {
+                "login": "portal_other",
+                "name": "Other Member",
+                "password": "test",
+                "groups_id": [
+                    (4, self.env.ref("base.group_portal").id),
+                ],
+            }
+        )
 
         self.partner = self.portal_user.partner_id
 
-        self.user_routine = self.env["fitness.workout.plan"].sudo().create({
-            "name": "My Routine",
-            "description": "Test routine for portal",
-            "plan_scope": "user",
-            "partner_id": self.partner.id,
-            "start": "2026-01-01",
-            "end": "2026-03-31",
-            "is_template": False,
-            "is_public": False,
-            "state": "active",
-        })
+        self.user_routine = (
+            self.env["fitness.workout.plan"]
+            .sudo()
+            .create(
+                {
+                    "name": "My Routine",
+                    "description": "Test routine for portal",
+                    "plan_scope": "user",
+                    "partner_id": self.partner.id,
+                    "start": "2026-01-01",
+                    "end": "2026-03-31",
+                    "is_template": False,
+                    "is_public": False,
+                    "state": "active",
+                }
+            )
+        )
 
-        self.public_template = self.env["fitness.workout.plan"].sudo().create({
-            "name": "Public Template",
-            "description": "A public template",
-            "plan_scope": "template",
-            "partner_id": self.trainer.partner_id.id,
-            "start": "2026-01-01",
-            "end": "2026-06-30",
-            "is_template": True,
-            "is_public": True,
-            "state": "active",
-        })
+        self.public_template = (
+            self.env["fitness.workout.plan"]
+            .sudo()
+            .create(
+                {
+                    "name": "Public Template",
+                    "description": "A public template",
+                    "plan_scope": "template",
+                    "partner_id": self.trainer.partner_id.id,
+                    "start": "2026-01-01",
+                    "end": "2026-06-30",
+                    "is_template": True,
+                    "is_public": True,
+                    "state": "active",
+                }
+            )
+        )
 
-        self.private_template = self.env["fitness.workout.plan"].sudo().create({
-            "name": "Private Template",
-            "description": "A private template",
-            "plan_scope": "template",
-            "partner_id": self.trainer.partner_id.id,
-            "start": "2026-01-01",
-            "end": "2026-06-30",
-            "is_template": True,
-            "is_public": False,
-            "state": "active",
-        })
+        self.private_template = (
+            self.env["fitness.workout.plan"]
+            .sudo()
+            .create(
+                {
+                    "name": "Private Template",
+                    "description": "A private template",
+                    "plan_scope": "template",
+                    "partner_id": self.trainer.partner_id.id,
+                    "start": "2026-01-01",
+                    "end": "2026-06-30",
+                    "is_template": True,
+                    "is_public": False,
+                    "state": "active",
+                }
+            )
+        )
 
-        self.other_routine = self.env["fitness.workout.plan"].sudo().create({
-            "name": "Other Routine",
-            "plan_scope": "user",
-            "partner_id": self.other_portal.partner_id.id,
-            "start": "2026-01-01",
-            "end": "2026-03-31",
-            "is_template": False,
-            "is_public": False,
-            "state": "active",
-        })
+        self.other_routine = (
+            self.env["fitness.workout.plan"]
+            .sudo()
+            .create(
+                {
+                    "name": "Other Routine",
+                    "plan_scope": "user",
+                    "partner_id": self.other_portal.partner_id.id,
+                    "start": "2026-01-01",
+                    "end": "2026-03-31",
+                    "is_template": False,
+                    "is_public": False,
+                    "state": "active",
+                }
+            )
+        )
 
     def test_portal_user_sees_own_routines(self):
         self.authenticate("portal_member", "test")
@@ -91,9 +121,7 @@ class TestPortalWorkoutAccess(HttpCase):
 
     def test_portal_user_sees_public_templates(self):
         self.authenticate("portal_member", "test")
-        response = self.url_open(
-            f"{self.base_url}/my/workouts/templates?scope=public"
-        )
+        response = self.url_open(f"{self.base_url}/my/workouts/templates?scope=public")
         self.assertIn("Public Template", response.text)
 
     def test_portal_user_does_not_see_other_routines(self):

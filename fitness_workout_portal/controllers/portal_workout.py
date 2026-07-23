@@ -1,11 +1,14 @@
+import logging
+
 from markupsafe import Markup
 
 from odoo import http, tools
 from odoo.http import request
 
+_logger = logging.getLogger(__name__)
+
 
 class PortalWorkoutController(http.Controller):
-
     @http.route(
         ["/my/workouts", "/my/workouts/routines"],
         type="http",
@@ -18,20 +21,20 @@ class PortalWorkoutController(http.Controller):
         routines = (
             request.env["fitness.workout.plan"]
             .sudo()
-            .search([
-                ("plan_scope", "=", "user"),
-                ("partner_id", "=", partner.id),
-                ("active", "=", True),
-            ])
+            .search(
+                [
+                    ("plan_scope", "=", "user"),
+                    ("partner_id", "=", partner.id),
+                    ("active", "=", True),
+                ]
+            )
         )
         values = {
             "page_name": "workouts",
             "routines": routines,
             "partner": partner,
         }
-        return request.render(
-            "fitness_workout_portal.portal_routines_page", values
-        )
+        return request.render("fitness_workout_portal.portal_routines_page", values)
 
     @http.route(
         "/my/workouts/routines/<int:routine_id>",
@@ -73,21 +76,25 @@ class PortalWorkoutController(http.Controller):
             templates = (
                 request.env["fitness.workout.plan"]
                 .sudo()
-                .search([
-                    ("plan_scope", "=", "template"),
-                    ("is_public", "=", True),
-                    ("active", "=", True),
-                ])
+                .search(
+                    [
+                        ("plan_scope", "=", "template"),
+                        ("is_public", "=", True),
+                        ("active", "=", True),
+                    ]
+                )
             )
         else:
             templates = (
                 request.env["fitness.workout.plan"]
                 .sudo()
-                .search([
-                    ("plan_scope", "=", "template"),
-                    ("partner_id", "=", partner.id),
-                    ("active", "=", True),
-                ])
+                .search(
+                    [
+                        ("plan_scope", "=", "template"),
+                        ("partner_id", "=", partner.id),
+                        ("active", "=", True),
+                    ]
+                )
             )
         values = {
             "page_name": "templates",
@@ -95,9 +102,7 @@ class PortalWorkoutController(http.Controller):
             "scope": scope,
             "partner": partner,
         }
-        return request.render(
-            "fitness_workout_portal.portal_templates_page", values
-        )
+        return request.render("fitness_workout_portal.portal_templates_page", values)
 
     @http.route(
         ["/my/exercises", "/my/workouts/exercises"],
@@ -120,16 +125,10 @@ class PortalWorkoutController(http.Controller):
             try:
                 domain.append(("category_id", "=", int(category_id)))
             except (ValueError, TypeError):
-                pass
-        exercises = (
-            request.env["fitness.exercise"]
-            .sudo()
-            .search(domain, order="name")
-        )
+                _logger.debug("Invalid category_id filter: %s", category_id)
+        exercises = request.env["fitness.exercise"].sudo().search(domain, order="name")
         categories = (
-            request.env["fitness.exercise.category"]
-            .sudo()
-            .search([], order="name")
+            request.env["fitness.exercise.category"].sudo().search([], order="name")
         )
         values = {
             "page_name": "exercises",
@@ -137,9 +136,7 @@ class PortalWorkoutController(http.Controller):
             "categories": categories,
             "selected_category": int(category_id) if category_id else None,
         }
-        return request.render(
-            "fitness_workout_portal.portal_exercises_page", values
-        )
+        return request.render("fitness_workout_portal.portal_exercises_page", values)
 
     @http.route(
         ["/my/exercises/<int:exercise_id>", "/my/workouts/exercises/<int:exercise_id>"],

@@ -43250,7 +43250,7 @@ recupero 2 minuti tra gli esercizi</field>
     </record>
     <record id="demo_wger_template_plan_28230" model="fitness.workout.plan">
         <field name="name">5 Day 5x5 Workout (Week B</field>
-        <field name="description">A 5 day variation of the 5x5 stronglifts program. I like having 5 days for motivation and consistency. This is week A where Monday starts with the 5x5 day A. 
+        <field name="description">A 5 day variation of the 5x5 stronglifts program. I like having 5 days for motivation and consistency. This is week A where Monday starts with the 5x5 day A.
 
 Each day starts with cardio and an abs session. Monday, Wednesday and Friday are heavy days. Tuesday and Thursday are targeted/conditioning days.
 
@@ -44820,7 +44820,7 @@ I like it so far!</field>
     </record>
     <record id="demo_wger_template_plan_28245" model="fitness.workout.plan">
         <field name="name">5 Day 5x5 Workout (Week A</field>
-        <field name="description">A 5 day variation of the 5x5 stronglifts program. I like having 5 days for motivation and consistency. This is week A where Monday starts with the 5x5 day A. 
+        <field name="description">A 5 day variation of the 5x5 stronglifts program. I like having 5 days for motivation and consistency. This is week A where Monday starts with the 5x5 day A.
 
 Each day starts with cardio and an abs session. Monday, Wednesday and Friday are heavy days. Tuesday and Thursday are targeted/conditioning days.
 
@@ -46390,7 +46390,7 @@ I like it so far!</field>
     </record>
     <record id="demo_wger_template_plan_28339" model="fitness.workout.plan">
         <field name="name">5 Day 5x5 Workout (Week A</field>
-        <field name="description">A 5 day variation of the 5x5 stronglifts program. I like having 5 days for motivation and consistency. This is week A where Monday starts with the 5x5 day A. 
+        <field name="description">A 5 day variation of the 5x5 stronglifts program. I like having 5 days for motivation and consistency. This is week A where Monday starts with the 5x5 day A.
 
 Each day starts with cardio and an abs session. Monday, Wednesday and Friday are heavy days. Tuesday and Thursday are targeted/conditioning days.
 

@@ -48,9 +48,7 @@ class ResPartner(models.Model):
             delta = (today - stop).days
             if delta > 0:
                 suffix = "s" if delta != 1 else ""
-                partner.membership_remaining_text = (
-                    f"Expired {delta} day{suffix} ago"
-                )
+                partner.membership_remaining_text = f"Expired {delta} day{suffix} ago"
             else:
                 remaining = abs(delta)
                 partner.membership_remaining_text = (
