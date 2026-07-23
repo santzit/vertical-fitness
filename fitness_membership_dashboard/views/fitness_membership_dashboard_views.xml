@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="fitness_membership_dashboard_main" model="fitness.membership.dashboard">
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+    <record id="view_fitness_membership_dashboard_form" model="ir.ui.view">
+        <field name="name">fitness.membership.dashboard.form</field>
+        <field name="model">fitness.membership.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Membership Dashboard" create="false" edit="false" delete="false">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="action_view_active_members" class="oe_stat_button" icon="fa-users">
+                            <field name="active_members_count" string="Active Members" widget="statinfo"/>
+                        </button>
+                        <button type="object" name="action_view_overdue_members" class="oe_stat_button" icon="fa-exclamation-triangle">
+                            <field name="overdue_members_count" string="Overdue Members" widget="statinfo"/>
+                        </button>
+                        <button type="object" name="action_view_expiring_members" class="oe_stat_button" icon="fa-calendar-times-o">
+                            <field name="expiring_in_7_days_count" string="Expiring in 7 Days" widget="statinfo"/>
+                        </button>
+                        <button type="object" name="action_view_expiring_members" class="oe_stat_button" icon="fa-calendar">
+                            <field name="expiring_in_30_days_count" string="Expiring in 30 Days" widget="statinfo"/>
+                        </button>
+                    </div>
+
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+
+                    <group string="Top 10 Next Expiring Members">
+                        <field name="next_expiring_member_ids" nolabel="1">
+                            <list create="false" delete="false" edit="false">
+                                <field name="name"/>
+                                <field name="membership_state" widget="badge"
+                                       decoration-info="membership_state == 'waiting'"
+                                       decoration-success="membership_state in ['invoiced', 'free', 'paid']"/>
+                                <field name="membership_stop" string="End Date"/>
+                                <field name="membership_remaining_text" string="Remaining"/>
+                            </list>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fitness_membership_dashboard" model="ir.actions.act_window">
+        <field name="name">Membership Dashboard</field>
+        <field name="res_model">fitness.membership.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_fitness_membership_dashboard_form"/>
+        <field name="res_id" ref="fitness_membership_dashboard_main"/>
+    </record>
+
+    <menuitem
+        id="menu_fitness_membership_dashboard"
+        name="Membership Dashboard"
+        parent="fitness_workout.menu_workout_root"
+        action="action_fitness_membership_dashboard"
+        sequence="32"
+    />
+
+</odoo>

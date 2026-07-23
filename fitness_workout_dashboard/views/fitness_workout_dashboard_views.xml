@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="fitness_workout_dashboard_main" model="fitness.workout.dashboard">
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+    <record id="view_fitness_workout_dashboard_form" model="ir.ui.view">
+        <field name="name">fitness.workout.dashboard.form</field>
+        <field name="model">fitness.workout.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Workout Dashboard" create="false" edit="false" delete="false">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="action_view_active_plans" class="oe_stat_button" icon="fa-heartbeat">
+                            <field name="active_user_plans_count" string="Active Plans" widget="statinfo"/>
+                        </button>
+                        <button type="object" name="action_view_draft_plans" class="oe_stat_button" icon="fa-pencil-square-o">
+                            <field name="draft_user_plans_count" string="Draft Plans" widget="statinfo"/>
+                        </button>
+                        <button type="object" name="action_view_cards" class="oe_stat_button" icon="fa-calendar-check-o">
+                            <field name="due_today_cards_count" string="Due Today" widget="statinfo"/>
+                        </button>
+                        <button type="object" name="action_view_cards" class="oe_stat_button" icon="fa-calendar-times-o">
+                            <field name="overdue_cards_count" string="Overdue Cards" widget="statinfo"/>
+                        </button>
+                        <button type="object" name="action_view_cards" class="oe_stat_button" icon="fa-calendar-plus-o">
+                            <field name="due_next_7_days_count" string="Due in 7 Days" widget="statinfo"/>
+                        </button>
+                    </div>
+
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fitness_workout_dashboard" model="ir.actions.act_window">
+        <field name="name">Workout Dashboard</field>
+        <field name="res_model">fitness.workout.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_fitness_workout_dashboard_form"/>
+        <field name="res_id" ref="fitness_workout_dashboard_main"/>
+    </record>
+
+    <menuitem
+        id="menu_fitness_workout_dashboard"
+        name="Workout Dashboard"
+        parent="fitness_workout.menu_workout_root"
+        action="action_fitness_workout_dashboard"
+        sequence="31"
+    />
+
+</odoo>
