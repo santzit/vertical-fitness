@@ -91,7 +91,9 @@ class TestPortalWorkoutAccess(HttpCase):
 
     def test_portal_user_sees_public_templates(self):
         self.authenticate("portal_member", "test")
-        response = self.url_open(f"{self.base_url}/my/workouts")
+        response = self.url_open(
+            f"{self.base_url}/my/workouts/templates?scope=public"
+        )
         self.assertIn("Public Template", response.text)
 
     def test_portal_user_does_not_see_other_routines(self):
