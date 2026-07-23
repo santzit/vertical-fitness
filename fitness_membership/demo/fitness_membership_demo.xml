@@ -29,6 +29,36 @@
     </record>
 
     <!-- ============================================================ -->
+    <!-- Mike Muscle — membership invoice + payment                    -->
+    <!-- ============================================================ -->
+    <record id="demo_mike_membership_invoice" model="account.move">
+        <field name="move_type">out_invoice</field>
+        <field name="partner_id" ref="demo_member_mike_muscle"/>
+        <field name="invoice_date" eval="DateTime.today().strftime('%Y-%m-%d')"/>
+    </record>
+
+    <record id="demo_mike_membership_invoice_line" model="account.move.line">
+        <field name="move_id" ref="demo_mike_membership_invoice"/>
+        <field name="name">Annual gym workout plan</field>
+        <field name="product_id" search="[('product_tmpl_id', '=', ref('demo_membership_product_annual_gym'))]"/>
+        <field name="quantity">1.0</field>
+        <field name="price_unit">100.0</field>
+    </record>
+
+    <function model="account.move" name="action_post">
+        <value model="account.move" search="[('id', '=', ref('demo_mike_membership_invoice'))]"/>
+    </function>
+
+    <record id="demo_mike_membership_payment_register" model="account.payment.register"
+        context="{'active_model': 'account.move', 'active_ids': [ref('demo_mike_membership_invoice')]}">
+        <field name="payment_date" eval="DateTime.today().strftime('%Y-%m-%d')"/>
+    </record>
+
+    <function model="account.payment.register" name="action_create_payments">
+        <value model="account.payment.register" search="[('id', '=', ref('demo_mike_membership_payment_register'))]"/>
+    </function>
+
+    <!-- ============================================================ -->
     <!-- Jack Steel — 2-month Beginner Level 1 assigned plan           -->
     <!-- ============================================================ -->
     <record id="demo_plan_jack_beginner" model="fitness.workout.plan">
