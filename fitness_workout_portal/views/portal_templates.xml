@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!-- PORTAL BREADCRUMBS -->
+    <!-- ============================================================ -->
+    <template id="portal_breadcrumbs_workout" name="Portal Breadcrumbs - Workouts" inherit_id="portal.portal_breadcrumbs" priority="35">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name in ('workouts', 'workout_detail', 'templates')"
+                t-attf-class="breadcrumb-item #{'active' if page_name == 'workouts' else ''}">
+                <a t-if="page_name != 'workouts'" t-attf-href="/my/workouts">Your Workouts</a>
+                <t t-else="">Your Workouts</t>
+            </li>
+            <li t-if="page_name == 'workout_detail'" class="breadcrumb-item active">
+                <span t-esc="plan.name"/>
+            </li>
+            <li t-if="page_name == 'templates'" class="breadcrumb-item active">
+                <t t-if="scope == 'your'">Your Templates</t>
+                <t t-else="">Public Templates</t>
+            </li>
+            <li t-if="page_name in ('exercises', 'exercise_detail')"
+                t-attf-class="breadcrumb-item #{'active' if page_name == 'exercises' else ''}">
+                <a t-if="page_name != 'exercises'" t-attf-href="/my/exercises">Exercises</a>
+                <t t-else="">Exercises</t>
+            </li>
+            <li t-if="page_name == 'exercise_detail'" class="breadcrumb-item active">
+                <span t-esc="exercise.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <!-- ============================================================ -->
+    <!-- HOMEPAGE CTA: GO TO YOUR WORKOUTS -->
+    <!-- ============================================================ -->
+    <template id="homepage_workout_cta" name="Homepage Workout CTA" inherit_id="website.homepage">
+        <xpath expr="//div[@id='wrap']" position="inside">
+            <div t-if="request.env.user._is_internal() == False and request.env.user.id != request.env.ref('base.public_user').id"
+                 class="container my-5 py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                            <div class="card-body p-5">
+                                <div class="mb-3">
+                                    <img src="/fitness_workout_portal/static/src/img/dumbbell.svg"
+                                         alt="Workouts" class="o_workout_empty_icon"
+                                         style="width: 64px; height: 64px; opacity: 1;"/>
+                                </div>
+                                <h3 class="fw-bold mb-2">Your Workouts</h3>
+                                <p class="text-muted mb-4">
+                                    Access your workout routines, track exercises, and stay on top of your training plan.
+                                </p>
+                                <a href="/my/workouts"
+                                   class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm">
+                                    <i class="fa fa-dumbbell me-2"/>
+                                    Go to Your Workouts
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- ============================================================ -->
+    <!-- PORTAL HOME: WORKOUT CARDS (below Your Invoices) -->
+    <!-- ============================================================ -->
+    <template id="portal_my_home_workouts" name="Portal Home - Your Workouts" inherit_id="portal.portal_my_home" priority="35">
+        <xpath expr="//div[@id='portal_client_category']" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/fitness_workout_portal/static/src/img/dumbbell.svg'"/>
+                <t t-set="title">Your Workouts</t>
+                <t t-set="text">View your workout routines</t>
+                <t t-set="url" t-value="'/my/workouts'"/>
+                <t t-set="placeholder_count" t-value="'workout_routine_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/fitness_workout_portal/static/src/img/dumbbell.svg'"/>
+                <t t-set="title">Your Templates</t>
+                <t t-set="text">Your personal workout templates</t>
+                <t t-set="url" t-value="'/my/workouts/templates?scope=your'"/>
+                <t t-set="placeholder_count" t-value="'workout_template_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/fitness_workout_portal/static/src/img/dumbbell.svg'"/>
+                <t t-set="title">Public Templates</t>
+                <t t-set="text">Browse community workout templates</t>
+                <t t-set="url" t-value="'/my/workouts/templates?scope=public'"/>
+                <t t-set="placeholder_count" t-value="'workout_public_template_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/fitness_workout_portal/static/src/img/dumbbell.svg'"/>
+                <t t-set="title">Exercises</t>
+                <t t-set="text">Browse the exercise catalog</t>
+                <t t-set="url" t-value="'/my/exercises'"/>
+                <t t-set="placeholder_count" t-value="'workout_exercise_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- ============================================================ -->
+    <!-- ROUTINES LIST PAGE -->
+    <!-- ============================================================ -->
+    <template id="portal_routines_page" name="Workouts Routines">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_search" t-value="{'search': '', 'search_label': 'Workouts'}"/>
+
+            <div class="o_portal_workout_container">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <span class="badge rounded-pill text-bg-success fs-6"
+                              t-if="routines"
+                              t-esc="'%d active' % len(routines)"/>
+                    </div>
+                </div>
+
+                <!-- Active Routines -->
+                <div t-if="routines" class="mb-5">
+                    <div class="row g-3">
+                        <div t-foreach="routines" t-as="plan" class="col-md-6 col-lg-4">
+                            <div class="card o_workout_card h-100 shadow-sm">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <h5 class="card-title fw-bold mb-0" t-esc="plan.name"/>
+                                        <span class="badge rounded-pill"
+                                              t-attf-class="text-bg-#{plan.state == 'active' and 'success' or plan.state == 'draft' and 'secondary' or 'warning'}"
+                                              t-esc="plan.state"/>
+                                    </div>
+                                    <p t-if="plan.description" class="card-text text-muted small flex-grow-1"
+                                       t-esc="plan.description[:120] + ('...' if len(plan.description) > 120 else '')"/>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <small class="text-muted">
+                                                <i class="fa fa-calendar me-1"/>
+                                                <span t-esc="plan.start"/> - <span t-esc="plan.end"/>
+                                            </small>
+                                            <small class="text-muted" t-if="plan.duration_text"
+                                                   t-esc="plan.duration_text"/>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">
+                                                <i class="fa fa-list me-1"/>
+                                                <span t-esc="len(plan.day_ids)"/> days
+                                            </small>
+                                            <a t-attf-href="/my/workouts/routines/#{plan.id}"
+                                               class="btn btn-sm btn-primary rounded-pill px-3">
+                                                View
+                                                <i class="fa fa-arrow-right ms-1"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty State for Routines -->
+                <div t-if="not routines" class="text-center py-5 mb-5">
+                    <div class="o_workout_empty_icon mb-3">
+                        <i class="fa fa-dumbbell fa-3x text-muted"/>
+                    </div>
+                    <h4 class="text-muted">No routines yet</h4>
+                    <p class="text-muted">Your trainer will assign workout routines to your account.</p>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- ============================================================ -->
+    <!-- ROUTINE DETAIL PAGE -->
+    <!-- ============================================================ -->
+    <template id="portal_routine_detail_page" name="Workout Routine Detail">
+        <t t-call="portal.portal_layout">
+            <div class="o_portal_workout_container">
+                <!-- Routine Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                            <div>
+                                <h2 class="fw-bold mb-1" t-esc="plan.name"/>
+                                <div class="d-flex align-items-center gap-3 text-muted small">
+                                    <span>
+                                        <i class="fa fa-calendar me-1"/>
+                                        <span t-esc="plan.start"/> - <span t-esc="plan.end"/>
+                                    </span>
+                                    <span t-if="plan.duration_text">
+                                        <i class="fa fa-clock-o me-1"/>
+                                        <span t-esc="plan.duration_text"/>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-list me-1"/>
+                                        <span t-esc="len(days)"/> days
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="badge rounded-pill fs-6"
+                                  t-attf-class="text-bg-#{plan.state == 'active' and 'success' or plan.state == 'draft' and 'secondary' or 'warning'}"
+                                  t-esc="plan.state"/>
+                        </div>
+                        <p t-if="plan.description" class="text-muted mt-2" t-esc="plan.description"/>
+                    </div>
+                </div>
+
+                <!-- Days -->
+                <div t-if="days" class="row g-4">
+                    <t t-foreach="days" t-as="day">
+                        <div class="col-12">
+                            <div class="card o_workout_day_card shadow-sm">
+                                <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
+                                    <div>
+                                        <h5 class="mb-0 fw-bold">
+                                            <span class="badge rounded-pill text-bg-primary me-2"
+                                                  t-esc="'Day %d' % day.sequence"/>
+                                            <span t-esc="day.name"/>
+                                        </h5>
+                                        <small t-if="day.description" class="text-muted"
+                                               t-esc="day.description"/>
+                                    </div>
+                                    <small class="text-muted">
+                                        Weeks <span t-esc="day.start_offset"/>-<span t-esc="day.end_offset"/>
+                                    </small>
+                                </div>
+                                <div class="card-body p-0">
+                                    <t t-foreach="day.slot_ids" t-as="slot">
+                                        <div class="o_workout_slot_section border-bottom p-3"
+                                             t-attf-class="#{'bg-light' if slot_index % 2 else ''}">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <h6 class="fw-semibold mb-0">
+                                                    <i t-if="slot.slot_type != 'custom'"
+                                                       class="fa fa-bolt me-1 text-warning"/>
+                                                    <span t-esc="slot.name"/>
+                                                    <small t-if="slot.slot_type != 'custom'"
+                                                           class="text-muted ms-1"
+                                                           t-esc="'(%s)' % slot.slot_type"/>
+                                                </h6>
+                                                <small t-if="slot.notes" class="text-muted"
+                                                       t-esc="slot.notes"/>
+                                            </div>
+
+                                            <!-- Cards/Entries Table -->
+                                            <div class="table-responsive">
+                                                <table class="table table-sm table-borderless mb-0">
+                                                    <thead class="text-muted small">
+                                                        <tr>
+                                                            <th>Exercise</th>
+                                                            <th class="text-center">Type</th>
+                                                            <th class="text-center">Sets</th>
+                                                            <th class="text-center">Reps</th>
+                                                            <th class="text-center">Weight</th>
+                                                            <th class="text-center">RIR</th>
+                                                            <th class="text-center">Rest</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <t t-foreach="slot.card_ids" t-as="card">
+                                                            <tr>
+                                                                <td>
+                                                                    <a t-attf-href="/my/exercises/#{card.exercise_id.id}"
+                                                                       class="text-decoration-none fw-semibold"
+                                                                       t-esc="card.exercise_id.name"/>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <small t-if="card.exercise_type != 'normal'"
+                                                                           class="badge text-bg-light"
+                                                                           t-esc="card.exercise_type"/>
+                                                                </td>
+                                                                <td class="text-center" t-esc="card.sets"/>
+                                                                <td class="text-center">
+                                                                    <span t-esc="card.reps"/>
+                                                                    <small t-if="card.repetition_unit_id"
+                                                                           class="text-muted"
+                                                                           t-esc="card.repetition_unit_id.name"/>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <span t-if="card.weight"
+                                                                          t-esc="'%g' % card.weight"/>
+                                                                    <small t-if="card.weight_unit_id"
+                                                                           class="text-muted"
+                                                                           t-esc="card.weight_unit_id.name"/>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <small t-if="card.rir"
+                                                                           class="text-muted"
+                                                                           t-esc="card.rir"/>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <small t-if="card.rest_seconds"
+                                                                           class="text-muted"
+                                                                           t-esc="'%ds' % card.rest_seconds"/>
+                                                                </td>
+                                                            </tr>
+                                                        </t>
+                                                        <!-- Block entries -->
+                                                        <t t-foreach="slot.block_ids" t-as="block">
+                                                            <tr>
+                                                                <td colspan="7" class="border-0 pb-0">
+                                                                    <small class="text-muted fw-semibold">
+                                                                        <i class="fa fa-object-group me-1"/>
+                                                                        <span t-esc="block.name"/>
+                                                                        <span t-if="block.block_type != 'single'"
+                                                                              class="ms-1 badge text-bg-light"
+                                                                              t-esc="block.block_type"/>
+                                                                    </small>
+                                                                </td>
+                                                            </tr>
+                                                            <t t-foreach="block.entry_ids" t-as="entry">
+                                                                <tr>
+                                                                    <td class="ps-4">
+                                                                        <a t-attf-href="/my/exercises/#{entry.exercise_id.id}"
+                                                                           class="text-decoration-none"
+                                                                           t-esc="entry.exercise_id.name"/>
+                                                                    </td>
+                                                                    <td class="text-center">
+                                                                        <small t-if="entry.exercise_type != 'normal'"
+                                                                               class="badge text-bg-light"
+                                                                               t-esc="entry.exercise_type"/>
+                                                                    </td>
+                                                                    <td class="text-center" t-esc="entry.sets"/>
+                                                                    <td class="text-center">
+                                                                        <span t-esc="entry.reps"/>
+                                                                        <small t-if="entry.repetition_unit_id"
+                                                                               class="text-muted"
+                                                                               t-esc="entry.repetition_unit_id.name"/>
+                                                                    </td>
+                                                                    <td class="text-center">
+                                                                        <span t-if="entry.weight"
+                                                                              t-esc="'%g' % entry.weight"/>
+                                                                        <small t-if="entry.weight_unit_id"
+                                                                               class="text-muted"
+                                                                               t-esc="entry.weight_unit_id.name"/>
+                                                                    </td>
+                                                                    <td class="text-center">
+                                                                        <small t-if="entry.rir"
+                                                                               class="text-muted"
+                                                                               t-esc="entry.rir"/>
+                                                                    </td>
+                                                                    <td class="text-center">
+                                                                        <small t-if="entry.rest_seconds"
+                                                                               class="text-muted"
+                                                                               t-esc="'%ds' % entry.rest_seconds"/>
+                                                                    </td>
+                                                                </tr>
+                                                            </t>
+                                                        </t>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- Empty State -->
+                <div t-if="not days" class="text-center py-5">
+                    <div class="o_workout_empty_icon mb-3">
+                        <i class="fa fa-calendar-times-o fa-3x text-muted"/>
+                    </div>
+                    <h4 class="text-muted">No days configured</h4>
+                    <p class="text-muted">This routine has no workout days yet.</p>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- ============================================================ -->
+    <!-- EXERCISE DETAIL PAGE -->
+    <!-- ============================================================ -->
+    <template id="portal_exercise_detail_page" name="Exercise Detail">
+        <t t-call="portal.portal_layout">
+            <div class="o_portal_workout_container">
+                <div class="row g-4">
+                    <!-- Exercise Info -->
+                    <div class="col-lg-8">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h2 class="fw-bold mb-3" t-esc="exercise.name"/>
+
+                                <!-- Exercise Images -->
+                                <div t-if="exercise_media" class="mb-4 text-center">
+                                    <img t-att-src="'/web/image/ir.attachment/%d/datas' % exercise_media[0].attachment_id.id"
+                                         class="img-fluid rounded shadow-sm o_workout_exercise_img"
+                                         t-att-alt="exercise.name"/>
+                                    <div t-if="len(exercise_media) &gt; 1" class="mt-3 d-flex flex-wrap gap-2 justify-content-center">
+                                        <t t-foreach="exercise_media" t-as="media">
+                                            <img t-att-src="'/web/image/ir.attachment/%d/datas' % media.attachment_id.id"
+                                                 class="rounded border"
+                                                 width="80"
+                                                 height="80"
+                                                 t-att-alt="exercise.name"/>
+                                        </t>
+                                    </div>
+                                </div>
+                                <div t-elif="exercise.image_1920" class="mb-4 text-center">
+                                    <img t-att-src="'/web/image/fitness.exercise/%d/image_512' % exercise.id"
+                                         class="img-fluid rounded shadow-sm o_workout_exercise_img"
+                                         t-att-alt="exercise.name"/>
+                                </div>
+
+                                <!-- Description -->
+                                <div t-if="exercise_description_html" class="mb-4">
+                                    <h5 class="fw-semibold text-muted">Description</h5>
+                                    <div t-out="exercise_description_html"/>
+                                </div>
+
+                                <!-- Category -->
+                                <div t-if="exercise.category_id" class="mb-3">
+                                    <h5 class="fw-semibold text-muted">Category</h5>
+                                    <span class="badge text-bg-primary fs-6"
+                                          t-esc="exercise.category_id.name"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-lg-4">
+                        <!-- Muscles -->
+                        <div t-if="exercise.muscle_ids or exercise.muscles_secondary_ids"
+                             class="card shadow-sm mb-4">
+                            <div class="card-header bg-white">
+                                <h5 class="fw-bold mb-0">
+                                    <i class="fa fa-heartbeat me-2 text-danger"/>Muscles
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div t-if="exercise.muscle_ids" class="mb-3">
+                                    <h6 class="text-muted small fw-semibold">Primary</h6>
+                                    <div class="d-flex flex-wrap gap-1">
+                                        <t t-foreach="exercise.muscle_ids" t-as="muscle">
+                                            <span class="badge text-bg-danger"
+                                                  t-esc="muscle.name"/>
+                                        </t>
+                                    </div>
+                                </div>
+                                <div t-if="exercise.muscles_secondary_ids">
+                                    <h6 class="text-muted small fw-semibold">Secondary</h6>
+                                    <div class="d-flex flex-wrap gap-1">
+                                        <t t-foreach="exercise.muscles_secondary_ids" t-as="muscle">
+                                            <span class="badge text-bg-warning"
+                                                  t-esc="muscle.name"/>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Equipment -->
+                        <div t-if="exercise.equipment_ids" class="card shadow-sm mb-4">
+                            <div class="card-header bg-white">
+                                <h5 class="fw-bold mb-0">
+                                    <i class="fa fa-wrench me-2 text-info"/>Equipment
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-1">
+                                    <t t-foreach="exercise.equipment_ids" t-as="eq">
+                                        <span class="badge text-bg-info" t-esc="eq.name"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Video -->
+                        <div t-if="exercise.video_url" class="card shadow-sm">
+                            <div class="card-header bg-white">
+                                <h5 class="fw-bold mb-0">
+                                    <i class="fa fa-play-circle me-2 text-success"/>Video
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <a t-att-href="exercise.video_url"
+                                   target="_blank"
+                                   class="btn btn-outline-success w-100 rounded-pill">
+                                    <i class="fa fa-external-link me-1"/> Watch Video
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- ============================================================ -->
+    <!-- TEMPLATES LIST PAGE -->
+    <!-- ============================================================ -->
+    <template id="portal_templates_page" name="Workout Templates">
+        <t t-call="portal.portal_layout">
+            <div class="o_portal_workout_container">
+                <div class="row mb-4">
+                    <div class="col-12 d-flex align-items-center justify-content-between">
+                        <div>
+                            <h2 class="fw-bold mb-0">
+                                <span t-if="scope == 'your'">Your Templates</span>
+                                <span t-else="">Public Templates</span>
+                            </h2>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="/my/workouts/templates?scope=your"
+                               t-attf-class="btn btn-sm rounded-pill px-3 #{scope == 'your' and 'btn-primary' or 'btn-outline-secondary'}">
+                                Your Templates
+                            </a>
+                            <a href="/my/workouts/templates?scope=public"
+                               t-attf-class="btn btn-sm rounded-pill px-3 #{scope == 'public' and 'btn-primary' or 'btn-outline-secondary'}">
+                                Public Templates
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Templates Grid -->
+                <div t-if="templates" class="row g-3">
+                    <div t-foreach="templates" t-as="tpl" class="col-md-6 col-lg-4">
+                        <div class="card o_workout_card h-100 shadow-sm border-primary-subtle">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title fw-bold mb-0" t-esc="tpl.name"/>
+                                    <span class="badge rounded-pill text-bg-info">Template</span>
+                                </div>
+                                <p t-if="tpl.description" class="card-text text-muted small flex-grow-1"
+                                   t-esc="tpl.description[:120] + ('...' if len(tpl.description) > 120 else '')"/>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <small class="text-muted">
+                                            <i class="fa fa-calendar me-1"/>
+                                            <span t-esc="tpl.start"/> - <span t-esc="tpl.end"/>
+                                        </small>
+                                        <small class="text-muted" t-if="tpl.duration_text"
+                                               t-esc="tpl.duration_text"/>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">
+                                            <i class="fa fa-list me-1"/>
+                                            <span t-esc="len(tpl.day_ids)"/> days
+                                        </small>
+                                        <a t-attf-href="/my/workouts/routines/#{tpl.id}"
+                                           class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                                            View
+                                            <i class="fa fa-arrow-right ms-1"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div t-if="not templates" class="text-center py-5">
+                    <div class="o_workout_empty_icon mb-3">
+                        <i class="fa fa-files-o fa-3x text-muted"/>
+                    </div>
+                    <h4 class="text-muted">No templates found</h4>
+                    <p class="text-muted" t-if="scope == 'your'">Your trainer hasn't created personal templates for you yet.</p>
+                    <p class="text-muted" t-else="">No public templates are available at the moment.</p>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- ============================================================ -->
+    <!-- EXERCISES CATALOG PAGE -->
+    <!-- ============================================================ -->
+    <template id="portal_exercises_page" name="Exercise Catalog">
+        <t t-call="portal.portal_layout">
+            <div class="o_portal_workout_container">
+
+                <!-- Category Filters -->
+                <div t-if="categories" class="mb-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="/my/exercises"
+                           t-attf-class="btn btn-sm rounded-pill px-3 #{not selected_category and 'btn-primary' or 'btn-outline-secondary'}">
+                            All
+                        </a>
+                        <t t-foreach="categories" t-as="cat">
+                            <a t-attf-href="/my/exercises?category_id=#{cat.id}"
+                               t-attf-class="btn btn-sm rounded-pill px-3 #{selected_category == cat.id and 'btn-primary' or 'btn-outline-secondary'}"
+                               t-esc="cat.name"/>
+                        </t>
+                    </div>
+                </div>
+
+                <!-- Exercises Grid -->
+                <div t-if="exercises" class="row g-3">
+                    <div t-foreach="exercises" t-as="exercise" class="col-md-6 col-lg-4 col-xl-3">
+                        <a t-attf-href="/my/exercises/#{exercise.id}"
+                           class="card o_workout_card h-100 shadow-sm text-decoration-none">
+                            <div class="card-body d-flex flex-column">
+                                <div t-if="exercise.image_1920" class="text-center mb-3">
+                                    <img t-att-src="'/web/image/fitness.exercise/%d/image_128' % exercise.id"
+                                         class="rounded-circle o_workout_exercise_thumb"
+                                         t-att-alt="exercise.name"
+                                         style="width:80px;height:80px;object-fit:cover;"/>
+                                </div>
+                                <div t-else="" class="text-center mb-3">
+                                    <div class="o_workout_exercise_thumb rounded-circle bg-light d-inline-flex align-items-center justify-content-center"
+                                         style="width:80px;height:80px;">
+                                        <i class="fa fa-dumbbell fa-2x text-muted"/>
+                                    </div>
+                                </div>
+                                <h6 class="card-title fw-bold text-center text-dark mb-1" t-esc="exercise.name"/>
+                                <small t-if="exercise.category_id" class="text-muted text-center"
+                                       t-esc="exercise.category_id.name"/>
+                                <div t-if="exercise.muscle_ids" class="mt-auto pt-2 text-center">
+                                    <t t-foreach="exercise.muscle_ids" t-as="m">
+                                        <span class="badge text-bg-light text-muted" t-esc="m.name"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div t-if="not exercises" class="text-center py-5">
+                    <div class="o_workout_empty_icon mb-3">
+                        <i class="fa fa-dumbbell fa-3x text-muted"/>
+                    </div>
+                    <h4 class="text-muted">No exercises found</h4>
+                    <p class="text-muted">No exercises match the selected filters.</p>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

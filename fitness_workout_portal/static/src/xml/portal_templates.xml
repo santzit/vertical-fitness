@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="fitness_workout_portal.WorkoutDashboard">
+        <div class="o_workout_dashboard">
+            <t t-if="loading">
+                <div class="text-center py-4">
+                    <i class="fa fa-spinner fa-spin fa-2x text-muted"/>
+                </div>
+            </t>
+            <t t-elif="error">
+                <div class="alert alert-warning" t-esc="error"/>
+            </t>
+            <t t-elif="dashboard">
+                <div class="row g-3 mb-4">
+                    <div class="col-md-4">
+                        <div class="card text-bg-primary shadow-sm">
+                            <div class="card-body text-center">
+                                <h3 class="fw-bold" t-esc="dashboard.total_routines"/>
+                                <small>Active Routines</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <t t-if="dashboard.active_routine">
+                            <div class="card shadow-sm h-100">
+                                <div class="card-body">
+                                    <small class="text-muted">Current Routine</small>
+                                    <h5 class="fw-bold" t-esc="dashboard.active_routine.name"/>
+                                    <small class="text-muted">
+                                        <span t-esc="dashboard.active_routine.duration_text"/>
+                                    </small>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="fitness_workout_portal.WorkoutRoutinesList">
+        <div class="o_workout_routines_list">
+            <t t-if="loading">
+                <div class="text-center py-4">
+                    <i class="fa fa-spinner fa-spin fa-2x text-muted"/>
+                </div>
+            </t>
+            <t t-else="">
+                <div class="row g-3">
+                    <t t-foreach="routines" t-as="routine">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card o_workout_card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" t-esc="routine.name"/>
+                                    <p class="card-text text-muted small"
+                                       t-esc="routine.description"/>
+                                    <small class="text-muted">
+                                        <span t-esc="routine.duration_text"/>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="fitness_workout_portal.WorkoutRoutineDetail">
+        <div class="o_workout_routine_detail">
+            <t t-if="loading">
+                <div class="text-center py-4">
+                    <i class="fa fa-spinner fa-spin fa-2x text-muted"/>
+                </div>
+            </t>
+            <t t-elif="routine">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3 class="fw-bold" t-esc="routine.name"/>
+                        <p class="text-muted" t-esc="routine.description"/>
+                    </div>
+                </div>
+                <t t-foreach="routine.days" t-as="day">
+                    <div class="card shadow-sm mb-3">
+                        <div class="card-header bg-white fw-bold"
+                             t-esc="day.name"/>
+                        <div class="card-body p-0">
+                            <t t-foreach="day.slots" t-as="slot">
+                                <div class="p-3 border-bottom">
+                                    <t t-foreach="slot.entries" t-as="entry">
+                                        <div class="d-flex justify-content-between">
+                                            <span t-esc="entry.exercise_name"/>
+                                            <small class="text-muted">
+                                                <span t-esc="entry.sets"/>x<span t-esc="entry.reps"/>
+                                            </small>
+                                        </div>
+                                    </t>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="fitness_workout_portal.WorkoutExerciseDetail">
+        <div class="o_workout_exercise_detail">
+            <t t-if="loading">
+                <div class="text-center py-4">
+                    <i class="fa fa-spinner fa-spin fa-2x text-muted"/>
+                </div>
+            </t>
+            <t t-elif="exercise">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3 class="fw-bold" t-esc="exercise.name"/>
+                        <p class="text-muted" t-esc="exercise.description"/>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+
+</templates>

@@ -41,3 +41,6 @@ access_fitness_workout_entry_manager,fitness.workout.entry manager,model_fitness
 access_fitness_workout_card_user,fitness.workout.card user,model_fitness_workout_card,fitness_workout.group_workout_user,1,0,0,0
 access_fitness_workout_card_trainer,fitness.workout.card trainer,model_fitness_workout_card,fitness_workout.group_workout_trainer,1,1,1,1
 access_fitness_workout_card_manager,fitness.workout.card manager,model_fitness_workout_card,fitness_workout.group_workout_manager,1,1,1,1
+access_fitness_media_user,fitness.media user,fitness_media.model_fitness_media,fitness_workout.group_workout_user,1,0,0,0
+access_fitness_media_trainer,fitness.media trainer,fitness_media.model_fitness_media,fitness_workout.group_workout_trainer,1,1,1,1
+access_fitness_media_manager,fitness.media manager,fitness_media.model_fitness_media,fitness_workout.group_workout_manager,1,1,1,1

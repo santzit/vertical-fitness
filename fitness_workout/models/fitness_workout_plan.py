@@ -157,7 +157,7 @@ class FitnessWorkoutSlot(models.Model):
     partner_id = fields.Many2one(related="day_id.partner_id", store=True, index=True)
     plan_scope = fields.Selection(related="day_id.plan_scope", store=True, index=True)
     is_public = fields.Boolean(related="day_id.is_public", store=True)
-    day_sequence = fields.Integer(related="day_id.sequence", store=True)
+    day_sequence = fields.Integer(related="day_id.sequence", store=True, string="Day Seq.")
     sequence = fields.Integer(default=1, required=True, index=True)
     name = fields.Char(required=True, translate=True)
     slot_type = fields.Selection(

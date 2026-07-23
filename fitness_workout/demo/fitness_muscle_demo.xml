@@ -4,71 +4,71 @@
     <record id="demo_wger_muscle_1" model="fitness.muscle">
         <field name="name">Biceps brachii</field>
         <field name="name_en">Biceps</field>
-        <field name="is_front">True</field>
+        <field name="is_front" eval="True"/>
     </record>
     <record id="demo_wger_muscle_2" model="fitness.muscle">
         <field name="name">Anterior deltoid</field>
         <field name="name_en">Shoulders</field>
-        <field name="is_front">True</field>
+        <field name="is_front" eval="True"/>
     </record>
     <record id="demo_wger_muscle_3" model="fitness.muscle">
         <field name="name">Serratus anterior</field>
-        <field name="is_front">True</field>
+        <field name="is_front" eval="True"/>
     </record>
     <record id="demo_wger_muscle_4" model="fitness.muscle">
         <field name="name">Pectoralis major</field>
         <field name="name_en">Chest</field>
-        <field name="is_front">True</field>
+        <field name="is_front" eval="True"/>
     </record>
     <record id="demo_wger_muscle_5" model="fitness.muscle">
         <field name="name">Triceps brachii</field>
         <field name="name_en">Triceps</field>
-        <field name="is_front">False</field>
+        <field name="is_front" eval="False"/>
     </record>
     <record id="demo_wger_muscle_6" model="fitness.muscle">
         <field name="name">Rectus abdominis</field>
         <field name="name_en">Abs</field>
-        <field name="is_front">True</field>
+        <field name="is_front" eval="True"/>
     </record>
     <record id="demo_wger_muscle_7" model="fitness.muscle">
         <field name="name">Gastrocnemius</field>
         <field name="name_en">Calves</field>
-        <field name="is_front">False</field>
+        <field name="is_front" eval="False"/>
     </record>
     <record id="demo_wger_muscle_8" model="fitness.muscle">
         <field name="name">Gluteus maximus</field>
         <field name="name_en">Glutes</field>
-        <field name="is_front">False</field>
+        <field name="is_front" eval="False"/>
     </record>
     <record id="demo_wger_muscle_9" model="fitness.muscle">
         <field name="name">Trapezius</field>
-        <field name="is_front">False</field>
+        <field name="is_front" eval="False"/>
     </record>
     <record id="demo_wger_muscle_10" model="fitness.muscle">
         <field name="name">Quadriceps femoris</field>
         <field name="name_en">Quads</field>
-        <field name="is_front">True</field>
+        <field name="is_front" eval="True"/>
     </record>
     <record id="demo_wger_muscle_11" model="fitness.muscle">
         <field name="name">Biceps femoris</field>
         <field name="name_en">Hamstrings</field>
-        <field name="is_front">False</field>
+        <field name="is_front" eval="False"/>
     </record>
     <record id="demo_wger_muscle_12" model="fitness.muscle">
         <field name="name">Latissimus dorsi</field>
         <field name="name_en">Lats</field>
-        <field name="is_front">False</field>
+        <field name="is_front" eval="False"/>
     </record>
     <record id="demo_wger_muscle_13" model="fitness.muscle">
         <field name="name">Brachialis</field>
-        <field name="is_front">True</field>
+        <field name="is_front" eval="True"/>
     </record>
     <record id="demo_wger_muscle_14" model="fitness.muscle">
         <field name="name">Obliquus externus abdominis</field>
-        <field name="is_front">True</field>
+        <field name="is_front" eval="True"/>
     </record>
     <record id="demo_wger_muscle_15" model="fitness.muscle">
         <field name="name">Soleus</field>
-        <field name="is_front">False</field>
+        <field name="is_front" eval="False"/>
     </record>
 </odoo>
