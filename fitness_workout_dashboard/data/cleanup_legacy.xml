@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <delete id="menu_fitness_workout_dashboard" model="ir.ui.menu"/>
+    <delete id="action_fitness_workout_dashboard" model="ir.actions.act_window"/>
+    <delete id="view_fitness_workout_dashboard_form" model="ir.ui.view"/>
+</odoo>

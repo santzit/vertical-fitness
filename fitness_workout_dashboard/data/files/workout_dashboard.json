@@ -1,0 +1,36 @@
+{
+  "version": 21,
+  "sheets": [
+    {
+      "id": "sheet1",
+      "name": "Workout",
+      "colNumber": 8,
+      "rowNumber": 40,
+      "cells": {
+        "A1": { "content": "Workout Dashboard" },
+        "A3": { "content": "Open the analytics below:" },
+        "A5": {
+          "content": "[Active User Plans](odoo://view/{\"viewType\":\"list\",\"action\":{\"domain\":[[\"plan_scope\",\"=\",\"user\"],[\"state\",\"=\",\"active\"],[\"active\",\"=\",true]],\"modelName\":\"fitness.workout.plan\",\"views\":[[false,\"list\"],[false,\"form\"],[false,\"search\"]]},\"threshold\":0,\"name\":\"Workout Plans\"})"
+        },
+        "A6": {
+          "content": "[Draft User Plans](odoo://view/{\"viewType\":\"list\",\"action\":{\"domain\":[[\"plan_scope\",\"=\",\"user\"],[\"state\",\"=\",\"draft\"],[\"active\",\"=\",true]],\"modelName\":\"fitness.workout.plan\",\"views\":[[false,\"list\"],[false,\"form\"],[false,\"search\"]]},\"threshold\":0,\"name\":\"Workout Plans\"})"
+        },
+        "A7": {
+          "content": "[Scheduled Workout Cards](odoo://view/{\"viewType\":\"list\",\"action\":{\"domain\":[[\"plan_scope\",\"=\",\"user\"],[\"scheduled_date\",\"!=\",false]],\"modelName\":\"fitness.workout.card\",\"views\":[[false,\"list\"],[false,\"form\"],[false,\"search\"]]},\"threshold\":0,\"name\":\"Workout Cards\"})"
+        },
+        "A8": {
+          "content": "[Workout Cards to Review](odoo://view/{\"viewType\":\"list\",\"action\":{\"domain\":[[\"plan_scope\",\"=\",\"user\"],[\"scheduled_date\",\"!=\",false]],\"modelName\":\"fitness.workout.card\",\"views\":[[false,\"list\"],[false,\"form\"],[false,\"search\"]]},\"threshold\":0,\"name\":\"Workout Cards\"})"
+        }
+      },
+      "styles": {}
+    }
+  ],
+  "styles": {},
+  "formats": {},
+  "pivots": {},
+  "pivotNextId": 1,
+  "globalFilters": [],
+  "lists": {},
+  "listNextId": 1,
+  "chartOdooMenusReferences": {}
+}
