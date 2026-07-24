@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="fitness_workout_dashboard.WorkoutDashboard">
+        <Layout display="display">
+            <div class="o_fitness_dash container-fluid py-3">
+                <h2 class="mb-3">Workout Dashboard</h2>
+                <h4 class="mb-3 text-muted">Members</h4>
+
+                <t t-if="state.loading">
+                    <div class="alert alert-info">Loading dashboard...</div>
+                </t>
+                <t t-elif="state.error">
+                    <div class="alert alert-danger" t-esc="state.error"/>
+                </t>
+                <t t-else="">
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-4">
+                            <div class="o_dash_card">
+                                <div class="o_dash_card_title">Active Members</div>
+                                <div class="o_dash_card_value" t-esc="state.data.kpis.active_members"/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="o_dash_card">
+                                <div class="o_dash_card_title">Overdue Payments</div>
+                                <div class="o_dash_card_value" t-esc="state.data.kpis.overdue_members"/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="o_dash_card">
+                                <div class="o_dash_card_title">Pending Memberships</div>
+                                <div class="o_dash_card_value" t-esc="state.data.kpis.pending_memberships"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="o_dash_block mb-4">
+                        <h5 class="mb-3">Membership Trend</h5>
+                        <div class="o_dash_chart" t-if="state.data.trend.length">
+                            <t t-foreach="state.data.trend" t-as="bar" t-key="bar.label">
+                                <div class="o_dash_bar_item">
+                                    <div class="o_dash_bar_label" t-esc="bar.label"/>
+                                    <div class="o_dash_bar_wrap">
+                                        <div class="o_dash_bar" t-att-style="'width:' + bar.percent + '%'"/>
+                                        <span class="o_dash_bar_value" t-esc="bar.value"/>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-lg-4">
+                            <div class="o_dash_block h-100">
+                                <h6 class="mb-2">Next Expiring Members</h6>
+                                <table class="table table-sm mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>End Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="state.data.next_expiring_members" t-as="member" t-key="member.name + member.membership_stop">
+                                            <tr>
+                                                <td t-esc="member.name"/>
+                                                <td t-esc="member.membership_stop"/>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="o_dash_block h-100">
+                                <h6 class="mb-2">Recent Membership Invoices</h6>
+                                <table class="table table-sm mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Invoice</th>
+                                            <th>Member</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="state.data.recent_membership_invoices" t-as="invoice" t-key="invoice.name + invoice.partner">
+                                            <tr>
+                                                <td t-esc="invoice.name"/>
+                                                <td t-esc="invoice.partner"/>
+                                                <td t-esc="invoice.payment_state"/>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="o_dash_block h-100">
+                                <h6 class="mb-2">Trainer Ranking</h6>
+                                <table class="table table-sm mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Trainer</th>
+                                            <th>Plans</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="state.data.trainer_ranking" t-as="trainer" t-key="trainer.name">
+                                            <tr>
+                                                <td t-esc="trainer.name"/>
+                                                <td t-esc="trainer.plans_count"/>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </Layout>
+    </t>
+</templates>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <record id="spreadsheet_dashboard_group_members" model="spreadsheet.dashboard.group">
-        <field name="name">Members</field>
-        <field name="sequence">220</field>
-    </record>
-</odoo>

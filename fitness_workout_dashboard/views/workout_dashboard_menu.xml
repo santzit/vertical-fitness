@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_fitness_workout_owl_dashboard" model="ir.actions.client">
+        <field name="name">Workout Dashboard</field>
+        <field name="tag">fitness_workout_dashboard.action</field>
+    </record>
+
+    <menuitem
+        id="menu_fitness_workout_owl_dashboard"
+        name="Workout"
+        parent="spreadsheet_dashboard.spreadsheet_dashboard_menu_root"
+        action="action_fitness_workout_owl_dashboard"
+        sequence="20"
+        groups="fitness_workout.group_workout_trainer,fitness_workout.group_workout_manager"
+    />
+</odoo>

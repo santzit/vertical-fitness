@@ -9,14 +9,22 @@
     "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "depends": [
+        "web",
         "spreadsheet_dashboard",
+        "fitness_membership",
         "fitness_workout",
     ],
     "data": [
         "data/cleanup_legacy.xml",
-        "data/dashboard_groups.xml",
-        "data/dashboards.xml",
+        "views/workout_dashboard_menu.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "fitness_workout_dashboard/static/src/js/workout_dashboard.js",
+            "fitness_workout_dashboard/static/src/xml/workout_dashboard.xml",
+            "fitness_workout_dashboard/static/src/scss/workout_dashboard.scss",
+        ],
+    },
     "installable": True,
     "application": False,
     "auto_install": False,

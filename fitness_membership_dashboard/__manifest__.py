@@ -11,12 +11,9 @@
     "depends": [
         "spreadsheet_dashboard",
         "fitness_membership",
-        "fitness_workout",
     ],
     "data": [
         "data/cleanup_legacy.xml",
-        "data/dashboard_groups.xml",
-        "data/dashboards.xml",
     ],
     "installable": True,
     "application": False,

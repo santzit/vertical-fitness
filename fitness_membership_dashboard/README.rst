@@ -2,4 +2,5 @@
 Fitness Membership Dashboard
 ============================
 
-This module publishes a Members dashboard inside Odoo Dashboards.
+This module keeps migration compatibility for prior membership dashboard
+records.
