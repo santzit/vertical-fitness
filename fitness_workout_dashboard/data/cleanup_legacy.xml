@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <delete id="spreadsheet_dashboard_fitness_workout" model="spreadsheet.dashboard"/>
+</odoo>
