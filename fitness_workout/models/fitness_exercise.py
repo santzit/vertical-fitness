@@ -115,7 +115,8 @@ class FitnessExercise(models.Model):
     @api.depends("name", "category_id")
     def _compute_display_name(self):
         for rec in self:
-            parts = [rec.name]
-            if rec.category_id:
+            name = rec.name or ""
+            parts = [name]
+            if rec.category_id and rec.category_id.name:
                 parts.append(f"[{rec.category_id.name}]")
-            rec.display_name = " ".join(parts)
+            rec.display_name = " ".join(p for p in parts if p)
